@@ -3,1745 +3,1122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Albanian Mountain Tea | Besa Goods</title>
+<title>Besa Goods — Albanian Mountain Tea</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0E0C0A;
-  --bg2: #151210;
-  --bg3: #1C1814;
-  --bg4: #241F1A;
-  --card: #1A1510;
-  --border: rgba(196,154,60,0.15);
-  --border2: rgba(196,154,60,0.3);
-  --gold: #C49A3C;
-  --gold2: #E8B84B;
-  --gold-dim: rgba(196,154,60,0.08);
-  --cream: #F0E6D3;
-  --cream2: #D4C4A8;
-  --moss: #3D5C2A;
-  --forest: #2A4A1A;
-  --sage: #8FA67A;
-  --stone: #6B5E50;
-  --muted: #7A6B5C;
-  --text: #EDE0CC;
-  --text2: #B8A890;
-  --text3: #7A6B5C;
-  --red: #C0392B;
+  --cream:     #FAF7F2;
+  --parchment: #F2EAD8;
+  --warm-tan:  #E8D5B0;
+  --bark:      #C4935A;
+  --earth:     #8B5E2A;
+  --forest:    #2D4A1E;
+  --moss:      #4A6A2E;
+  --sage:      #7A9A5C;
+  --gold:      #C49A3C;
+  --gold2:     #DDB94E;
+  --charcoal:  #1E1A14;
+  --ink:       #2C2416;
+  --muted:     #7A6A54;
+  --light:     #A89880;
+  --border:    rgba(139,94,42,0.15);
+  --border2:   rgba(139,94,42,0.30);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
-
-html { scroll-behavior: smooth; }
+html { scroll-behavior:smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--cream);
+  color: var(--ink);
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  min-height: 100vh;
 }
 
-/* NOISE TEXTURE */
-body::after {
+/* ── NOISE TEXTURE ── */
+body::before {
   content:'';
   position:fixed;
   inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events:none;
-  z-index:999;
-  opacity:0.5;
+  z-index:0;
+  opacity:0.6;
 }
 
-/* ─── NAV ─── */
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
-  height: 68px;
-  background: rgba(14,12,10,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 3rem; height:64px;
+  background:rgba(250,247,242,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.logo-eagle {
+  width:34px; height:34px;
+  background:var(--forest); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
 }
+.logo-name { font-size:1rem; font-weight:700; color:var(--forest); letter-spacing:0.04em; }
+.logo-name span { color:var(--bark); }
 
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  background: var(--gold);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--bg);
-  letter-spacing: -0.5px;
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a {
+  font-size:0.72rem; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted); text-decoration:none;
+  transition:color 0.2s;
 }
+.nav-links a:hover { color:var(--forest); }
 
-.logo-text {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--cream);
-  letter-spacing: 0.08em;
+.nav-preorder {
+  display:flex; align-items:center; gap:6px;
+  background:var(--forest); color:#fff;
+  font-size:0.72rem; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; padding:8px 18px; border-radius:999px;
+  text-decoration:none; transition:all 0.2s;
 }
+.nav-preorder:hover { background:var(--moss); }
 
-.logo-text span { color: var(--gold); }
-
-.nav-center {
-  display: flex;
-  gap: 2.5rem;
-}
-
-.nav-center a {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text2);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.nav-center a:hover { color: var(--gold); }
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.lang-toggle {
-  display: flex;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
+.lang-toggle { display:flex; gap:4px; }
 .lang-btn {
-  padding: 5px 12px;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  background: none;
-  border: none;
-  color: var(--text3);
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Poppins', sans-serif;
+  padding:4px 10px; font-size:0.68rem; font-weight:500;
+  letter-spacing:0.08em; background:none; border:1px solid var(--border2);
+  border-radius:999px; color:var(--muted); cursor:pointer;
+  font-family:'Poppins',sans-serif; transition:all 0.2s;
+}
+.lang-btn.active { background:var(--forest); color:#fff; border-color:var(--forest); }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0 3rem;
+  padding-top:64px;
+  position:relative;
+  overflow:hidden;
 }
 
-.lang-btn.active {
-  background: var(--gold);
-  color: var(--bg);
+/* Decorative background elements */
+.hero::after {
+  content:'';
+  position:absolute;
+  top:-100px; right:-100px;
+  width:600px; height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(196,147,90,0.08) 0%, transparent 70%);
+  pointer-events:none;
 }
 
-.cart-btn {
-  width: 38px;
-  height: 38px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text2);
-  transition: all 0.2s;
-  position: relative;
-}
+.hero-left { position:relative; z-index:1; padding-right:3rem; }
 
-.cart-btn:hover { border-color: var(--gold); color: var(--gold); }
-
-.cart-count {
-  position: absolute;
-  top: -4px; right: -4px;
-  width: 16px; height: 16px;
-  background: var(--gold);
-  border-radius: 50%;
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.pre-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(196,154,60,0.12); border:1px solid rgba(196,154,60,0.35);
+  border-radius:999px; padding:5px 14px;
+  font-size:0.65rem; font-weight:600; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--earth);
+  margin-bottom:1.5rem;
 }
-
-/* ─── HERO STRIP ─── */
-.hero-strip {
-  margin-top: 68px;
-  height: 420px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+.pre-dot {
+  width:6px; height:6px; border-radius:50%; background:var(--gold);
+  animation:blink 2s ease-in-out infinite;
 }
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, transparent 30%, rgba(14,12,10,0.7) 70%, var(--bg) 100%),
-    linear-gradient(135deg, #1A2F10 0%, #0E1A08 40%, #1C1209 70%, #0E0C0A 100%);
-}
-
-/* SVG mountain scene */
-.hero-mountains {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 0 3rem 3rem;
-  width: 100%;
-}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(196,154,60,0.1);
-  border: 1px solid var(--border2);
-  border-radius: 999px;
-  padding: 5px 14px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-
-.hero-eyebrow-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--gold);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.7); }
+  font-size:0.72rem; font-weight:500; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--sage);
+  margin-bottom:0.75rem;
 }
 
 .hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.05;
-  color: var(--cream);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  font-size:3.8rem; font-weight:800; line-height:1.0;
+  color:var(--forest); letter-spacing:-0.03em;
+  margin-bottom:0.5rem;
 }
-
 .hero-title em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--gold);
-}
-
-.hero-sub {
-  font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--text2);
-  max-width: 500px;
-}
-
-/* ─── BREADCRUMB ─── */
-.breadcrumb-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 1rem 3rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--text3);
-}
-
-.breadcrumb-bar a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
-.breadcrumb-bar a:hover { color: var(--gold); }
-.breadcrumb-bar .sep { color: var(--border2); }
-.breadcrumb-bar .current { color: var(--text2); }
-
-/* ─── MAIN LAYOUT ─── */
-.main {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 520px;
-  gap: 5rem;
-  align-items: start;
-}
-
-/* ─── LEFT: VARIANT SELECTOR ─── */
-.left-col { position: sticky; top: 90px; }
-
-.section-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.section-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-.variant-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 2rem;
-}
-
-.variant-card {
-  background: var(--card);
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.25s;
-  position: relative;
-}
-
-.variant-card:hover {
-  border-color: var(--border2);
-  transform: translateY(-2px);
-}
-
-.variant-card.selected {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold), 0 8px 32px rgba(196,154,60,0.1);
-}
-
-.variant-selected-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 22px;
-  height: 22px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  font-style:italic; font-weight:300; color:var(--bark);
 }
 
-.variant-card.selected .variant-selected-badge { display: flex; }
-
-.variant-img {
-  height: 200px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg4);
-}
-
-.variant-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.hero-subtitle {
+  font-size:1.1rem; font-weight:300; font-style:italic;
+  color:var(--bark); margin-bottom:1.5rem;
+  letter-spacing:0.02em;
 }
-
-.variant-body {
-  padding: 1rem 1.1rem 1.2rem;
-}
 
-.variant-name {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 2px;
-  letter-spacing: -0.01em;
+.hero-desc {
+  font-size:0.88rem; font-weight:300; color:var(--muted);
+  line-height:1.9; max-width:440px; margin-bottom:2.5rem;
 }
 
-.variant-name-sq { display: none; }
-
-.variant-origin {
-  font-size: 0.68rem;
-  font-weight: 400;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
+/* Email capture */
+.email-form {
+  display:flex; gap:0; margin-bottom:1rem;
+  border:1.5px solid var(--border2); border-radius:12px;
+  overflow:hidden; background:#fff;
+  box-shadow:0 4px 24px rgba(45,74,30,0.08);
+  max-width:460px;
 }
-
-.variant-taste {
-  font-size: 0.72rem;
-  font-weight: 300;
-  color: var(--text2);
-  line-height: 1.5;
-}
-
-.taste-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 8px;
-}
-
-.taste-tag {
-  font-size: 0.62rem;
-  font-weight: 500;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: var(--gold-dim);
-  border: 1px solid var(--border);
-  color: var(--text2);
-  letter-spacing: 0.05em;
-}
-
-/* ─── PRODUCT DETAILS PANEL ─── */
-.detail-panel {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-}
-
-.detail-tabs {
-  display: flex;
-  border-bottom: 1px solid var(--border);
+.email-input {
+  flex:1; padding:14px 18px; border:none; outline:none;
+  font-family:'Poppins',sans-serif; font-size:0.85rem;
+  font-weight:400; color:var(--ink); background:transparent;
 }
-
-.detail-tab {
-  flex: 1;
-  padding: 0.875rem;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text3);
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Poppins', sans-serif;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-}
-
-.detail-tab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-
-.detail-content {
-  padding: 1.25rem 1.5rem;
-  display: none;
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: var(--text2);
-  line-height: 1.8;
-}
-
-.detail-content.active { display: block; }
-
-.detail-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.78rem;
-}
-
-.detail-row:last-child { border-bottom: none; }
-.detail-key { color: var(--text3); font-weight: 400; min-width: 100px; flex-shrink: 0; }
-.detail-val { color: var(--text); font-weight: 300; }
-
-/* ─── RIGHT: PURCHASE COL ─── */
-.right-col {}
-
-.product-header { margin-bottom: 2rem; }
-
-.product-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(61,92,42,0.2);
-  border: 1px solid rgba(61,92,42,0.4);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--sage);
-  margin-bottom: 1rem;
-}
-
-.product-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--cream);
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.4rem;
-}
-
-.product-title-sq { display: none; }
-
-.product-subtitle {
-  font-size: 1rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--gold);
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em;
-}
-
-.product-desc {
-  font-size: 0.83rem;
-  font-weight: 300;
-  color: var(--text2);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.product-desc-sq { display: none; }
-
-/* SELECTED TEA DISPLAY */
-.selected-tea-display {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.selected-tea-thumb {
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.selected-tea-info { flex: 1; }
-
-.selected-tea-label {
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 2px;
-}
-
-.selected-tea-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 2px;
-}
-
-.selected-tea-origin {
-  font-size: 0.72rem;
-  font-weight: 300;
-  color: var(--gold);
+.email-input::placeholder { color:var(--light); }
+.email-submit {
+  padding:12px 22px; background:var(--forest); color:#fff;
+  border:none; cursor:pointer; font-family:'Poppins',sans-serif;
+  font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
+  text-transform:uppercase; transition:background 0.2s; white-space:nowrap;
 }
+.email-submit:hover { background:var(--moss); }
 
-.change-link {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text3);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: color 0.2s;
+.email-note {
+  font-size:0.7rem; font-weight:400; color:var(--light);
+  margin-bottom:2rem;
 }
+.email-note span { color:var(--gold); }
 
-.change-link:hover { color: var(--gold); }
+.hero-meta {
+  display:flex; gap:2rem; align-items:center;
+  padding-top:1.5rem;
+  border-top:1px solid var(--border);
+}
+.meta-item { text-align:left; }
+.meta-val {
+  font-size:1.1rem; font-weight:700; color:var(--forest);
+  font-variant-numeric:tabular-nums;
+}
+.meta-label { font-size:0.65rem; font-weight:400; color:var(--light); letter-spacing:0.08em; text-transform:uppercase; }
 
-/* PRICE */
-.price-block { margin-bottom: 1.75rem; }
+/* OR divider + Stripe */
+.or-divider {
+  display:flex; align-items:center; gap:12px;
+  max-width:460px; margin-bottom:1rem;
+}
+.or-line { flex:1; height:1px; background:var(--border2); }
+.or-text { font-size:0.68rem; font-weight:500; color:var(--light); letter-spacing:0.1em; }
+
+.stripe-wrap {
+  max-width:460px;
+  margin-bottom:1rem;
+}
 
-.price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.4rem;
+/* ── HERO RIGHT — Illustration ── */
+.hero-right {
+  display:flex; align-items:center; justify-content:center;
+  position:relative; height:100vh;
 }
 
-.price {
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--cream);
-  letter-spacing: -0.03em;
-  line-height: 1;
+.illustration-frame {
+  width:460px; height:520px;
+  position:relative;
 }
 
-.price-unit {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--text3);
+/* Albanian eagle motif (geometric) */
+.eagle-bg {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:320px; height:320px;
+  opacity:0.04;
 }
 
-.free-shipping {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--sage);
-}
-
-.free-shipping::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--sage);
-  border-radius: 50%;
-}
+/* Main botanical illustration */
+.botanical-main {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:380px; height:480px;
+}
 
-/* SIZE OPTIONS */
-.size-section { margin-bottom: 1.75rem; }
-
-.size-label {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.size-label span { color: var(--text); font-weight: 400; font-size: 0.75rem; letter-spacing: 0; text-transform: none; }
-
-.size-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.size-opt {
-  background: var(--bg3);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 0.7rem 0.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.size-opt:hover { border-color: var(--border2); }
-
-.size-opt.active {
-  border-color: var(--gold);
-  background: var(--gold-dim);
-}
-
-.size-opt-weight {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--cream);
-  display: block;
-  margin-bottom: 2px;
-}
-
-.size-opt-cups {
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: var(--text3);
-}
-
-.size-opt.active .size-opt-cups { color: var(--gold); }
-
-/* QTY */
-.qty-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-}
-
-.qty-label {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text3);
-  min-width: 60px;
-}
-
-.qty-control {
-  display: flex;
-  align-items: center;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.qty-btn {
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  color: var(--text2);
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.qty-btn:hover { background: var(--bg4); color: var(--gold); }
-
-.qty-num {
-  width: 44px;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--cream);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  height: 40px;
-  line-height: 40px;
-  user-select: none;
-}
-
-.qty-total {
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--text3);
-  margin-left: auto;
-}
-
-.qty-total strong {
-  color: var(--cream);
-  font-weight: 600;
-}
-
-/* BUTTONS */
-.btn-add {
-  width: 100%;
-  padding: 1rem;
-  background: var(--gold);
-  color: var(--bg);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s;
-  margin-bottom: 10px;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-add:hover {
-  background: var(--gold2);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(196,154,60,0.25);
-}
-
-.btn-add:active { transform: translateY(0); }
-
-.btn-wishlist {
-  width: 100%;
-  padding: 1rem;
-  background: transparent;
-  color: var(--text2);
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--border2);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s;
-  margin-bottom: 1.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-wishlist:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-/* SHOPIFY EMBED */
-.shopify-zone {
-  background: var(--bg4);
-  border: 1px dashed var(--border2);
-  border-radius: 12px;
-  padding: 1.25rem;
-  margin-bottom: 1.75rem;
-  text-align: center;
-}
-
-.shopify-zone-label {
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.shopify-zone p {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--text3);
-  line-height: 1.6;
-}
-
-/* TRUST */
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-bottom: 1.75rem;
-}
-
-.trust-item {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.875rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.trust-icon {
-  width: 30px;
-  height: 30px;
-  background: var(--gold-dim);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--gold);
-}
-
-.trust-text-main {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text);
-  display: block;
-  margin-bottom: 1px;
-}
-
-.trust-text-sub {
-  font-size: 0.65rem;
-  font-weight: 300;
-  color: var(--text3);
-  display: block;
-}
-
-/* ORIGIN FEATURE */
-.origin-feature {
-  background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 1.75rem;
-  position: relative;
-}
-
-.origin-feature-inner {
-  padding: 1.5rem;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-}
-
-.origin-feature-map {
-  flex-shrink: 0;
-}
-
-.origin-feature-text h4 {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--cream);
-  margin-bottom: 0.4rem;
-}
-
-.origin-feature-text p {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--text2);
-  line-height: 1.7;
-}
-
-.altitude-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(196,154,60,0.1);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 3px 8px;
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  margin-top: 8px;
-}
-
-/* ─── BILINGUAL ─── */
-body.sq .en { display: none !important; }
-body.sq .sq { display: block !important; }
-body.sq .sq-inline { display: inline !important; }
-body.sq .en-inline { display: none !important; }
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(24px); }
-  to { opacity:1; transform:translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity:0; }
-  to { opacity:1; }
-}
-
-.right-col { animation: fadeUp 0.6s ease 0.1s both; }
-.left-col { animation: fadeUp 0.6s ease 0.2s both; }
-.hero-content { animation: fadeUp 0.8s ease 0.1s both; }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  nav { padding: 0 1.5rem; }
-  .nav-center { display: none; }
-  .main { grid-template-columns: 1fr; gap: 2.5rem; padding: 1.5rem; }
-  .left-col { position: static; }
-  .hero-strip { height: 300px; }
-  .hero-title { font-size: 2.2rem; }
-  .breadcrumb-bar { padding: 0.75rem 1.5rem; }
-  .product-title { font-size: 1.9rem; }
-  .variant-grid { grid-template-columns: 1fr 1fr; }
+/* Floating detail cards */
+.detail-card {
+  position:absolute;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:0.875rem 1rem;
+  box-shadow:0 8px 32px rgba(45,74,30,0.08);
+}
+.detail-card.card-1 { top:40px; right:0; width:160px; }
+.detail-card.card-2 { bottom:80px; left:0; width:152px; }
+.card-label { font-size:0.6rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--light); margin-bottom:3px; }
+.card-val { font-size:0.88rem; font-weight:600; color:var(--forest); }
+.card-sub { font-size:0.68rem; font-weight:300; color:var(--muted); }
+
+.altitude-pill {
+  position:absolute; top:50%; left:-20px;
+  transform:translateY(-50%);
+  background:var(--forest); color:#fff;
+  border-radius:999px; padding:6px 14px;
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.08em; writing-mode:vertical-lr;
+  text-transform:uppercase;
+}
+
+/* ── SECTION: HOW IT WORKS ── */
+.how-section {
+  padding:5rem 3rem;
+  background:var(--parchment);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  position:relative; z-index:1;
+}
+
+.section-eyebrow {
+  font-size:0.65rem; font-weight:600; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--sage);
+  margin-bottom:0.5rem; text-align:center;
+}
+.section-title {
+  font-size:2rem; font-weight:700; color:var(--forest);
+  text-align:center; margin-bottom:0.5rem; letter-spacing:-0.02em;
+}
+.section-sub {
+  font-size:0.85rem; font-weight:300; color:var(--muted);
+  text-align:center; margin-bottom:3rem; max-width:480px;
+  margin-left:auto; margin-right:auto; line-height:1.8;
+}
+
+.steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+
+.step-card {
+  background:#fff; border:1px solid var(--border);
+  border-radius:16px; padding:1.75rem 1.5rem;
+  position:relative; overflow:hidden;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.step-card:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(45,74,30,0.1); }
+.step-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--forest), var(--sage));
+}
+.step-num {
+  width:36px; height:36px; border-radius:8px;
+  background:rgba(45,74,30,0.08); display:flex;
+  align-items:center; justify-content:center;
+  font-size:0.78rem; font-weight:700; color:var(--forest);
+  margin-bottom:1rem;
+}
+.step-title { font-size:0.95rem; font-weight:600; color:var(--forest); margin-bottom:0.4rem; }
+.step-desc { font-size:0.8rem; font-weight:300; color:var(--muted); line-height:1.7; }
+
+/* ── SECTION: TWO TEAS ── */
+.teas-section {
+  padding:5rem 3rem;
+  background:var(--cream);
+  position:relative; z-index:1;
+}
+
+.teas-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
+
+.tea-card {
+  background:#fff; border:1.5px solid var(--border);
+  border-radius:20px; overflow:hidden;
+  transition:all 0.25s; cursor:pointer;
+}
+.tea-card:hover { border-color:var(--bark); box-shadow:0 16px 48px rgba(139,94,42,0.1); transform:translateY(-4px); }
+
+.tea-illustration {
+  height:280px; display:flex; align-items:center;
+  justify-content:center; position:relative; overflow:hidden;
+}
+.tea-1-bg { background:linear-gradient(145deg,#F5EDD8,#EDE0C4,#F0E5CA); }
+.tea-2-bg { background:linear-gradient(145deg,#E8F0DE,#D8EAC8,#E0ECD4); }
+
+.tea-body { padding:1.5rem; }
+.tea-origin {
+  font-size:0.62rem; font-weight:600; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+}
+.tea-name { font-size:1.2rem; font-weight:700; color:var(--forest); margin-bottom:4px; }
+.tea-name-sq { font-size:0.88rem; font-weight:300; font-style:italic; color:var(--bark); margin-bottom:8px; }
+.tea-desc { font-size:0.78rem; font-weight:300; color:var(--muted); line-height:1.7; margin-bottom:1rem; }
+.taste-chips { display:flex; flex-wrap:wrap; gap:5px; }
+.chip {
+  font-size:0.62rem; font-weight:500; padding:3px 9px;
+  border-radius:999px; background:var(--parchment);
+  border:1px solid var(--border); color:var(--muted);
+  letter-spacing:0.04em;
+}
+
+/* ── SECTION: ORIGIN ── */
+.origin-section {
+  padding:5rem 3rem;
+  background:var(--forest);
+  position:relative; z-index:1; overflow:hidden;
+}
+.origin-section::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.origin-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:center; position:relative; z-index:1;
+}
+.origin-text .section-eyebrow { text-align:left; color:var(--sage); }
+.origin-text .section-title { text-align:left; color:#fff; font-size:1.8rem; }
+.origin-text .section-sub { text-align:left; color:rgba(255,255,255,0.6); max-width:none; margin:0 0 2rem; }
+
+.origin-facts { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.fact-item {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:1rem;
+}
+.fact-val { font-size:1.4rem; font-weight:700; color:var(--gold2); margin-bottom:2px; }
+.fact-label { font-size:0.68rem; font-weight:400; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; }
+
+/* Mountain SVG scene */
+.mountain-scene { position:relative; height:360px; }
+
+/* ── SECTION: PRE-ORDER CTA ── */
+.cta-section {
+  padding:5rem 3rem;
+  background:var(--parchment);
+  text-align:center;
+  border-top:1px solid var(--border);
+  position:relative; z-index:1;
+}
+.cta-section .section-title { margin-bottom:0.75rem; }
+.cta-form {
+  display:flex; gap:0; max-width:480px; margin:2rem auto 0.75rem;
+  border:1.5px solid var(--border2); border-radius:12px;
+  overflow:hidden; background:#fff;
+  box-shadow:0 4px 24px rgba(45,74,30,0.1);
+}
+.cta-form input {
+  flex:1; padding:16px 20px; border:none; outline:none;
+  font-family:'Poppins',sans-serif; font-size:0.88rem;
+  color:var(--ink); background:transparent;
+}
+.cta-form input::placeholder { color:var(--light); }
+.cta-form button {
+  padding:14px 24px; background:var(--forest); color:#fff;
+  border:none; cursor:pointer; font-family:'Poppins',sans-serif;
+  font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
+  text-transform:uppercase; transition:background 0.2s; white-space:nowrap;
+}
+.cta-form button:hover { background:var(--moss); }
+.cta-note { font-size:0.7rem; color:var(--light); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--charcoal); padding:2.5rem 3rem;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem; position:relative; z-index:1;
+}
+.footer-logo { font-size:1rem; font-weight:700; color:#fff; letter-spacing:0.04em; }
+.footer-logo span { color:var(--bark); }
+.footer-links { display:flex; gap:1.5rem; }
+.footer-links a { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:rgba(255,255,255,0.8); }
+.footer-tagline { font-size:0.78rem; font-style:italic; color:rgba(255,255,255,0.3); }
+
+/* ── SUCCESS STATE ── */
+.success-msg {
+  display:none; text-align:center; padding:14px 20px;
+  background:rgba(26,171,109,0.1); border:1px solid rgba(26,171,109,0.3);
+  border-radius:10px; font-size:0.82rem; font-weight:500; color:#1AAB6D;
+  max-width:460px; margin-top:8px;
+}
+
+/* ── BILINGUAL ── */
+body.sq .en { display:none !important; }
+body.sq .sq { display:block !important; }
+body.sq .sq-inline { display:inline !important; }
+body.sq .en-inline { display:none !important; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+.hero-left { animation:fadeUp 0.7s ease 0.1s both; }
+.hero-right { animation:fadeUp 0.7s ease 0.25s both; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav { padding:0 1.5rem; }
+  .nav-links { display:none; }
+  .hero { grid-template-columns:1fr; padding:2rem 1.5rem; padding-top:80px; min-height:auto; }
+  .hero-right { display:none; }
+  .hero-left { padding-right:0; }
+  .hero-title { font-size:2.6rem; }
+  .how-section, .teas-section, .origin-section, .cta-section { padding:3rem 1.5rem; }
+  .steps-grid { grid-template-columns:1fr; }
+  .teas-grid { grid-template-columns:1fr; }
+  .origin-grid { grid-template-columns:1fr; }
+  .mountain-scene { display:none; }
+  footer { padding:2rem 1.5rem; flex-direction:column; text-align:center; }
+}
+
+/* ── COMING SOON OVERLAY ── */
+.tea-card-coming {
+  position:relative;
+  pointer-events:none;
+  opacity:0.72;
+}
+.coming-soon-overlay {
+  position:absolute;
+  inset:0;
+  background:rgba(250,247,242,0.55);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+  backdrop-filter:blur(1px);
+}
+.coming-soon-pill {
+  background:var(--charcoal);
+  color:#fff;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  padding:10px 22px;
+  border-radius:999px;
+}
+.available-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(26,171,109,0.1);
+  border:1px solid rgba(26,171,109,0.3);
+  border-radius:999px;
+  padding:3px 12px;
+  font-size:0.62rem;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#1AAB6D;
+  margin-bottom:6px;
+}
+.available-dot {
+  width:5px; height:5px;
+  border-radius:50%;
+  background:#1AAB6D;
 }
+
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="logo-mark">B</div>
-    <span class="logo-text">Besa <span>&</span> Goods</span>
+    <div class="logo-eagle">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 2L13 7H17L14 10.5L15.5 15L10 12L4.5 15L6 10.5L3 7H7L10 2Z" fill="white" opacity="0.9"/>
+      </svg>
+    </div>
+    <span class="logo-name">Besa <span>&</span> Goods</span>
   </a>
-  <div class="nav-center">
-    <a href="#" class="en">Shop</a>
-    <a href="#" class="sq" style="display:none">Dyqan</a>
-    <a href="#" class="en">Our Story</a>
-    <a href="#" class="sq" style="display:none">Historia</a>
-    <a href="#" class="en">Origins</a>
-    <a href="#" class="sq" style="display:none">Origjina</a>
-    <a href="#" class="en">Contact</a>
-    <a href="#" class="sq" style="display:none">Kontakt</a>
-  </div>
-  <div class="nav-right">
+  <ul class="nav-links">
+    <li><a href="#teas" class="en">Our Teas</a><a href="#teas" class="sq" style="display:none">Çajrat Tona</a></li>
+    <li><a href="#origin" class="en">Origin</a><a href="#origin" class="sq" style="display:none">Origjina</a></li>
+    <li><a href="#preorder" class="en">Pre-order</a><a href="#preorder" class="sq" style="display:none">Porosi</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('sq')">SQ</button>
     </div>
-    <div class="cart-btn" onclick="cartClick()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-      </svg>
-      <div class="cart-count" id="cart-count" style="display:none">0</div>
-    </div>
+    <a href="#preorder" class="nav-preorder en">Pre-order now</a>
+    <a href="#preorder" class="nav-preorder sq" style="display:none">Porosit tani</a>
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
-<div class="hero-strip">
-  <div class="hero-bg"></div>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
 
-  <!-- Mountain SVG scene -->
-  <svg class="hero-mountains" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-    <!-- Sky glow -->
-    <defs>
-      <radialGradient id="moonGlow" cx="70%" cy="20%" r="25%">
-        <stop offset="0%" stop-color="#C49A3C" stop-opacity="0.12"/>
-        <stop offset="100%" stop-color="#C49A3C" stop-opacity="0"/>
-      </radialGradient>
-      <radialGradient id="skyGlow" cx="30%" cy="30%" r="40%">
-        <stop offset="0%" stop-color="#2A4A1A" stop-opacity="0.3"/>
-        <stop offset="100%" stop-color="#0E0C0A" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <rect width="1440" height="420" fill="url(#skyGlow)"/>
-    <rect width="1440" height="420" fill="url(#moonGlow)"/>
-
-    <!-- Stars -->
-    <circle cx="120" cy="40" r="1.2" fill="#C49A3C" opacity="0.4"/>
-    <circle cx="280" cy="25" r="0.8" fill="#EDE0CC" opacity="0.5"/>
-    <circle cx="450" cy="55" r="1" fill="#EDE0CC" opacity="0.3"/>
-    <circle cx="650" cy="30" r="1.2" fill="#C49A3C" opacity="0.35"/>
-    <circle cx="820" cy="20" r="0.8" fill="#EDE0CC" opacity="0.4"/>
-    <circle cx="990" cy="45" r="1" fill="#EDE0CC" opacity="0.3"/>
-    <circle cx="1150" cy="35" r="1.2" fill="#C49A3C" opacity="0.4"/>
-    <circle cx="1320" cy="22" r="0.8" fill="#EDE0CC" opacity="0.5"/>
-    <circle cx="200" cy="70" r="0.6" fill="#EDE0CC" opacity="0.25"/>
-    <circle cx="560" cy="80" r="0.6" fill="#C49A3C" opacity="0.3"/>
-    <circle cx="880" cy="65" r="0.8" fill="#EDE0CC" opacity="0.25"/>
-    <circle cx="1080" cy="75" r="0.6" fill="#EDE0CC" opacity="0.3"/>
-
-    <!-- Moon -->
-    <circle cx="1010" cy="55" r="18" fill="none" stroke="#C49A3C" stroke-width="0.5" opacity="0.5"/>
-    <circle cx="1010" cy="55" r="14" fill="#C49A3C" opacity="0.08"/>
-    <circle cx="1010" cy="55" r="8" fill="#C49A3C" opacity="0.06"/>
-
-    <!-- Far mountains (very dark) -->
-    <path d="M0 280 L80 180 L200 230 L320 140 L420 200 L520 130 L620 190 L720 120 L820 170 L920 110 L1020 165 L1120 100 L1220 155 L1320 95 L1440 160 L1440 420 L0 420 Z" fill="#111009" opacity="0.9"/>
-
-    <!-- Mid mountains -->
-    <path d="M0 320 L100 230 L200 270 L350 190 L480 250 L580 185 L700 240 L820 175 L940 235 L1060 168 L1160 225 L1280 175 L1380 215 L1440 195 L1440 420 L0 420 Z" fill="#161310" opacity="0.95"/>
-
-    <!-- Old stone house on mountain spur -->
-    <g opacity="0.6">
-      <!-- House body -->
-      <rect x="695" y="258" width="38" height="28" fill="#1A1510" stroke="#3A2F20" stroke-width="0.5"/>
-      <!-- Roof -->
-      <polygon points="690,258 733,258 714,238" fill="#2A2018" stroke="#3A2F20" stroke-width="0.5"/>
-      <!-- Windows (lit warm) -->
-      <rect x="700" y="264" width="8" height="8" fill="#C49A3C" opacity="0.4"/>
-      <rect x="718" y="264" width="8" height="8" fill="#C49A3C" opacity="0.3"/>
-      <!-- Door -->
-      <rect x="708" y="272" width="7" height="14" fill="#2A1F12" stroke="#3A2F20" stroke-width="0.4"/>
-      <!-- Chimney -->
-      <rect x="720" y="240" width="5" height="12" fill="#2A2018" stroke="#3A2F20" stroke-width="0.4"/>
-      <!-- Smoke -->
-      <path d="M722 240 Q724 232 720 226 Q717 220 722 214" fill="none" stroke="#6B5E50" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-    </g>
-
-    <!-- Foreground mountains / ridgeline -->
-    <path d="M0 360 L150 290 L280 330 L400 270 L520 315 L640 265 L760 305 L880 258 L980 300 L1100 255 L1200 295 L1300 268 L1440 310 L1440 420 L0 420 Z" fill="#1C1814" opacity="1"/>
-
-    <!-- Herbs/plants silhouette foreground -->
-    <g opacity="0.5" fill="#2D4A1E">
-      <path d="M0 390 Q10 370 20 390 Q30 370 40 390"/>
-      <path d="M60 395 Q72 368 84 395"/>
-      <path d="M110 388 L115 360 Q110 380 108 360 Q106 375 110 388"/>
-      <path d="M1360 392 Q1370 370 1380 392 Q1390 370 1400 392"/>
-      <path d="M1300 388 L1305 360 Q1300 378 1298 360 Q1296 375 1300 388"/>
-    </g>
-
-    <!-- Gradient fade to bg at bottom -->
-    <defs>
-      <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#0E0C0A" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#0E0C0A" stop-opacity="1"/>
-      </linearGradient>
-    </defs>
-    <rect width="1440" height="420" fill="url(#fadeBottom)"/>
-  </svg>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      <span class="en">Wild harvested · Albanian Alps</span>
-      <span class="sq" style="display:none">Mbledhur nga malet · Alpet Shqiptare</span>
-    </div>
-    <h2 class="hero-title">
-      <span class="en">Mountain Teas<br>from <em>Albania</em></span>
-      <span class="sq" style="display:none">Çajra Malore<br>nga <em>Shqipëria</em></span>
-    </h2>
-    <p class="hero-sub en">Two varieties. One origin. The wild highlands of northern Albania, where tea has been gathered by hand for centuries.</p>
-    <p class="hero-sub sq" style="display:none">Dy varietete. Një origjinë. Malësitë e egra të Shqipërisë veriore, ku çaji është mbledhur me dorë prej shekujsh.</p>
-  </div>
-</div>
-
-<!-- BREADCRUMB -->
-<div class="breadcrumb-bar">
-  <a href="#" class="en">Home</a>
-  <a href="#" class="sq" style="display:none">Kryefaqja</a>
-  <span class="sep">›</span>
-  <a href="#" class="en">Teas</a>
-  <a href="#" class="sq" style="display:none">Çajra</a>
-  <span class="sep">›</span>
-  <span class="current en">Mountain Tea Collection</span>
-  <span class="current sq" style="display:none">Koleksioni i Çajrave të Malit</span>
-</div>
-
-<!-- ─── MAIN ─── -->
-<div class="main">
-
-  <!-- LEFT: VARIANTS + DETAILS -->
-  <div class="left-col">
-
-    <div class="section-label">
-      <span class="en">Choose Your Tea</span>
-      <span class="sq" style="display:none">Zgjidhni Çajin Tuaj</span>
+    <div class="pre-badge">
+      <div class="pre-dot"></div>
+      <span class="en">First batch arriving April 2026</span>
+      <span class="sq" style="display:none">Grupi i parë mbërrin Prill 2026</span>
     </div>
 
-    <div class="variant-grid">
+    <div class="hero-eyebrow en">Wild harvested · Albanian Alps · 50g · €12.90</div>
+    <div class="hero-eyebrow sq" style="display:none">Mbledhur në mal · Alpet Shqiptare · 50g · €12.90</div>
 
-      <!-- TEA 1: Çaj Mali -->
-      <div class="variant-card selected" id="tea-1" onclick="selectTea(1)">
-        <div class="variant-selected-badge">
-          <svg width="11" height="11" viewBox="0 0 12 12"><polyline points="1.5,6 4.5,9 10.5,3" fill="none" stroke="#0E0C0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="variant-img">
-          <img
-            src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80&fit=crop"
-            alt="Çaj Mali — Albanian mountain tea dried herbs in a cup"
-            style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"
-            onmouseover="this.style.transform='scale(1.04)'"
-            onmouseout="this.style.transform='scale(1)'"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80&fit=crop';"
-          />
-        </div>
-        <div class="variant-body">
-          <div class="variant-name en">Çaj Mali</div>
-          <div class="variant-name variant-name-sq sq">Çaj Mali</div>
-          <div class="variant-origin en">Northern Alps · 1200m+</div>
-          <div class="variant-origin sq" style="display:none">Alpet Veriore · 1200m+</div>
-          <div class="variant-taste en">Classic mountain tea. Earthy warmth with floral undertones.</div>
-          <div class="variant-taste sq" style="display:none">Çaj klasik malor. Ngrohtësi tokësore me nota lulesh.</div>
-          <div class="taste-tags">
-            <span class="taste-tag en">Earthy</span><span class="taste-tag sq" style="display:none">Tokësor</span>
-            <span class="taste-tag en">Floral</span><span class="taste-tag sq" style="display:none">Lulejor</span>
-            <span class="taste-tag en">Honey notes</span><span class="taste-tag sq" style="display:none">Nota mjaltë</span>
-          </div>
-        </div>
+    <h1 class="hero-title">
+      <span class="en">Mountain Tea<br>from <em>Albania</em></span>
+      <span class="sq" style="display:none">Çaj Mali<br>nga <em>Shqipëria</em></span>
+    </h1>
+
+    <p class="hero-subtitle en">Çaj Mali — gathered by hand above 1,200m</p>
+    <p class="hero-subtitle sq" style="display:none">Çaj Mali — mbledhur me dorë mbi 1,200m</p>
+
+    <p class="hero-desc en">
+      Two varieties of wild mountain tea from the Albanian Alps.
+      Caffeine-free, naturally dried, and shipped directly to you
+      across Europe. No middlemen. No compromises. Just the mountains.
+    </p>
+    <p class="hero-desc sq" style="display:none">
+      Dy varietete çaji malor nga Alpet Shqiptare.
+      Pa kafeinë, të tharë natyrshëm dhe dërguar drejtpërdrejt
+      në të gjithë Evropën. Pa ndërmjetës. Pa kompromise.
+    </p>
+
+    <!-- Email capture -->
+    <form action="https://besagoods.us5.list-manage.com/subscribe/post?u=de6a0dbd0f3c670652a41998e&id=2bb1eb40f0&f_id=009633ebf0"
+      method="post" target="_blank" id="hero-form" class="email-form" onsubmit="heroSubmit()">
+      <input type="email" name="EMAIL" class="email-input" id="hero-email"
+        placeholder="your@email.com" required />
+      <div style="position:absolute;left:-5000px" aria-hidden="true">
+        <input type="text" name="b_de6a0dbd0f3c670652a41998e_2bb1eb40f0" tabindex="-1" value="">
       </div>
+      <button type="submit" class="email-submit">
+        <span class="en">Notify me</span>
+        <span class="sq" style="display:none">Njoftomë</span>
+      </button>
+    </form>
+    <div class="success-msg" id="hero-success">
+      ✓ <span class="en">You're on the list — we'll email you when we launch in April.</span>
+      <span class="sq" style="display:none">Jeni në listë — ju dërgojmë email kur nisim në Prill.</span>
+    </div>
+    <p class="email-note en">Join <span id="count">47</span> people already waiting · No spam, ever</p>
+    <p class="email-note sq" style="display:none">Bashkohuni me <span>47</span> persona që presin · Pa spam</p>
 
-      <!-- TEA 2: Bari i Malit -->
-      <div class="variant-card" id="tea-2" onclick="selectTea(2)">
-        <div class="variant-selected-badge">
-          <svg width="11" height="11" viewBox="0 0 12 12"><polyline points="1.5,6 4.5,9 10.5,3" fill="none" stroke="#0E0C0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="variant-img">
-          <img
-            src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&q=80&fit=crop"
-            alt="Bari i Malit — wild alpine herb blend from Albanian mountains"
-            style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;"
-            onmouseover="this.style.transform='scale(1.04)'"
-            onmouseout="this.style.transform='scale(1)'"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80&fit=crop';"
-          />
-        </div>
-        <div class="variant-body">
-          <div class="variant-name en">Bari i Malit</div>
-          <div class="variant-name variant-name-sq sq">Bari i Malit</div>
-          <div class="variant-origin en">Accursed Mtns · 1500m+</div>
-          <div class="variant-origin sq" style="display:none">Bjeshkët e Namuna · 1500m+</div>
-          <div class="variant-taste en">Wild herb blend. Fresh, green, slightly minty and bright.</div>
-          <div class="variant-taste sq" style="display:none">Blend bimësh të egra. I freskët, jeshil, paksa nenexhek.</div>
-          <div class="taste-tags">
-            <span class="taste-tag en">Minty</span><span class="taste-tag sq" style="display:none">Nenexhek</span>
-            <span class="taste-tag en">Herbal</span><span class="taste-tag sq" style="display:none">Bimor</span>
-            <span class="taste-tag en">Bright</span><span class="taste-tag sq" style="display:none">I gjallë</span>
-          </div>
-        </div>
-      </div>
-
+    <!-- OR + Stripe -->
+    <div class="or-divider">
+      <div class="or-line"></div>
+      <span class="or-text en">or order now — ships April</span>
+      <span class="or-text sq" style="display:none">ose porosit tani — dërgesë Prill</span>
+      <div class="or-line"></div>
+    </div>
+    <div class="stripe-wrap">
+      <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TEeFaD9VgNxznDq7m4FqdVV"
+        publishable-key="pk_live_51TEEHpD9VgNxznDqBaPE2Fy1pXB0eKCEg9qNIBUEdaX8zf9v2R2eay8oq09VRBHVE2v4RBd8IfLqTvqOG0EqwfJj00ecyvlOUl">
+      </stripe-buy-button>
     </div>
 
-    <!-- DETAIL PANEL -->
-    <div class="section-label">
-      <span class="en">Tea Details</span>
-      <span class="sq" style="display:none">Detajet e Çajit</span>
-    </div>
-
-    <div class="detail-panel">
-      <div class="detail-tabs">
-        <button class="detail-tab active" onclick="switchTab(this,'tab-origin')">
-          <span class="en">Origin</span><span class="sq" style="display:none">Origjina</span>
-        </button>
-        <button class="detail-tab" onclick="switchTab(this,'tab-taste')">
-          <span class="en">Taste</span><span class="sq" style="display:none">Shija</span>
-        </button>
-        <button class="detail-tab" onclick="switchTab(this,'tab-brew')">
-          <span class="en">Brewing</span><span class="sq" style="display:none">Përgatitja</span>
-        </button>
-        <button class="detail-tab" onclick="switchTab(this,'tab-info')">
-          <span class="en">Info</span><span class="sq" style="display:none">Info</span>
-        </button>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-val">1,200m+</div>
+        <div class="meta-label en">Altitude</div>
+        <div class="meta-label sq" style="display:none">Lartësia</div>
       </div>
-
-      <!-- ORIGIN TAB -->
-      <div class="detail-content active" id="tab-origin">
-        <div class="detail-row" id="detail-region">
-          <span class="detail-key en">Region</span>
-          <span class="detail-key sq" style="display:none">Rajoni</span>
-          <span class="detail-val en" id="dr-region-en">Albanian Alps, Shkodër County, northern Albania</span>
-          <span class="detail-val sq" style="display:none" id="dr-region-sq">Alpet Shqiptare, Rrethi i Shkodrës, Shqipëria veriore</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Altitude</span>
-          <span class="detail-key sq" style="display:none">Lartësia</span>
-          <span class="detail-val" id="dr-altitude">1,200 – 1,600m above sea level</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Harvest</span>
-          <span class="detail-key sq" style="display:none">Korrja</span>
-          <span class="detail-val en">Hand-gathered June–August, sun-dried on mountain air</span>
-          <span class="detail-val sq" style="display:none">Mbledhur me dorë Qershor–Gusht, tharë në ajrin e malit</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Method</span>
-          <span class="detail-key sq" style="display:none">Metoda</span>
-          <span class="detail-val en">Wild harvest — no farming, no processing, no additives</span>
-          <span class="detail-val sq" style="display:none">Mbledhje e egër — pa bujqësi, pa përpunim, pa aditivë</span>
-        </div>
+      <div class="meta-item">
+        <div class="meta-val">100%</div>
+        <div class="meta-label en">Natural</div>
+        <div class="meta-label sq" style="display:none">Natyral</div>
       </div>
-
-      <!-- TASTE TAB -->
-      <div class="detail-content" id="tab-taste">
-        <div class="detail-row">
-          <span class="detail-key en">Aroma</span>
-          <span class="detail-key sq" style="display:none">Aroma</span>
-          <span class="detail-val en" id="dt-aroma">Warm, dried herbs, hint of wildflower honey</span>
-          <span class="detail-val sq" style="display:none" id="dt-aroma-sq">Ngrohtë, bimë të thara, prekje mjalti lulesh të egra</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Taste</span>
-          <span class="detail-key sq" style="display:none">Shija</span>
-          <span class="detail-val en" id="dt-taste">Gentle earthy sweetness, floral mid-note, clean finish</span>
-          <span class="detail-val sq" style="display:none" id="dt-taste-sq">Ëmbëlsi e butë tokësore, notë lulesh, përfundim i pastër</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Body</span>
-          <span class="detail-key sq" style="display:none">Trupi</span>
-          <span class="detail-val en" id="dt-body">Light to medium. Delicate, never bitter.</span>
-          <span class="detail-val sq" style="display:none" id="dt-body-sq">I lehtë deri mesatar. I delikatë, kurrë i hidhur.</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Best with</span>
-          <span class="detail-key sq" style="display:none">Ideale me</span>
-          <span class="detail-val en">Mountain honey, a quiet morning, or after a long meal</span>
-          <span class="detail-val sq" style="display:none">Mjaltë mali, një mëngjes të qetë, ose pas vaktit</span>
-        </div>
+      <div class="meta-item">
+        <div class="meta-val">0mg</div>
+        <div class="meta-label en">Caffeine</div>
+        <div class="meta-label sq" style="display:none">Kafeinë</div>
       </div>
-
-      <!-- BREWING TAB -->
-      <div class="detail-content" id="tab-brew">
-        <div class="detail-row">
-          <span class="detail-key en">Amount</span>
-          <span class="detail-key sq" style="display:none">Sasia</span>
-          <span class="detail-val en">1–2 tsp per 200ml cup</span>
-          <span class="detail-val sq" style="display:none">1–2 lugë çaji për filxhan 200ml</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Temperature</span>
-          <span class="detail-key sq" style="display:none">Temperatura</span>
-          <span class="detail-val">90 – 95°C</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Steep time</span>
-          <span class="detail-key sq" style="display:none">Koha</span>
-          <span class="detail-val en">5–7 minutes (longer = stronger)</span>
-          <span class="detail-val sq" style="display:none">5–7 minuta (më gjatë = më i fortë)</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Tip</span>
-          <span class="detail-key sq" style="display:none">Këshillë</span>
-          <span class="detail-val en">Add raw honey after steeping, not before — heat kills the enzymes</span>
-          <span class="detail-val sq" style="display:none">Shtoni mjaltë të papërpunuar pas zierjes, jo para</span>
-        </div>
-      </div>
-
-      <!-- INFO TAB -->
-      <div class="detail-content" id="tab-info">
-        <div class="detail-row">
-          <span class="detail-key en">Species</span>
-          <span class="detail-key sq" style="display:none">Lloji</span>
-          <span class="detail-val en" id="di-species">Sideritis scardica (Albanian mountain tea)</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Caffeine</span>
-          <span class="detail-key sq" style="display:none">Kafeinë</span>
-          <span class="detail-val en">Caffeine-free — safe any time of day</span>
-          <span class="detail-val sq" style="display:none">Pa kafeinë — i sigurt në çdo orë</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Additives</span>
-          <span class="detail-key sq" style="display:none">Aditivë</span>
-          <span class="detail-val en">None. 100% pure dried herb.</span>
-          <span class="detail-val sq" style="display:none">Asnjë. 100% bimë e tharë e pastër.</span>
-        </div>
-        <div class="detail-row">
-          <span class="detail-key en">Storage</span>
-          <span class="detail-key sq" style="display:none">Ruajtja</span>
-          <span class="detail-val en">Cool, dry place. Keeps 18+ months sealed.</span>
-          <span class="detail-val sq" style="display:none">Vend i freskët dhe i thatë. Ruhet 18+ muaj i mbyllur.</span>
-        </div>
+      <div class="meta-item">
+        <div class="meta-val">EU</div>
+        <div class="meta-label en">Shipping</div>
+        <div class="meta-label sq" style="display:none">Dërgesa</div>
       </div>
     </div>
 
   </div>
 
-  <!-- RIGHT: PURCHASE -->
-  <div class="right-col">
+  <!-- ── HERO RIGHT: Botanical illustration ── -->
+  <div class="hero-right">
+    <div class="illustration-frame">
 
-    <!-- LARGE PRODUCT IMAGE -->
-    <div style="border-radius:16px;overflow:hidden;margin-bottom:2rem;position:relative;height:380px;background:var(--bg3);">
-      <img
-        id="main-product-img"
-        src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=900&q=85&fit=crop"
-        alt="Albanian mountain tea"
-        style="width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.4s ease;"
-        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=900&q=85&fit=crop';"
-      />
-      <!-- Gradient overlay for text legibility at bottom -->
-      <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(14,12,10,0.7) 0%, transparent 50%);pointer-events:none;"></div>
-      <!-- Floating badge -->
-      <div style="position:absolute;top:14px;left:14px;background:rgba(14,12,10,0.75);backdrop-filter:blur(8px);border:1px solid var(--border2);border-radius:8px;padding:6px 12px;display:flex;align-items:center;gap:7px;">
-        <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s ease-in-out infinite;"></div>
-        <span style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);" id="img-badge-text">Çaj Mali · Wild Harvest</span>
+      <!-- Albanian eagle watermark -->
+      <svg class="eagle-bg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 20 L120 60 L160 50 L140 80 L170 100 L140 110 L150 150 L120 130 L100 160 L80 130 L50 150 L60 110 L30 100 L60 80 L40 50 L80 60 Z"
+          fill="var(--forest)" opacity="0.15"/>
+      </svg>
+
+      <!-- Main botanical SVG illustration -->
+      <svg class="botanical-main" viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Main stem -->
+        <path d="M190 440 C190 440 188 380 185 320 C182 260 180 200 182 140 C184 100 188 80 190 60"
+          stroke="#4A6A2E" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Roots -->
+        <path d="M190 440 C175 450 155 455 140 452" stroke="#8B5E2A" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M190 440 C205 450 225 455 240 452" stroke="#8B5E2A" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <path d="M190 440 C180 460 170 470 158 472" stroke="#8B5E2A" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+
+        <!-- Branch left 1 (low) -->
+        <path d="M186 360 C170 350 148 342 126 338" stroke="#4A6A2E" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- Leaves on branch left 1 -->
+        <ellipse cx="126" cy="335" rx="18" ry="9" fill="#4A6A2E" opacity="0.7" transform="rotate(-15 126 335)"/>
+        <ellipse cx="142" cy="340" rx="14" ry="7" fill="#5A7A3E" opacity="0.6" transform="rotate(-20 142 340)"/>
+        <ellipse cx="158" cy="344" rx="12" ry="6" fill="#6A8A4E" opacity="0.55" transform="rotate(-10 158 344)"/>
+
+        <!-- Branch right 1 -->
+        <path d="M187 340 C203 328 226 318 250 312" stroke="#4A6A2E" stroke-width="1.8" stroke-linecap="round"/>
+        <ellipse cx="250" cy="309" rx="18" ry="9" fill="#4A6A2E" opacity="0.7" transform="rotate(18 250 309)"/>
+        <ellipse cx="234" cy="313" rx="14" ry="7" fill="#5A7A3E" opacity="0.6" transform="rotate(12 234 313)"/>
+        <ellipse cx="218" cy="317" rx="11" ry="5.5" fill="#6A8A4E" opacity="0.55" transform="rotate(8 218 317)"/>
+
+        <!-- Branch left 2 -->
+        <path d="M184 290 C166 278 144 268 118 262" stroke="#4A6A2E" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="118" cy="259" rx="16" ry="8" fill="#3A5A1E" opacity="0.65" transform="rotate(-22 118 259)"/>
+        <ellipse cx="134" cy="263" rx="13" ry="6.5" fill="#4A6A2E" opacity="0.6" transform="rotate(-14 134 263)"/>
+        <ellipse cx="150" cy="267" rx="10" ry="5" fill="#5A7A3E" opacity="0.55" transform="rotate(-8 150 267)"/>
+
+        <!-- Branch right 2 -->
+        <path d="M186 268 C204 254 228 244 256 238" stroke="#4A6A2E" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="256" cy="235" rx="16" ry="8" fill="#3A5A1E" opacity="0.65" transform="rotate(25 256 235)"/>
+        <ellipse cx="240" cy="239" rx="12" ry="6" fill="#4A6A2E" opacity="0.6" transform="rotate(16 240 239)"/>
+
+        <!-- Branch left 3 (high) -->
+        <path d="M183 220 C164 206 142 196 114 190" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="114" cy="187" rx="15" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(-28 114 187)"/>
+        <ellipse cx="132" cy="191" rx="12" ry="6" fill="#4A6A2E" opacity="0.55" transform="rotate(-18 132 191)"/>
+
+        <!-- Branch right 3 -->
+        <path d="M185 200 C204 186 228 177 258 172" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="258" cy="169" rx="15" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(30 258 169)"/>
+        <ellipse cx="240" cy="173" rx="11" ry="5.5" fill="#4A6A2E" opacity="0.55" transform="rotate(20 240 173)"/>
+
+        <!-- Flowers (yellow — Sideritis blooms) -->
+        <!-- Flower cluster top -->
+        <g opacity="0.85">
+          <!-- Main top flower -->
+          <circle cx="190" cy="56" r="7" fill="#C49A3C"/>
+          <circle cx="190" cy="56" r="3.5" fill="#DDB94E"/>
+          <circle cx="190" cy="56" r="1.5" fill="#8B5E2A"/>
+          <!-- Side blooms -->
+          <circle cx="178" cy="68" r="5.5" fill="#C49A3C" opacity="0.9"/>
+          <circle cx="178" cy="68" r="2.5" fill="#DDB94E"/>
+          <circle cx="202" cy="70" r="5" fill="#C49A3C" opacity="0.85"/>
+          <circle cx="202" cy="70" r="2.2" fill="#DDB94E"/>
+          <circle cx="184" cy="82" r="4.5" fill="#BAA030" opacity="0.8"/>
+          <circle cx="184" cy="82" r="2" fill="#DDB94E"/>
+          <circle cx="197" cy="84" r="4" fill="#C49A3C" opacity="0.75"/>
+          <circle cx="197" cy="84" r="1.8" fill="#DDB94E"/>
+        </g>
+
+        <!-- Small flowers on branches -->
+        <circle cx="124" cy="336" r="4" fill="#C49A3C" opacity="0.7"/>
+        <circle cx="124" cy="336" r="1.8" fill="#DDB94E"/>
+        <circle cx="252" cy="310" r="3.5" fill="#C49A3C" opacity="0.65"/>
+        <circle cx="252" cy="310" r="1.5" fill="#DDB94E"/>
+        <circle cx="116" cy="260" r="3.5" fill="#BAA030" opacity="0.65"/>
+        <circle cx="260" cy="236" r="3" fill="#C49A3C" opacity="0.6"/>
+        <circle cx="112" cy="188" r="3" fill="#BAA030" opacity="0.6"/>
+        <circle cx="260" cy="170" r="3" fill="#C49A3C" opacity="0.55"/>
+
+        <!-- Decorative dots / seeds scattered -->
+        <circle cx="155" cy="420" r="1.5" fill="#8B5E2A" opacity="0.3"/>
+        <circle cx="220" cy="415" r="1" fill="#8B5E2A" opacity="0.25"/>
+        <circle cx="140" cy="410" r="1.2" fill="#8B5E2A" opacity="0.2"/>
+
+        <!-- Ground line -->
+        <line x1="120" y1="445" x2="260" y2="445" stroke="#C4935A" stroke-width="0.8" opacity="0.3"/>
+
+        <!-- Traditional Albanian geometric border element -->
+        <g opacity="0.12" stroke="#2D4A1E" stroke-width="0.8" fill="none">
+          <rect x="40" y="40" width="300" height="400" rx="4"/>
+          <rect x="48" y="48" width="284" height="384" rx="2"/>
+          <!-- Corner ornaments -->
+          <path d="M40 70 L55 55 L70 40"/>
+          <path d="M310 70 L325 55 L340 40"/>
+          <path d="M40 410 L55 425 L70 440"/>
+          <path d="M310 410 L325 425 L340 440"/>
+        </g>
+
+        <!-- Label -->
+        <text x="190" y="472" text-anchor="middle"
+          font-family="Poppins,sans-serif" font-size="10"
+          font-weight="500" fill="#8B5E2A" letter-spacing="3" opacity="0.6">
+          ÇAJMALI
+        </text>
+
+      </svg>
+
+      <!-- Floating detail cards -->
+      <div class="detail-card card-1">
+        <div class="card-label en">Altitude</div>
+        <div class="card-label sq" style="display:none">Lartësia</div>
+        <div class="card-val">1,200 – 1,600m</div>
+        <div class="card-sub en">Albanian Alps</div>
+        <div class="card-sub sq" style="display:none">Alpet Shqiptare</div>
       </div>
-      <!-- Bottom info strip -->
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;display:flex;align-items:flex-end;justify-content:space-between;">
-        <div>
-          <div style="font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.6;margin-bottom:2px;" class="en">Origin</div>
-          <div style="font-size:0.82rem;font-weight:500;color:var(--cream);" id="img-origin-text">Albanian Alps · 1,200m+</div>
-        </div>
-        <div style="background:rgba(196,154,60,0.15);border:1px solid var(--border2);border-radius:6px;padding:4px 10px;">
-          <span style="font-size:0.7rem;font-weight:500;color:var(--gold);" id="img-altitude-text">1,200 – 1,600m</span>
-        </div>
+
+      <div class="detail-card card-2">
+        <div class="card-label en">Wild harvested</div>
+        <div class="card-label sq" style="display:none">Mbledhur në natyrë</div>
+        <div class="card-val en">June – August</div>
+        <div class="card-val sq" style="display:none">Qershor – Gusht</div>
+        <div class="card-sub">Sideritis scardica</div>
       </div>
+
     </div>
+  </div>
+</section>
 
-    <div class="product-header">
-      <div class="product-tag">
-        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-          <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/>
-          <path d="M6 3v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+<!-- ── HOW IT WORKS ── -->
+<section class="how-section" id="how">
+  <p class="section-eyebrow en">How it works</p>
+  <p class="section-eyebrow sq" style="display:none">Si funksionon</p>
+  <h2 class="section-title en">From mountain to your door</h2>
+  <h2 class="section-title sq" style="display:none">Nga mali te dera juaj</h2>
+  <p class="section-sub en">We go directly to the source — no intermediaries, no mass production. Just wild Albanian mountain tea, carefully packed and shipped to you.</p>
+  <p class="section-sub sq" style="display:none">Shkojmë direkt te burimi — pa ndërmjetës, pa prodhim masiv. Vetëm çaj malor shqiptar i egër, i paketuar me kujdes dhe dërguar te ju.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-title en">Wild harvested in Albania</div>
+      <div class="step-title sq" style="display:none">Mbledhur i egër në Shqipëri</div>
+      <p class="step-desc en">Çaj Mali grows wild above 1,200m in the Albanian Alps, gathered by hand during June and August when the flowers are in bloom. No farming, no processing, no additives.</p>
+      <p class="step-desc sq" style="display:none">Çaji i malit rritet i egër mbi 1,200m në Alpet Shqiptare, mbledhur me dorë gjatë qershorit dhe gushtit kur lulet janë në lulëzim.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-title en">Carefully packed in Lisbon</div>
+      <div class="step-title sq" style="display:none">Paketuar me kujdes në Lisbonë</div>
+      <p class="step-desc en">We bring the tea directly from Albania to our base in Lisbon, where each order is packed by hand in resealable kraft pouches, preserving the aroma and freshness.</p>
+      <p class="step-desc sq" style="display:none">Sjelim çajin direkt nga Shqipëria në bazën tonë në Lisbonë, ku çdo porosi paketohet me dorë në qese kraft.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-title en">Shipped across Europe</div>
+      <div class="step-title sq" style="display:none">Dërguar në të gjithë Evropën</div>
+      <p class="step-desc en">We ship to Portugal, all EU countries, the UK, USA, and Australia. Free shipping on orders over €35. Tracking number sent as soon as your order is dispatched.</p>
+      <p class="step-desc sq" style="display:none">Dërgojmë në Portugali, të gjitha vendet e BE, Britaninë, SHBA dhe Australi. Transport falas për porosi mbi €35.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TWO TEAS ── -->
+<section class="teas-section" id="teas">
+  <p class="section-eyebrow en">Our collection</p>
+  <p class="section-eyebrow sq" style="display:none">Koleksioni ynë</p>
+  <h2 class="section-title en">Two varieties. One origin.</h2>
+  <h2 class="section-title sq" style="display:none">Dy varietete. Një origjinë.</h2>
+  <p class="section-sub en">Çaj Mali is available to pre-order now. Bari i Malit joins the collection later in 2026.</p>
+  <p class="section-sub sq" style="display:none">Çaj Mali është i disponueshëm për porosi paraprake. Bari i Malit vjen më vonë në 2026.</p>
+
+  <div class="teas-grid">
+
+    <!-- Tea 1 -->
+    <div class="tea-card">
+      <div class="tea-illustration tea-1-bg">
+        <svg viewBox="0 0 260 240" width="260" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cup -->
+          <path d="M80 160 L88 195 L172 195 L180 160 Z" fill="#C4935A" opacity="0.3"/>
+          <ellipse cx="130" cy="160" rx="50" ry="12" fill="#C4935A" opacity="0.25"/>
+          <!-- Tea surface -->
+          <ellipse cx="130" cy="159" rx="47" ry="10" fill="#8B5E2A" opacity="0.2"/>
+          <!-- Floating herbs -->
+          <ellipse cx="115" cy="156" rx="14" ry="6" fill="#4A6A2E" opacity="0.5" transform="rotate(-15 115 156)"/>
+          <ellipse cx="145" cy="158" rx="12" ry="5" fill="#3A5A1E" opacity="0.45" transform="rotate(10 145 158)"/>
+          <!-- Saucer -->
+          <ellipse cx="130" cy="196" rx="60" ry="9" fill="#8B5E2A" opacity="0.15"/>
+          <!-- Steam wisps -->
+          <path d="M110 155 Q107 140 112 128 Q117 116 113 104" fill="none" stroke="#C4935A" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          <path d="M130 152 Q127 136 132 123 Q137 110 133 98" fill="none" stroke="#C4935A" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+          <path d="M150 155 Q147 139 152 127 Q157 115 153 103" fill="none" stroke="#C4935A" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+          <!-- Botanical sprigs -->
+          <path d="M130 96 L130 50" stroke="#4A6A2E" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+          <ellipse cx="118" cy="72" rx="12" ry="5.5" fill="#4A6A2E" opacity="0.5" transform="rotate(-30 118 72)"/>
+          <ellipse cx="142" cy="68" rx="12" ry="5.5" fill="#5A7A3E" opacity="0.5" transform="rotate(25 142 68)"/>
+          <ellipse cx="114" cy="56" rx="10" ry="5" fill="#3A5A1E" opacity="0.45" transform="rotate(-40 114 56)"/>
+          <ellipse cx="146" cy="54" rx="10" ry="5" fill="#4A6A2E" opacity="0.45" transform="rotate(35 146 54)"/>
+          <circle cx="130" cy="47" r="6" fill="#C49A3C" opacity="0.8"/>
+          <circle cx="130" cy="47" r="3" fill="#DDB94E" opacity="0.9"/>
+          <!-- Gold dots -->
+          <circle cx="118" cy="73" r="2.5" fill="#C49A3C" opacity="0.6"/>
+          <circle cx="142" cy="69" r="2.5" fill="#C49A3C" opacity="0.55"/>
         </svg>
-        <span class="en">Wild Harvested · Albania</span>
-        <span class="sq" style="display:none">Mbledhur në Natyrë · Shqipëri</span>
       </div>
-
-      <h1 class="product-title en">Albanian<br>Mountain Tea</h1>
-      <h1 class="product-title product-title-sq sq">Çaj Malor<br>Shqiptar</h1>
-
-      <p class="product-subtitle" id="selected-tea-subtitle">Çaj Mali — Sideritis scardica</p>
-
-      <p class="product-desc en">Two varieties of wild-harvested mountain tea from the Albanian Alps. Gathered by hand above 1,000 metres, dried in mountain air, and shipped directly to you across Europe. No middlemen. No compromises.</p>
-      <p class="product-desc product-desc-sq sq">Dy varietete çaji malor të mbledhur nga Alpet Shqiptare. Mbledhur me dorë mbi 1,000 metra, tharë në ajrin e malit dhe dërguar drejtpërdrejt në të gjithë Evropën. Pa ndërmjetës. Pa kompromise.</p>
-    </div>
-
-    <!-- SELECTED TEA DISPLAY -->
-    <div class="selected-tea-display">
-      <div class="selected-tea-thumb" id="selected-thumb">
-        <img
-          id="selected-thumb-img"
-          src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=120&q=80&fit=crop"
-          alt="Selected tea"
-          style="width:56px;height:56px;object-fit:cover;border-radius:10px;display:block;"
-          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=120&q=80&fit=crop';"
-        />
-      </div>
-      <div class="selected-tea-info">
-        <div class="selected-tea-label en">Selected tea</div>
-        <div class="selected-tea-label sq" style="display:none">Çaji i zgjedhur</div>
-        <div class="selected-tea-name" id="selected-name-display">Çaj Mali</div>
-        <div class="selected-tea-origin" id="selected-origin-display">Northern Alps · 1,200m+</div>
-      </div>
-      <span class="change-link en" onclick="scrollToVariants()">Change</span>
-      <span class="change-link sq" style="display:none" onclick="scrollToVariants()">Ndrysho</span>
-    </div>
-
-    <!-- PRICE -->
-    <div class="price-block">
-      <div class="price-row">
-        <span class="price" id="display-price">€9.90</span>
-        <span class="price-unit en">per 50g · ~25 cups</span>
-        <span class="price-unit sq" style="display:none">për 50g · ~25 filxhanë</span>
-      </div>
-      <div class="free-shipping en">Free shipping on orders over €35</div>
-      <div class="free-shipping sq" style="display:none">Transport falas për porosi mbi €35</div>
-    </div>
-
-    <!-- SIZE OPTIONS -->
-    <div class="size-section">
-      <div class="size-label">
-        <span class="en">Pack size</span>
-        <span class="sq" style="display:none">Madhësia</span>
-        <span class="en" id="size-label-val">50g selected</span>
-        <span class="sq" style="display:none" id="size-label-val-sq">50g zgjedhur</span>
-      </div>
-      <div class="size-options">
-        <div class="size-opt active" onclick="selectSize(this, '50g', '~25', 9.90)">
-          <span class="size-opt-weight">50g</span>
-          <span class="size-opt-cups en">~25 cups</span>
-          <span class="size-opt-cups sq" style="display:none">~25 filxhanë</span>
-        </div>
-        <div class="size-opt" onclick="selectSize(this, '100g', '~50', 17.90)">
-          <span class="size-opt-weight">100g</span>
-          <span class="size-opt-cups en">~50 cups</span>
-          <span class="size-opt-cups sq" style="display:none">~50 filxhanë</span>
-        </div>
-        <div class="size-opt" onclick="selectSize(this, '200g', '~100', 29.90)">
-          <span class="size-opt-weight">200g</span>
-          <span class="size-opt-cups en">~100 cups</span>
-          <span class="size-opt-cups sq" style="display:none">~100 filxhanë</span>
+      <div class="tea-body">
+        <div class="available-badge"><div class="available-dot"></div><span class="en">Available — pre-order now</span><span class="sq" style="display:none">I disponueshëm — porosit tani</span></div>
+        <div class="tea-origin en">Northern Alps · 1,200m+</div>
+        <div class="tea-origin sq" style="display:none">Alpet Veriore · 1,200m+</div>
+        <div class="tea-name">Çaj Mali</div>
+        <div class="tea-name-sq en">Classic Albanian mountain tea</div>
+        <div class="tea-name-sq sq" style="display:none">Çaj klasik malor shqiptar</div>
+        <p class="tea-desc en">The iconic wild herb of the Albanian highlands. Warm, earthy, naturally sweet with a gentle floral finish. Brewed in Albanian homes for centuries. Naturally caffeine-free.</p>
+        <p class="tea-desc sq" style="display:none">Bima ikonike e egër e malësive shqiptare. E ngrohtë, tokësore, natyrshëm e ëmbël me përfundim lulesh. E gatuar në shtëpitë shqiptare prej shekujsh.</p>
+        <div class="taste-chips">
+          <span class="chip en">Earthy warmth</span><span class="chip sq" style="display:none">Ngrohtësi tokësore</span>
+          <span class="chip en">Floral</span><span class="chip sq" style="display:none">Lulejore</span>
+          <span class="chip en">Honey notes</span><span class="chip sq" style="display:none">Nota mjaltë</span>
+          <span class="chip en">Caffeine-free</span><span class="chip sq" style="display:none">Pa kafeinë</span>
         </div>
       </div>
     </div>
 
-    <!-- QTY -->
-    <div class="qty-section">
-      <span class="qty-label en">Qty</span>
-      <span class="qty-label sq" style="display:none">Sasi</span>
-      <div class="qty-control">
-        <button class="qty-btn" onclick="changeQty(-1)">−</button>
-        <div class="qty-num" id="qty-num">1</div>
-        <button class="qty-btn" onclick="changeQty(1)">+</button>
+    <!-- Tea 2 -->
+    <div class="tea-card tea-card-coming" style="pointer-events:none;">
+      <div class="coming-soon-overlay">
+        <div class="coming-soon-pill"><span class="en">Coming later 2026</span><span class="sq" style="display:none">Vjen më vonë 2026</span></div>
       </div>
-      <span class="qty-total en">Total: <strong id="qty-total">€9.90</strong></span>
-      <span class="qty-total sq" style="display:none">Totali: <strong id="qty-total-sq">€9.90</strong></span>
+      <div class="tea-illustration tea-2-bg">
+        <svg viewBox="0 0 260 240" width="260" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Botanical spread — wild herb blend -->
+          <path d="M130 200 L130 80" stroke="#3A5A1E" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          <!-- Left branches -->
+          <path d="M130 170 L100 148" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+          <path d="M130 148 L94 122" stroke="#3A5A1E" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+          <path d="M130 126 L102 106" stroke="#3A5A1E" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <path d="M130 104 L108 88" stroke="#3A5A1E" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+          <!-- Right branches -->
+          <path d="M130 158 L162 136" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/>
+          <path d="M130 136 L166 110" stroke="#3A5A1E" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+          <path d="M130 114 L158 96" stroke="#3A5A1E" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <!-- Leaves left -->
+          <ellipse cx="98" cy="145" rx="16" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(-40 98 145)"/>
+          <ellipse cx="90" cy="119" rx="14" ry="6.5" fill="#4A6A2E" opacity="0.55" transform="rotate(-50 90 119)"/>
+          <ellipse cx="100" cy="103" rx="12" ry="5.5" fill="#3A5A1E" opacity="0.5" transform="rotate(-35 100 103)"/>
+          <ellipse cx="106" cy="85" rx="10" ry="5" fill="#5A7A3E" opacity="0.5" transform="rotate(-45 106 85)"/>
+          <!-- Leaves right -->
+          <ellipse cx="164" cy="133" rx="16" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(42 164 133)"/>
+          <ellipse cx="168" cy="107" rx="14" ry="6.5" fill="#4A6A2E" opacity="0.55" transform="rotate(52 168 107)"/>
+          <ellipse cx="160" cy="93" rx="12" ry="5.5" fill="#3A5A1E" opacity="0.5" transform="rotate(38 160 93)"/>
+          <!-- Flowers green/white -->
+          <circle cx="130" cy="76" r="8" fill="#5A7A3E" opacity="0.7"/>
+          <circle cx="130" cy="76" r="5" fill="#8FA67A" opacity="0.8"/>
+          <circle cx="130" cy="76" r="2.5" fill="#C8DEB0" opacity="0.9"/>
+          <!-- Small flowers on branches -->
+          <circle cx="96" cy="143" r="4" fill="#7A9A5C" opacity="0.65"/>
+          <circle cx="96" cy="143" r="2" fill="#B0C890" opacity="0.8"/>
+          <circle cx="166" cy="131" r="4" fill="#7A9A5C" opacity="0.65"/>
+          <circle cx="166" cy="131" r="2" fill="#B0C890" opacity="0.8"/>
+          <circle cx="88" cy="117" r="3.5" fill="#6A8A4E" opacity="0.6"/>
+          <circle cx="170" cy="105" r="3.5" fill="#6A8A4E" opacity="0.6"/>
+          <!-- Ground -->
+          <line x1="80" y1="205" x2="180" y2="205" stroke="#4A6A2E" stroke-width="0.8" opacity="0.25"/>
+          <!-- Roots -->
+          <path d="M130 200 C118 208 108 212 96 210" stroke="#4A6A2E" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+          <path d="M130 200 C142 208 152 212 164 210" stroke="#4A6A2E" stroke-width="1.2" stroke-linecap="round" opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="tea-body">
+        <div class="tea-origin en">Accursed Mountains · 1,500m+</div>
+        <div class="tea-origin sq" style="display:none">Bjeshkët e Namuna · 1,500m+</div>
+        <div class="tea-name">Bari i Malit</div>
+        <div class="tea-name-sq en">Wild alpine herb blend</div>
+        <div class="tea-name-sq sq" style="display:none">Blend bimësh alpine të egra</div>
+        <p class="tea-desc en">A blend of wild herbs from the Accursed Mountains — one of Europe's last untouched alpine regions. Fresh, green and slightly minty. Bright and energising without any caffeine.</p>
+        <p class="tea-desc sq" style="display:none">Një blend bimësh të egra nga Bjeshkët e Namuna — një nga zonat e fundit alpine të paprekura të Evropës. I freskët, jeshil dhe paksa nenexhek.</p>
+        <div class="taste-chips">
+          <span class="chip en">Fresh & green</span><span class="chip sq" style="display:none">I freskët & jeshil</span>
+          <span class="chip en">Minty</span><span class="chip sq" style="display:none">Nenexhek</span>
+          <span class="chip en">Herbal</span><span class="chip sq" style="display:none">Bimor</span>
+          <span class="chip en">Caffeine-free</span><span class="chip sq" style="display:none">Pa kafeinë</span>
+        </div>
+      </div>
     </div>
 
-    <!-- SHOPIFY EMBED ZONE -->
-    <div class="shopify-zone">
-      <div class="shopify-zone-label">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm.75 12h-1.5V7.25h1.5V12zm0-6.25h-1.5v-1.5h1.5v1.5z"/></svg>
-        Shopify Buy Button
+  </div>
+</section>
+
+<!-- ── ORIGIN ── -->
+<section class="origin-section" id="origin">
+  <div class="origin-grid">
+    <div class="origin-text">
+      <p class="section-eyebrow">Albania</p>
+      <h2 class="section-title en">Where the tea grows wild</h2>
+      <h2 class="section-title sq" style="display:none">Ku rritet çaji i egër</h2>
+      <p class="section-sub en">
+        The Albanian Alps are among the most biodiverse mountain ranges in Europe, 
+        largely untouched by industry. Çaj Mali has grown here for centuries — 
+        gathered by local families the same way it has always been. 
+        We go directly to the source to bring it to you.
+      </p>
+      <p class="section-sub sq" style="display:none">
+        Alpet Shqiptare janë ndër zinxhirët malor më biodivers të Evropës,
+        kryesisht të paprekur nga industria. Çaji i malit ka rritur këtu
+        prej shekujsh — mbledhur nga familjet lokale në të njëjtën mënyrë si gjithnjë.
+      </p>
+      <div class="origin-facts">
+        <div class="fact-item">
+          <div class="fact-val">1,200m</div>
+          <div class="fact-label en">Minimum altitude</div>
+          <div class="fact-label sq" style="display:none">Lartësia minimale</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-val">100%</div>
+          <div class="fact-label en">Wild harvested</div>
+          <div class="fact-label sq" style="display:none">Mbledhur i egër</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-val">0</div>
+          <div class="fact-label en">Additives</div>
+          <div class="fact-label sq" style="display:none">Aditivë</div>
+        </div>
+        <div class="fact-item">
+          <div class="fact-val">EU</div>
+          <div class="fact-label en">Shipping from Lisbon</div>
+          <div class="fact-label sq" style="display:none">Dërgesa nga Lisbona</div>
+        </div>
       </div>
-      <p class="en">Paste your Shopify Starter embed code here — replaces this zone with a live checkout button</p>
-      <p class="sq" style="display:none">Vendosni kodin tuaj Shopify Starter këtu — zëvendëson këtë zonë me butonin e blerjes</p>
     </div>
 
-    <!-- Stripe buy button handles checkout above -->
+    <!-- Mountain scene illustration -->
+    <div class="mountain-scene">
+      <svg viewBox="0 0 480 360" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="skyGlow" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#4A6A2E" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#2D4A1E" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="480" height="360" fill="url(#skyGlow)"/>
+        <!-- Stars -->
+        <circle cx="60" cy="30" r="1.2" fill="white" opacity="0.4"/>
+        <circle cx="140" cy="18" r="0.9" fill="white" opacity="0.5"/>
+        <circle cx="220" cy="25" r="1.1" fill="white" opacity="0.35"/>
+        <circle cx="320" cy="14" r="0.8" fill="white" opacity="0.45"/>
+        <circle cx="400" cy="28" r="1" fill="white" opacity="0.4"/>
+        <circle cx="460" cy="20" r="0.8" fill="white" opacity="0.35"/>
+        <circle cx="100" cy="50" r="0.7" fill="white" opacity="0.3"/>
+        <circle cx="280" cy="42" r="0.9" fill="white" opacity="0.35"/>
+        <!-- Moon crescent -->
+        <circle cx="380" cy="45" r="16" fill="white" opacity="0.08"/>
+        <circle cx="386" cy="42" r="12" fill="#2D4A1E" opacity="0.9"/>
+        <!-- Far mountains -->
+        <path d="M0 240 L60 160 L120 210 L180 130 L240 190 L300 120 L360 175 L420 110 L480 165 L480 360 L0 360Z" fill="#1A3010" opacity="0.6"/>
+        <!-- Mid mountains -->
+        <path d="M0 280 L80 200 L160 250 L240 175 L320 230 L400 165 L480 210 L480 360 L0 360Z" fill="#223818" opacity="0.8"/>
+        <!-- Stone house -->
+        <g opacity="0.7">
+          <rect x="215" y="262" width="30" height="22" fill="#1A2C0E" stroke="rgba(196,147,90,0.3)" stroke-width="0.5"/>
+          <polygon points="210,262 250,262 230,244" fill="#243614" stroke="rgba(196,147,90,0.2)" stroke-width="0.4"/>
+          <rect x="220" y="266" width="7" height="7" fill="#C49A3C" opacity="0.35"/>
+          <rect x="233" y="266" width="7" height="7" fill="#C49A3C" opacity="0.3"/>
+          <rect x="226" y="270" width="5" height="14" fill="#141E09" stroke="rgba(196,147,90,0.2)" stroke-width="0.3"/>
+          <rect x="240" y="246" width="4" height="10" fill="#243614"/>
+          <path d="M242 246 Q244 239 241 233" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.2" stroke-linecap="round"/>
+        </g>
+        <!-- Foreground ridge -->
+        <path d="M0 310 L100 268 L200 295 L300 265 L400 288 L480 270 L480 360 L0 360Z" fill="#2D4A1E" opacity="1"/>
+        <!-- Foreground herbs silhouette -->
+        <g fill="#1A3010" opacity="0.6">
+          <path d="M20 340 L24 318 L28 340"/>
+          <path d="M35 338 L38 320 L41 338"/>
+          <path d="M440 342 L444 322 L448 342"/>
+          <path d="M455 340 L458 324 L461 340"/>
+          <path d="M55 335 L57 324 L59 335"/>
+        </g>
+        <!-- Gold accent line at bottom -->
+        <line x1="0" y1="358" x2="480" y2="358" stroke="#C49A3C" stroke-width="0.5" opacity="0.3"/>
+        <!-- Albania text watermark -->
+        <text x="240" y="352" text-anchor="middle" font-family="Poppins,sans-serif"
+          font-size="9" font-weight="600" fill="white" opacity="0.2" letter-spacing="6">
+          SHQIPËRIA
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>
 
-        <!-- STRIPE BUY BUTTON -->
+<!-- ── PRE-ORDER CTA ── -->
+<section class="cta-section" id="preorder">
+  <p class="section-eyebrow en">First batch · April 2026</p>
+  <p class="section-eyebrow sq" style="display:none">Grupi i parë · Prill 2026</p>
+  <h2 class="section-title en">Be first in line</h2>
+  <h2 class="section-title sq" style="display:none">Jini të parët</h2>
+  <p class="section-sub en">
+    We are bringing the first batch directly from Albania in April 2026.
+    Leave your email to be notified the moment it is ready — or pre-order below
+    and we will ship to you as soon as we are back.
+  </p>
+  <p class="section-sub sq" style="display:none">
+    Sjelim grupin e parë direkt nga Shqipëria në Prill 2026.
+    Lini emailin tuaj për t'u njoftuar — ose porosnit më poshtë
+    dhe dërgojmë sapo të kthehemi.
+  </p>
+
+  <form action="https://besagoods.us5.list-manage.com/subscribe/post?u=de6a0dbd0f3c670652a41998e&id=2bb1eb40f0&f_id=009633ebf0"
+    method="post" target="_blank" id="cta-form" class="cta-form" onsubmit="ctaSubmit()">
+    <input type="email" name="EMAIL" id="cta-email" placeholder="your@email.com" required />
+    <div style="position:absolute;left:-5000px" aria-hidden="true">
+      <input type="text" name="b_de6a0dbd0f3c670652a41998e_2bb1eb40f0" tabindex="-1" value="">
+    </div>
+    <button type="submit">
+      <span class="en">Notify me when ready</span>
+      <span class="sq" style="display:none">Njoftomë kur është gati</span>
+    </button>
+  </form>
+  <div class="success-msg" id="cta-success" style="max-width:480px;margin:8px auto 0;">
+    ✓ <span class="en">You're on the list. We'll be in touch in April.</span>
+    <span class="sq" style="display:none">Jeni në listë. Do t'ju kontaktojmë në Prill.</span>
+  </div>
+  <p class="cta-note en">Or pre-order now — your card is charged and we ship in April</p>
+  <p class="cta-note sq" style="display:none">Ose porosnit tani — kartën e ngarkojmë dhe dërgojmë në Prill</p>
+
+  <div style="margin-top:1.5rem; display:inline-block;">
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <stripe-buy-button
-      buy-button-id="buy_btn_1TEUIUD9VgNxznDqhySaMrpQ"
-      publishable-key="pk_live_51TEEHpD9VgNxznDqBaPE2Fy1pXB0eKCEg9qNIBUEdaX8zf9v2R2eay8oq09VRBHVE2v4RBd8IfLqTvqOG0EqwfJj00ecyvlOUl"
-    ></stripe-buy-button>
-
-    <!-- TRUST -->
-    <div class="trust-grid">
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <span class="trust-text-main en">Secure checkout</span>
-          <span class="trust-text-main sq" style="display:none">Blerje e sigurt</span>
-          <span class="trust-text-sub">SSL encrypted</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-        <div>
-          <span class="trust-text-main en">Ships to EU</span>
-          <span class="trust-text-main sq" style="display:none">Dërgesa BE</span>
-          <span class="trust-text-sub en">4–8 business days</span>
-          <span class="trust-text-sub sq" style="display:none">4–8 ditë pune</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <span class="trust-text-main en">From Lisbon</span>
-          <span class="trust-text-main sq" style="display:none">Nga Lisbona</span>
-          <span class="trust-text-sub en">Portugal-based</span>
-          <span class="trust-text-sub sq" style="display:none">Bazuar në Portugali</span>
-        </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
-        </div>
-        <div>
-          <span class="trust-text-main en">Easy returns</span>
-          <span class="trust-text-main sq" style="display:none">Kthim i lehtë</span>
-          <span class="trust-text-sub en">14-day policy</span>
-          <span class="trust-text-sub sq" style="display:none">Politika 14-ditore</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ORIGIN FEATURE -->
-    <div class="origin-feature">
-      <div class="origin-feature-inner">
-        <svg viewBox="0 0 90 100" width="80" height="90" fill="none" xmlns="http://www.w3.org/2000/svg" class="origin-feature-map">
-          <!-- Albania outline simplified -->
-          <path d="M42 8 L52 10 L60 18 L64 28 L62 36 L66 44 L64 56 L58 68 L52 78 L46 84 L40 82 L34 74 L28 64 L24 52 L22 40 L26 30 L30 20 L36 12 Z"
-            fill="#2D4A1E" opacity="0.3" stroke="#4A6A2A" stroke-width="0.8"/>
-          <!-- Location pin for selected tea -->
-          <circle cx="44" cy="36" r="5" fill="#C49A3C" opacity="0.9" id="pin-1"/>
-          <circle cx="44" cy="36" r="9" fill="#C49A3C" opacity="0.15" id="pin-1-glow"/>
-          <circle cx="44" cy="52" r="4" fill="#3D5C2A" opacity="0.7" id="pin-2" style="display:none"/>
-          <circle cx="44" cy="52" r="8" fill="#3D5C2A" opacity="0.12" id="pin-2-glow" style="display:none"/>
-          <!-- Mountain marks -->
-          <path d="M30 40 L35 30 L40 40" fill="none" stroke="#4A6A2A" stroke-width="0.6" opacity="0.5"/>
-          <path d="M50 48 L55 38 L60 48" fill="none" stroke="#4A6A2A" stroke-width="0.6" opacity="0.5"/>
-          <text x="44" y="96" text-anchor="middle" font-size="7" fill="#7A6B5C" font-family="Poppins,sans-serif" font-weight="400" letter-spacing="1">ALBANIA</text>
-        </svg>
-        <div class="origin-feature-text">
-          <h4 class="en" id="origin-title">The Albanian Alps</h4>
-          <h4 class="sq" style="display:none" id="origin-title-sq">Alpet Shqiptare</h4>
-          <p class="en" id="origin-desc">Çaj Mali grows wild above 1,200m in Shkodër County. It has been gathered and dried by local families the same way for generations — no farming, no processing, no additives. Just mountain air and careful hands.</p>
-          <p class="sq" style="display:none" id="origin-desc-sq">Çaji i malit rritet i egër mbi 1,200m në Rrethin e Shkodrës. Mbledhur dhe tharë prej familjeve vendase të njëjtën mënyrë prej brezash.</p>
-          <div class="altitude-badge" id="altitude-badge">
-            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 10H1Z"/></svg>
-            1,200 – 1,600m
-          </div>
-        </div>
-      </div>
-    </div>
-
+      buy-button-id="buy_btn_1TEeFaD9VgNxznDq7m4FqdVV"
+      publishable-key="pk_live_51TEEHpD9VgNxznDqBaPE2Fy1pXB0eKCEg9qNIBUEdaX8zf9v2R2eay8oq09VRBHVE2v4RBd8IfLqTvqOG0EqwfJj00ecyvlOUl">
+    </stripe-buy-button>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-<footer style="border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:var(--bg2);">
-  <div style="font-size:1rem;font-weight:600;color:var(--cream);letter-spacing:0.05em;">Besa <span style="color:var(--gold)">&</span> Goods</div>
-  <div style="display:flex;gap:2rem;flex-wrap:wrap;">
-    <a href="#" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;" class="en">About</a>
-    <a href="#" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;" class="en">Shipping</a>
-    <a href="#" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;" class="en">Returns</a>
-    <a href="#" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;" class="en">Privacy</a>
-    <a href="#" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);text-decoration:none;" class="en">Contact</a>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Besa <span>&</span> Goods</div>
+  <div class="footer-links">
+    <a href="#" class="en">About</a><a href="#" class="sq" style="display:none">Rreth nesh</a>
+    <a href="#" class="en">Shipping</a><a href="#" class="sq" style="display:none">Dërgesa</a>
+    <a href="#" class="en">Returns</a><a href="#" class="sq" style="display:none">Kthimet</a>
+    <a href="#" class="en">Contact</a><a href="#" class="sq" style="display:none">Kontakt</a>
   </div>
-  <div style="font-size:0.75rem;font-weight:300;font-style:italic;color:var(--text3);" class="en">Rooted in Albania. Based in Lisbon.</div>
-  <div style="font-size:0.75rem;font-weight:300;font-style:italic;color:var(--text3);display:none;" class="sq">Rrënjët në Shqipëri. Bazuar në Lisbona.</div>
+  <p class="footer-tagline en">Rooted in Albania. Based in Lisbon.</p>
+  <p class="footer-tagline sq" style="display:none">Rrënjët në Shqipëri. Bazuar në Lisbonë.</p>
 </footer>
 
 <script>
-let selectedTea = 1;
-let qty = 1;
-let currentPrice = 9.90;
-
-const teas = {
-  1: {
-    name: 'Çaj Mali',
-    nameEn: 'Çaj Mali',
-    origin: 'Northern Alps · 1,200m+',
-    originSq: 'Alpet Veriore · 1,200m+',
-    subtitle: 'Çaj Mali — Sideritis scardica',
-    altitude: '1,200 – 1,600m',
-    imgMain: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=900&q=85&fit=crop',
-    imgThumb: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=120&q=80&fit=crop',
-    imgFallback: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=900&q=85&fit=crop',
-    badgeText: 'Çaj Mali · Wild Harvest',
-    regionEn: 'Albanian Alps, Shkodër County, northern Albania',
-    regionSq: 'Alpet Shqiptare, Rrethi i Shkodrës, Shqipëria veriore',
-    aromaEn: 'Warm, dried herbs, hint of wildflower honey',
-    aromaSq: 'Ngrohtë, bimë të thara, prekje mjalti lulesh të egra',
-    tasteEn: 'Gentle earthy sweetness, floral mid-note, clean finish',
-    tasteSq: 'Ëmbëlsi e butë tokësore, notë lulesh, përfundim i pastër',
-    bodyEn: 'Light to medium. Delicate, never bitter.',
-    bodySq: 'I lehtë deri mesatar. I delikatë, kurrë i hidhur.',
-    species: 'Sideritis scardica (Albanian mountain tea)',
-    originTitleEn: 'The Albanian Alps',
-    originTitleSq: 'Alpet Shqiptare',
-    originDescEn: 'Çaj Mali grows wild above 1,200m in Shkodër County. It has been gathered and dried by local families the same way for generations — no farming, no processing, no additives. Just mountain air and careful hands.',
-    originDescSq: 'Çaji i malit rritet i egër mbi 1,200m në Rrethin e Shkodrës. Mbledhur dhe tharë prej familjeve vendase të njëjtën mënyrë prej brezash.',
-    pinId: 1
-  },
-  2: {
-    name: 'Bari i Malit',
-    nameEn: 'Bari i Malit',
-    origin: 'Accursed Mountains · 1,500m+',
-    originSq: 'Bjeshkët e Namuna · 1,500m+',
-    subtitle: 'Bari i Malit — Wild Alpine Blend',
-    altitude: '1,500 – 2,000m',
-    imgMain: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=900&q=85&fit=crop',
-    imgThumb: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=120&q=80&fit=crop',
-    imgFallback: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=900&q=85&fit=crop',
-    badgeText: 'Bari i Malit · Alpine Blend',
-    regionEn: 'Bjeshkët e Namuna (Accursed Mountains), Albania/Kosovo border',
-    regionSq: 'Bjeshkët e Namuna, kufiri Shqipëri/Kosovë',
-    aromaEn: 'Fresh, green, clean mountain air with minty undertones',
-    aromaSq: 'I freskët, jeshil, ajër i pastër mali me nënnotat e nenexhekut',
-    tasteEn: 'Bright and herbaceous, slightly minty, lively finish',
-    tasteSq: 'I gjallë dhe bimor, paksa nenexhek, përfundim energjik',
-    bodyEn: 'Light and refreshing. Energising without caffeine.',
-    bodySq: 'I lehtë dhe freskues. Energjizues pa kafeinë.',
-    species: 'Wild alpine herb blend (Achillea, Thymus, Mentha)',
-    originTitleEn: 'Bjeshkët e Namuna',
-    originTitleSq: 'Bjeshkët e Namuna',
-    originDescEn: 'The Accursed Mountains — one of Europe\'s last truly wild alpine regions. Bari i Malit is a blend of wild herbs gathered above 1,500m where the air is clean and the meadows are untouched.',
-    originDescSq: 'Bjeshkët e Namuna — një nga zonat e fundit alpine krejtësisht të egra të Evropës. Bari i Malit është bërë prej bimësh të egra mbledhur mbi 1,500m.',
-    pinId: 2
-  }
-};
-
-function selectTea(id) {
-  selectedTea = id;
-  document.querySelectorAll('.variant-card').forEach(c => c.classList.remove('selected'));
-  document.getElementById('tea-' + id).classList.add('selected');
-
-  const t = teas[id];
-
-  // Swap main product image with fade
-  const mainImg = document.getElementById('main-product-img');
-  mainImg.style.opacity = '0';
-  setTimeout(() => {
-    mainImg.src = t.imgMain;
-    mainImg.onerror = () => { mainImg.src = t.imgFallback; };
-    mainImg.style.opacity = '1';
-  }, 200);
-
-  // Swap thumbnail
-  const thumbImg = document.getElementById('selected-thumb-img');
-  thumbImg.src = t.imgThumb;
-  thumbImg.onerror = () => { thumbImg.src = t.imgFallback; };
-
-  // Update floating badge and origin strip on image
-  const badge = document.getElementById('img-badge-text');
-  if (badge) badge.textContent = t.badgeText;
-  const imgOrigin = document.getElementById('img-origin-text');
-  if (imgOrigin) imgOrigin.textContent = t.origin;
-  const imgAlt = document.getElementById('img-altitude-text');
-  if (imgAlt) imgAlt.textContent = t.altitude;
-
-  // Update selected display
-  document.getElementById('selected-name-display').textContent = t.nameEn;
-  document.getElementById('selected-origin-display').textContent = t.origin;
-  const sub = document.querySelector('.product-subtitle');
-  if (sub) sub.textContent = t.subtitle;
-
-  // Update detail tabs
-  document.getElementById('dr-region-en').textContent = t.regionEn;
-  document.getElementById('dr-region-sq').textContent = t.regionSq;
-  document.getElementById('dr-altitude').textContent = t.altitude + ' above sea level';
-  document.getElementById('dt-aroma').textContent = t.aromaEn;
-  document.getElementById('dt-aroma-sq').textContent = t.aromaSq;
-  document.getElementById('dt-taste').textContent = t.tasteEn;
-  document.getElementById('dt-taste-sq').textContent = t.tasteSq;
-  document.getElementById('dt-body').textContent = t.bodyEn;
-  document.getElementById('dt-body-sq').textContent = t.bodySq;
-  document.getElementById('di-species').textContent = t.species;
-
-  // Update origin
-  document.getElementById('origin-title').textContent = t.originTitleEn;
-  document.getElementById('origin-title-sq').textContent = t.originTitleSq;
-  document.getElementById('origin-desc').textContent = t.originDescEn;
-  document.getElementById('origin-desc-sq').textContent = t.originDescSq;
-  document.getElementById('altitude-badge').innerHTML = '<svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 1L11 10H1Z"/></svg>' + t.altitude;
-
-  // Map pins
-  document.getElementById('pin-1').style.display = id === 1 ? '' : 'none';
-  document.getElementById('pin-1-glow').style.display = id === 1 ? '' : 'none';
-  document.getElementById('pin-2').style.display = id === 2 ? '' : 'none';
-  document.getElementById('pin-2-glow').style.display = id === 2 ? '' : 'none';
-
-  updateTotal();
-}
-
-function selectSize(el, size, cups, price) {
-  document.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
-  el.classList.add('active');
-  currentPrice = price;
-  document.getElementById('display-price').textContent = '€' + price.toFixed(2);
-  document.getElementById('size-label-val').textContent = size + ' selected';
-  updateTotal();
-}
-
-function changeQty(delta) {
-  qty = Math.max(1, qty + delta);
-  document.getElementById('qty-num').textContent = qty;
-  updateTotal();
-}
-
-function updateTotal() {
-  const total = (currentPrice * qty).toFixed(2);
-  document.getElementById('qty-total').textContent = '€' + total;
-  document.getElementById('qty-total-sq').textContent = '€' + total;
-}
-
-function switchTab(btn, tabId) {
-  document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.detail-content').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
-}
-
+// ── LANGUAGE TOGGLE ──
 function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.body.classList.toggle('sq', lang === 'sq');
 }
 
-function addToCart() {
-  const t = teas[selectedTea];
-  const count = document.getElementById('cart-count');
-  const current = parseInt(count.textContent || '0') + qty;
-  count.textContent = current;
-  count.style.display = 'flex';
-  const btn = document.querySelector('.btn-add');
-  btn.textContent = '✓ Added to cart';
-  btn.style.background = '#3D5C2A';
+// ── EMAIL CAPTURE ──
+// In production replace this with your email service (Mailchimp, ConvertKit, etc.)
+// For now it shows a success message and could POST to a simple form handler
+let count = 47;
+
+function heroSubmit() {
   setTimeout(() => {
-    btn.innerHTML = document.body.classList.contains('sq') ? 'Shto në Shportë' : 'Add to Cart';
-    btn.style.background = '';
-  }, 2000);
+    document.getElementById("hero-form").style.display = "none";
+    document.getElementById("hero-success").style.display = "block";
+    count++;
+    const countEl = document.getElementById("count");
+    if (countEl) countEl.textContent = count;
+  }, 300);
 }
 
-function cartClick() {
-  alert('Connect your Shopify Buy Button here');
+function ctaSubmit() {
+  setTimeout(() => {
+    document.getElementById("cta-form").style.display = "none";
+    document.getElementById("cta-success").style.display = "block";
+  }, 300);
 }
 
-function scrollToVariants() {
-  document.querySelector('.variant-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+function submitEmail(source) {
+  // Legacy fallback - not used with Mailchimp forms
+  console.log("submitEmail called", source);
 }
+
+// Allow Enter key on email inputs
+document.querySelectorAll('input[type="email"]').forEach(input => {
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const source = input.id.includes('hero') ? 'hero' : 'cta';
+      submitEmail(source);
+    }
+  });
+});
 </script>
+
 </body>
 </html>
