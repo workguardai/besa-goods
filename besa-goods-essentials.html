@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Essentials — Besa Goods</title>
+<meta name="description" content="The teapots we recommend for brewing Albanian mountain tea. Handpicked by Besa Goods.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:     #FAF7F2;
+  --parchment: #F2EAD8;
+  --warm-tan:  #E8D5B0;
+  --bark:      #C4935A;
+  --earth:     #8B5E2A;
+  --forest:    #2D4A1E;
+  --moss:      #4A6A2E;
+  --sage:      #7A9A5C;
+  --gold:      #C49A3C;
+  --gold2:     #DDB94E;
+  --charcoal:  #1E1A14;
+  --ink:       #2C2416;
+  --muted:     #7A6A54;
+  --light:     #A89880;
+  --border:    rgba(139,94,42,0.15);
+  --border2:   rgba(139,94,42,0.30);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0; opacity:0.6;
+}
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 3rem; height:64px;
+  background:rgba(250,247,242,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.logo-box {
+  width:34px; height:34px; background:var(--forest); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:16px;
+}
+.logo-name { font-size:1rem; font-weight:700; color:var(--forest); letter-spacing:0.04em; }
+.logo-name span { color:var(--bark); }
+.nav-back {
+  font-size:0.72rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--muted); text-decoration:none;
+  display:flex; align-items:center; gap:6px; transition:color 0.2s;
+}
+.nav-back:hover { color:var(--forest); }
+
+/* HERO */
+.hero {
+  padding: 120px 3rem 64px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow {
+  font-size:0.68rem; font-weight:600; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--sage); margin-bottom:1rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--forest);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+.hero h1 em { font-style:italic; font-weight:300; color:var(--bark); }
+.hero p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+.divider {
+  display:flex; align-items:center; gap:16px;
+  max-width:400px; margin:0 auto 64px;
+}
+.divider-line { flex:1; height:1px; background:var(--border2); }
+.divider-mark { color:var(--gold); font-size:14px; }
+
+/* PRODUCTS */
+.products {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(45,74,30,0.12);
+}
+
+.card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--parchment);
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s;
+}
+.card:hover .card-img-wrap img {
+  transform: scale(1.04);
+}
+.card-badge {
+  position:absolute; top:14px; left:14px;
+  background:var(--forest); color:#fff;
+  font-size:0.58rem; font-weight:600; letter-spacing:0.18em;
+  text-transform:uppercase; padding:5px 12px; border-radius:999px;
+}
+
+.card-body {
+  padding: 22px 22px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-stars {
+  display:flex; align-items:center; gap:6px; margin-bottom:10px;
+}
+.stars { color:var(--gold); font-size:12px; letter-spacing:1px; }
+.reviews { font-size:0.68rem; color:var(--light); }
+
+.card-name {
+  font-size:0.95rem; font-weight:600; line-height:1.3;
+  color:var(--forest); margin-bottom:10px;
+}
+
+.card-desc {
+  font-size:0.78rem; color:var(--muted); line-height:1.8;
+  flex:1; margin-bottom:16px;
+}
+
+.card-why {
+  background:rgba(122,154,92,0.08);
+  border-left:2px solid var(--sage);
+  padding:9px 13px;
+  font-size:0.72rem; color:var(--moss);
+  font-style:italic; line-height:1.6;
+  margin-bottom:20px;
+  border-radius:0 3px 3px 0;
+}
+
+.card-footer {
+  display:flex; align-items:center;
+  justify-content:space-between; gap:10px;
+}
+.card-price {
+  font-size:1.4rem; font-weight:700; color:var(--forest);
+}
+.card-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--forest); color:#fff;
+  text-decoration:none; padding:10px 16px;
+  border-radius:999px; font-size:0.68rem;
+  font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; transition:background 0.2s;
+  white-space:nowrap;
+}
+.card-btn:hover { background:var(--moss); }
+
+/* WHY SECTION */
+.why {
+  background:var(--forest); color:var(--cream);
+  padding:72px 2rem; text-align:center;
+  position:relative; z-index:1;
+}
+.why .section-eyebrow {
+  font-size:0.68rem; font-weight:600; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--sage); margin-bottom:1rem;
+}
+.why h2 {
+  font-size:clamp(1.6rem,4vw,2.6rem); font-weight:800;
+  line-height:1.1; letter-spacing:-0.02em; margin-bottom:1rem;
+}
+.why h2 em { font-style:italic; font-weight:300; color:var(--bark); }
+.why p {
+  font-size:0.88rem; color:rgba(250,247,242,0.65);
+  line-height:1.9; max-width:500px; margin:0 auto 48px;
+}
+.why-steps {
+  display:flex; justify-content:center; gap:48px; flex-wrap:wrap;
+  max-width:660px; margin:0 auto;
+}
+.why-step { max-width:180px; }
+.why-step-num {
+  font-size:3rem; font-weight:800; color:var(--gold);
+  line-height:1; margin-bottom:10px; letter-spacing:-0.04em;
+}
+.why-step p { font-size:0.78rem; color:rgba(250,247,242,0.6); line-height:1.7; }
+
+/* CTA */
+.tea-cta {
+  background:var(--parchment);
+  border-top:1px solid var(--border);
+  padding:64px 2rem; text-align:center;
+  position:relative; z-index:1;
+}
+.tea-cta h3 {
+  font-size:clamp(1.4rem,3vw,2rem); font-weight:800;
+  color:var(--forest); letter-spacing:-0.02em; margin-bottom:10px;
+}
+.tea-cta p {
+  font-size:0.85rem; color:var(--muted);
+  margin-bottom:24px; line-height:1.8;
+}
+.tea-cta-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--forest); color:#fff;
+  text-decoration:none; padding:13px 28px; border-radius:999px;
+  font-size:0.78rem; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; transition:background 0.2s;
+}
+.tea-cta-btn:hover { background:var(--moss); }
+
+/* DISCLOSURE */
+.disclosure {
+  background:var(--cream); border-top:1px solid var(--border);
+  padding:24px; text-align:center;
+  font-size:0.68rem; color:var(--light); line-height:1.7;
+  position:relative; z-index:1;
+}
+
+/* FOOTER */
+footer {
+  background:var(--charcoal); color:rgba(250,247,242,0.4);
+  padding:32px 2rem; text-align:center;
+  font-size:0.72rem; letter-spacing:0.05em;
+  position:relative; z-index:1;
+}
+footer a { color:rgba(250,247,242,0.4); text-decoration:none; }
+footer a:hover { color:var(--cream); }
+
+@media(max-width:900px) {
+  .products { grid-template-columns:1fr; max-width:480px; }
+  nav { padding:0 1.5rem; }
+  .hero { padding:100px 1.5rem 48px; }
+  .why-steps { gap:32px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.besagoods.com" class="nav-logo">
+    <div class="logo-box">🌿</div>
+    <span class="logo-name">Besa <span>&</span> Goods</span>
+  </a>
+  <a href="https://www.besagoods.com" class="nav-back">← Back to shop</a>
+</nav>
+
+<div class="hero">
+  <p class="hero-eyebrow">Brew Essentials</p>
+  <h1>The right teapot for <em>Albanian mountain tea</em></h1>
+  <p>Our tea comes from high altitudes and wild meadows. It deserves to be brewed slowly, in something that holds heat properly. These are the three we recommend — all under €35, all ships to Spain.</p>
+</div>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-mark">✦</span>
+  <div class="divider-line"></div>
+</div>
+
+<div class="products">
+
+  <!-- Card 1 — Green Teapot -->
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="https://workguardai.github.io/besa-goods/teapot-green.png" alt="Green cast iron teapot pouring tea">
+      <span class="card-badge">Best Seller</span>
+    </div>
+    <div class="card-body">
+      <div class="card-stars">
+        <span class="stars">★★★★★</span>
+        <span class="reviews">4.5 · 2,500 reviews</span>
+      </div>
+      <div class="card-name">Sotya Cast Iron Teapot — Forest Green, 30oz</div>
+      <p class="card-desc">Enameled interior, stainless steel infuser, stovetop safe. The forest green finish is stunning alongside natural herbs. One of the most popular cast iron teapots on Amazon Europe.</p>
+      <div class="card-why">"The colour is beautiful with dried mountain tea. A pleasure to use every morning."</div>
+      <div class="card-footer">
+        <span class="card-price">€27.40</span>
+        <a href="https://amzn.to/4fapJCQ" target="_blank" rel="nofollow sponsored" class="card-btn">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2 — Black Set -->
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="https://workguardai.github.io/besa-goods/teapot-black.png" alt="Black cast iron teapot set with cups">
+      <span class="card-badge">Complete Set</span>
+    </div>
+    <div class="card-body">
+      <div class="card-stars">
+        <span class="stars">★★★★★</span>
+        <span class="reviews">4.6 · 542 reviews</span>
+      </div>
+      <div class="card-name">Cast Iron Teapot Set — 700ml with 2 Cups & Trivet</div>
+      <p class="card-desc">Hammered hobnail design, fully enameled interior. Comes complete with two cast iron cups and a trivet. Everything you need to serve properly — beautiful as a gift.</p>
+      <div class="card-why">"Beautiful on the table. The cups are exactly the right size for a strong Albanian brew."</div>
+      <div class="card-footer">
+        <span class="card-price">€34.96</span>
+        <a href="https://amzn.to/4whflzk" target="_blank" rel="nofollow sponsored" class="card-btn">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3 — Hemp Handle -->
+  <div class="card">
+    <div class="card-img-wrap">
+      <img src="https://workguardai.github.io/besa-goods/teapot-hemp.png" alt="Cast iron teapot with hemp rope handle pouring tea">
+      <span class="card-badge">Our Pick</span>
+    </div>
+    <div class="card-body">
+      <div class="card-stars">
+        <span class="stars">★★★★★</span>
+        <span class="reviews">4.3 · 2,800 reviews</span>
+      </div>
+      <div class="card-name">Japanese Tetsubin Cast Iron Teapot — 22oz</div>
+      <p class="card-desc">Hemp rope handle stays cool while pouring. Enameled interior, stainless steel infuser, stovetop safe. Amazon's Overall Pick — 300+ sold last month. The most affordable of the three.</p>
+      <div class="card-why">"The hemp handle is a lovely detail. Pours perfectly — no drips, holds heat for a long time."</div>
+      <div class="card-footer">
+        <span class="card-price">€22.71</span>
+        <a href="https://amzn.to/4wOAQXV" target="_blank" rel="nofollow sponsored" class="card-btn">View on Amazon →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="why">
+  <p class="section-eyebrow">Why cast iron</p>
+  <h2>Brew it the way it <em>deserves</em></h2>
+  <p>Albanian mountain tea is brewed at lower temperatures than black tea and benefits from slow, even heat. Cast iron holds temperature longer than ceramic or glass — which means a better, smoother cup every time.</p>
+  <div class="why-steps">
+    <div class="why-step">
+      <div class="why-step-num">1</div>
+      <p>Heat the pot with boiling water first, then empty it before brewing</p>
+    </div>
+    <div class="why-step">
+      <div class="why-step-num">2</div>
+      <p>Add one heaped teaspoon per cup and brew for 5–7 minutes</p>
+    </div>
+    <div class="why-step">
+      <div class="why-step-num">3</div>
+      <p>Pour slowly. No milk. A small drop of honey if you like</p>
+    </div>
+  </div>
+</div>
+
+<div class="tea-cta">
+  <h3>Get the tea to go with it</h3>
+  <p>Wild-harvested Albanian mountain tea. No additives, no blends.<br>Just the mountain, the herb, and the morning.</p>
+  <a href="https://www.besagoods.com" class="tea-cta-btn">Shop Besa Goods Tea →</a>
+</div>
+
+<div class="disclosure">
+  As an Amazon Associate, Besa Goods earns from qualifying purchases.<br>
+  Clicking the links above takes you to Amazon.com. We earn a small commission at no extra cost to you.
+</div>
+
+<footer>
+  <p>© 2026 Besa Goods · <a href="https://www.besagoods.com">besagoods.com</a> · Rooted in Albania.</p>
+</footer>
+
+</body>
+</html>
