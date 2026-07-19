@@ -558,10 +558,14 @@ body.sq .sq-inline { display:inline !important; }
 body.sq .en-inline { display:none !important; }
 
 .teapot-section span.en { display: inline; }
-.coffee-section span.coffee-en { display: inline; }
-.coffee-section span.coffee-sq { display: none; }
-body.sq .coffee-section span.coffee-en { display: none; }
-body.sq .coffee-section span.coffee-sq { display: inline; }
+.coffee-en { display: block; }
+.coffee-sq { display: none; }
+body.sq .coffee-en { display: none; }
+body.sq .coffee-sq { display: block; }
+.coffee-section a .coffee-en,
+.coffee-section a .coffee-sq { display: inline; }
+body.sq .coffee-section a .coffee-en { display: none; }
+body.sq .coffee-section a .coffee-sq { display: inline; }
 .teapot-section span.sq { display: none; }
 body.sq .teapot-section span.en { display: none; }
 body.sq .teapot-section span.sq { display: inline; }
@@ -694,18 +698,17 @@ body.sq .teapot-section span.sq { display: inline; }
     <span class="logo-name">Besa <span>&</span> Goods</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/essentials">Brew Essentials</a></li>
-    <li><a href="#teas" class="en">Our Teas</a><a href="#teas" class="sq" style="display:none">Çajrat Tona</a></li>
-    <li><a href="#origin" class="en">Origin</a><a href="#origin" class="sq" style="display:none">Origjina</a></li>
-    <li><a href="#preorder" class="en">Order Now</a><a href="#preorder" class="sq" style="display:none">Porosit</a></li>
+    <li><a href="/essentials"><span class="en">Brew Essentials</span><span class="sq" style="display:none">Aksesorë</span></a></li>
+    <li><a href="#teas"><span class="en">Our Teas</span><span class="sq" style="display:none">Çajrat Tona</span></a></li>
+    <li><a href="#origin"><span class="en">Origin</span><span class="sq" style="display:none">Origjina</span></a></li>
+    <li><a href="#preorder"><span class="en">Order Now</span><span class="sq" style="display:none">Porosit</span></a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:1rem;">
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('sq')">SQ</button>
     </div>
-    <a href="#preorder" class="nav-preorder en">Order Now</a>
-    <a href="#preorder" class="nav-preorder sq" style="display:none">Porosit Tani</a>
+    <a href="#preorder" class="nav-preorder"><span class="en">Order Now</span><span class="sq" style="display:none">Porosit Tani</span></a>
   </div>
 </nav>
 
@@ -1497,15 +1500,23 @@ body.sq .teapot-section span.sq { display: inline; }
 <script>
 // ── LANGUAGE TOGGLE ──
 function setLang(lang) {
+  var isSq = lang === 'sq';
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  document.body.classList.toggle('sq', lang === 'sq');
-  // Toggle language spans in teapot section
-  document.querySelectorAll('.teapot-section .en, .teapot-section span.en').forEach(el => {
-    el.style.display = lang === 'sq' ? 'none' : '';
+  document.body.classList.toggle('sq', isSq);
+  // Toggle ALL .en and .sq spans across the entire page
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = isSq ? 'none' : '';
   });
-  document.querySelectorAll('.teapot-section .sq, .teapot-section span.sq').forEach(el => {
-    el.style.display = lang === 'sq' ? '' : 'none';
+  document.querySelectorAll('.sq').forEach(el => {
+    el.style.display = isSq ? '' : 'none';
+  });
+  // Toggle coffee section specific classes
+  document.querySelectorAll('.coffee-en').forEach(el => {
+    el.style.display = isSq ? 'none' : '';
+  });
+  document.querySelectorAll('.coffee-sq').forEach(el => {
+    el.style.display = isSq ? '' : 'none';
   });
 }
 
