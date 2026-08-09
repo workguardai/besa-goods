@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18368007697"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18368007697');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Besa Goods — Albanian Mountain Tea | Çaj Mali | Buy Online</title>
 <meta name="description" content="Authentic Albanian mountain tea (çaj mali), wild-harvested from the Albanian Alps. No additives, no blends. In stock now. Shipped across Europe from Madrid.">
@@ -22,6 +30,9 @@
 <meta property="og:url" content="https://www.besagoods.com/">
 <meta property="og:title" content="Besa Goods — Albanian Mountain Tea | Çaj Mali">
 <meta property="og:description" content="Authentic Albanian mountain tea, wild-harvested from the Albanian Alps. No additives, no blends. Shipped across Europe.">
+<meta property="og:image" content="https://workguardai.github.io/besa-goods/albanian-tea.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="sq_AL">
 <meta property="og:locale:alternate" content="it_IT">
@@ -31,6 +42,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Besa Goods — Albanian Mountain Tea">
 <meta name="twitter:description" content="Wild-harvested çaj mali from the Albanian Alps. No additives, no blends. Shipped across Europe.">
+<meta name="twitter:image" content="https://workguardai.github.io/besa-goods/albanian-tea.png">
 
 <!-- Structured Data — tells Google exactly what this business sells -->
 <script type="application/ld+json">
@@ -41,7 +53,7 @@
   "description": "Authentic wild-harvested Albanian mountain tea (Sideritis scardica) from the Albanian Alps. Gathered by local families at altitudes above 1,200m. No additives, no blends, naturally caffeine-free.",
   "brand": {"@type": "Brand", "name": "Besa Goods"},
   "url": "https://www.besagoods.com",
-  "image": "https://workguardai.github.io/besa-goods/teapot-green.png",
+  "image": "https://workguardai.github.io/besa-goods/albanian-tea.png",
   "sku": "BGMT-001",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -589,6 +601,30 @@ body.sq .teapot-section span.sq { display: inline; }
   .origin-grid { grid-template-columns:1fr; }
   .mountain-scene { display:none; }
   footer { padding:2rem 1.5rem; flex-direction:column; text-align:center; }
+  /* Teapot showcase — stack to 1 column on mobile */
+  .teapot-section [style*="grid-template-columns:repeat(3"] { grid-template-columns:1fr !important; }
+  .teapot-section [style*="aspect-ratio:3/4"] { aspect-ratio:4/3 !important; }
+  /* Coffee section — 2 columns on mobile */
+  .coffee-section [style*="grid-template-columns:repeat(4"] { grid-template-columns:1fr 1fr !important; }
+  .coffee-section [style*="aspect-ratio:3/4"] { aspect-ratio:1/1 !important; }
+  /* Buttons in showcase — always visible, full width */
+  .teapot-section a[style*="border-radius:999px"],
+  .coffee-section a[style*="border-radius:999px"] {
+    position:static !important;
+    display:inline-flex !important;
+    margin-top:8px;
+    font-size:0.55rem !important;
+    padding:6px 10px !important;
+  }
+  /* Card info always visible on mobile */
+  .teapot-section [style*="position:absolute; bottom:0"] { position:relative !important; background:rgba(30,26,20,0.9); }
+  .teapot-section [style*="position:absolute; inset:0"] { display:none !important; }
+}
+
+@media(max-width:480px){
+  .coffee-section [style*="grid-template-columns:repeat(4"] { grid-template-columns:1fr !important; }
+  .teapot-section [style*="padding:40px 2rem 28px"] { padding:24px 1rem 16px !important; }
+  .coffee-section [style*="padding:40px 2rem 28px"] { padding:24px 1rem 16px !important; }
 }
 
 /* ── COMING SOON OVERLAY ── */
@@ -1052,133 +1088,10 @@ body.sq .teapot-section span.sq { display: inline; }
 
   <!-- ── HERO RIGHT: Botanical illustration ── -->
   <div class="hero-right">
-    <div class="illustration-frame">
-
-      <!-- Albanian eagle watermark -->
-      <svg class="eagle-bg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M100 20 L120 60 L160 50 L140 80 L170 100 L140 110 L150 150 L120 130 L100 160 L80 130 L50 150 L60 110 L30 100 L60 80 L40 50 L80 60 Z"
-          fill="var(--forest)" opacity="0.15"/>
-      </svg>
-
-      <!-- Main botanical SVG illustration -->
-      <svg class="botanical-main" viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- Main stem -->
-        <path d="M190 440 C190 440 188 380 185 320 C182 260 180 200 182 140 C184 100 188 80 190 60"
-          stroke="#4A6A2E" stroke-width="2.5" stroke-linecap="round"/>
-
-        <!-- Roots -->
-        <path d="M190 440 C175 450 155 455 140 452" stroke="#8B5E2A" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-        <path d="M190 440 C205 450 225 455 240 452" stroke="#8B5E2A" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-        <path d="M190 440 C180 460 170 470 158 472" stroke="#8B5E2A" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
-
-        <!-- Branch left 1 (low) -->
-        <path d="M186 360 C170 350 148 342 126 338" stroke="#4A6A2E" stroke-width="1.8" stroke-linecap="round"/>
-        <!-- Leaves on branch left 1 -->
-        <ellipse cx="126" cy="335" rx="18" ry="9" fill="#4A6A2E" opacity="0.7" transform="rotate(-15 126 335)"/>
-        <ellipse cx="142" cy="340" rx="14" ry="7" fill="#5A7A3E" opacity="0.6" transform="rotate(-20 142 340)"/>
-        <ellipse cx="158" cy="344" rx="12" ry="6" fill="#6A8A4E" opacity="0.55" transform="rotate(-10 158 344)"/>
-
-        <!-- Branch right 1 -->
-        <path d="M187 340 C203 328 226 318 250 312" stroke="#4A6A2E" stroke-width="1.8" stroke-linecap="round"/>
-        <ellipse cx="250" cy="309" rx="18" ry="9" fill="#4A6A2E" opacity="0.7" transform="rotate(18 250 309)"/>
-        <ellipse cx="234" cy="313" rx="14" ry="7" fill="#5A7A3E" opacity="0.6" transform="rotate(12 234 313)"/>
-        <ellipse cx="218" cy="317" rx="11" ry="5.5" fill="#6A8A4E" opacity="0.55" transform="rotate(8 218 317)"/>
-
-        <!-- Branch left 2 -->
-        <path d="M184 290 C166 278 144 268 118 262" stroke="#4A6A2E" stroke-width="1.6" stroke-linecap="round"/>
-        <ellipse cx="118" cy="259" rx="16" ry="8" fill="#3A5A1E" opacity="0.65" transform="rotate(-22 118 259)"/>
-        <ellipse cx="134" cy="263" rx="13" ry="6.5" fill="#4A6A2E" opacity="0.6" transform="rotate(-14 134 263)"/>
-        <ellipse cx="150" cy="267" rx="10" ry="5" fill="#5A7A3E" opacity="0.55" transform="rotate(-8 150 267)"/>
-
-        <!-- Branch right 2 -->
-        <path d="M186 268 C204 254 228 244 256 238" stroke="#4A6A2E" stroke-width="1.6" stroke-linecap="round"/>
-        <ellipse cx="256" cy="235" rx="16" ry="8" fill="#3A5A1E" opacity="0.65" transform="rotate(25 256 235)"/>
-        <ellipse cx="240" cy="239" rx="12" ry="6" fill="#4A6A2E" opacity="0.6" transform="rotate(16 240 239)"/>
-
-        <!-- Branch left 3 (high) -->
-        <path d="M183 220 C164 206 142 196 114 190" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round"/>
-        <ellipse cx="114" cy="187" rx="15" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(-28 114 187)"/>
-        <ellipse cx="132" cy="191" rx="12" ry="6" fill="#4A6A2E" opacity="0.55" transform="rotate(-18 132 191)"/>
-
-        <!-- Branch right 3 -->
-        <path d="M185 200 C204 186 228 177 258 172" stroke="#3A5A1E" stroke-width="1.5" stroke-linecap="round"/>
-        <ellipse cx="258" cy="169" rx="15" ry="7" fill="#3A5A1E" opacity="0.6" transform="rotate(30 258 169)"/>
-        <ellipse cx="240" cy="173" rx="11" ry="5.5" fill="#4A6A2E" opacity="0.55" transform="rotate(20 240 173)"/>
-
-        <!-- Flowers (yellow — Sideritis blooms) -->
-        <!-- Flower cluster top -->
-        <g opacity="0.85">
-          <!-- Main top flower -->
-          <circle cx="190" cy="56" r="7" fill="#C49A3C"/>
-          <circle cx="190" cy="56" r="3.5" fill="#DDB94E"/>
-          <circle cx="190" cy="56" r="1.5" fill="#8B5E2A"/>
-          <!-- Side blooms -->
-          <circle cx="178" cy="68" r="5.5" fill="#C49A3C" opacity="0.9"/>
-          <circle cx="178" cy="68" r="2.5" fill="#DDB94E"/>
-          <circle cx="202" cy="70" r="5" fill="#C49A3C" opacity="0.85"/>
-          <circle cx="202" cy="70" r="2.2" fill="#DDB94E"/>
-          <circle cx="184" cy="82" r="4.5" fill="#BAA030" opacity="0.8"/>
-          <circle cx="184" cy="82" r="2" fill="#DDB94E"/>
-          <circle cx="197" cy="84" r="4" fill="#C49A3C" opacity="0.75"/>
-          <circle cx="197" cy="84" r="1.8" fill="#DDB94E"/>
-        </g>
-
-        <!-- Small flowers on branches -->
-        <circle cx="124" cy="336" r="4" fill="#C49A3C" opacity="0.7"/>
-        <circle cx="124" cy="336" r="1.8" fill="#DDB94E"/>
-        <circle cx="252" cy="310" r="3.5" fill="#C49A3C" opacity="0.65"/>
-        <circle cx="252" cy="310" r="1.5" fill="#DDB94E"/>
-        <circle cx="116" cy="260" r="3.5" fill="#BAA030" opacity="0.65"/>
-        <circle cx="260" cy="236" r="3" fill="#C49A3C" opacity="0.6"/>
-        <circle cx="112" cy="188" r="3" fill="#BAA030" opacity="0.6"/>
-        <circle cx="260" cy="170" r="3" fill="#C49A3C" opacity="0.55"/>
-
-        <!-- Decorative dots / seeds scattered -->
-        <circle cx="155" cy="420" r="1.5" fill="#8B5E2A" opacity="0.3"/>
-        <circle cx="220" cy="415" r="1" fill="#8B5E2A" opacity="0.25"/>
-        <circle cx="140" cy="410" r="1.2" fill="#8B5E2A" opacity="0.2"/>
-
-        <!-- Ground line -->
-        <line x1="120" y1="445" x2="260" y2="445" stroke="#C4935A" stroke-width="0.8" opacity="0.3"/>
-
-        <!-- Traditional Albanian geometric border element -->
-        <g opacity="0.12" stroke="#2D4A1E" stroke-width="0.8" fill="none">
-          <rect x="40" y="40" width="300" height="400" rx="4"/>
-          <rect x="48" y="48" width="284" height="384" rx="2"/>
-          <!-- Corner ornaments -->
-          <path d="M40 70 L55 55 L70 40"/>
-          <path d="M310 70 L325 55 L340 40"/>
-          <path d="M40 410 L55 425 L70 440"/>
-          <path d="M310 410 L325 425 L340 440"/>
-        </g>
-
-        <!-- Label -->
-        <text x="190" y="472" text-anchor="middle"
-          font-family="Poppins,sans-serif" font-size="10"
-          font-weight="500" fill="#8B5E2A" letter-spacing="3" opacity="0.6">
-          ÇAJMALI
-        </text>
-
-      </svg>
-
-      <!-- Floating detail cards -->
-      <div class="detail-card card-1">
-        <div class="card-label en">Altitude</div>
-        <div class="card-label sq" style="display:none">Lartësia</div>
-        <div class="card-val">1,200 – 1,600m</div>
-        <div class="card-sub en">Albanian Alps</div>
-        <div class="card-sub sq" style="display:none">Alpet Shqiptare</div>
-      </div>
-
-      <div class="detail-card card-2">
-        <div class="card-label en">Wild harvested</div>
-        <div class="card-label sq" style="display:none">Mbledhur në natyrë</div>
-        <div class="card-val en">June – August</div>
-        <div class="card-val sq" style="display:none">Qershor – Gusht</div>
-        <div class="card-sub">Sideritis scardica</div>
-      </div>
-
+    <div class="illustration-frame" style="position:relative; overflow:hidden; border-radius:4px; height:100%;">
+      <img src="https://workguardai.github.io/besa-goods/albanian-tea.png" alt="Albanian mountain tea — çaj mali wild harvested"
+        style="width:100%; height:100%; object-fit:cover; object-position:center; display:block; border-radius:4px;">
+      <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(30,26,20,0.4) 0%, transparent 60%); pointer-events:none; border-radius:4px;"></div>
     </div>
   </div>
 </section>
@@ -1229,7 +1142,13 @@ body.sq .teapot-section span.sq { display: inline; }
   <div class="teas-grid">
 
     <!-- Tea 1 -->
-    <div class="tea-card">
+    <div class="tea-card" style="overflow:hidden; padding:0;">
+      <div style="width:100%; aspect-ratio:4/3; overflow:hidden;">
+        <img src="https://workguardai.github.io/besa-goods/albanian-tea.png" alt="Albanian mountain tea çaj mali"
+          style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 0.4s;"
+          onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+      <div style="padding:1.5rem;">
       <div class="tea-illustration tea-1-bg">
         <svg viewBox="0 0 260 240" width="260" height="240" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Cup -->
@@ -1474,6 +1393,10 @@ body.sq .teapot-section span.sq { display: inline; }
   </div>
   <p class="cta-note en">Limited first batch — order now while stock lasts</p>
   <p class="cta-note sq" style="display:none">Sasi e kufizuar — porosnit tani ndërsa ka stok</p>
+  <p style="font-size:0.72rem; color:var(--sage); margin-top:8px; font-weight:500;">
+    <span class="en">🚚 Free shipping on orders over €50</span>
+    <span class="sq" style="display:none">🚚 Dërgim falas për porosi mbi €50</span>
+  </p>
 
   <div style="margin-top:1.5rem; display:inline-block;">
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
@@ -1559,4 +1482,4 @@ document.querySelectorAll('input[type="email"]').forEach(input => {
 </script>
 
 </body>
-</html>
+</html></div>
