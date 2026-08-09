@@ -295,14 +295,15 @@ footer a:hover { color:var(--cream); }
   <div style="display:flex;align-items:center;gap:12px;">
     <button onclick="setLang('en')" id="btn-en" style="background:none;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--sage);cursor:pointer;letter-spacing:0.05em;padding:4px 8px;border-radius:4px;background:rgba(92,107,74,0.12);">EN</button>
     <button onclick="setLang('sq')" id="btn-sq" style="background:none;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;letter-spacing:0.05em;padding:4px 8px;">SQ</button>
+    <button onclick="setLang('de')" id="btn-de" style="background:none;border:none;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;letter-spacing:0.05em;padding:4px 8px;">DE</button>
     <a href="https://www.besagoods.com" class="nav-back"><span class="en">← Back to shop</span><span class="sq" style="display:none">← Kthehu në dyqan</span></a>
   </div>
 </nav>
 
 <div class="hero">
-  <p class="hero-eyebrow"><span class="en">Brew Essentials</span><span class="sq" style="display:none">Aksesorët e Çajit</span></p>
-  <h1>The right teapot for <em>Albanian mountain tea</em></h1>
-  <p>Our tea comes from high altitudes and wild meadows. It deserves to be brewed slowly, in something that holds heat properly. These are the three we recommend — all under €35, all ships to Spain.</p>
+  <p class="hero-eyebrow"><span class="en">Brew Essentials</span><span class="sq" style="display:none">Aksesorët e Çajit</span><span class="de" style="display:none">Tee-Zubehör</span></p>
+  <h1><span class="en">The right teapot for <em>Albanian mountain tea</em></span><span class="sq" style="display:none">Çajniku i duhur për <em>çaj mali shqiptar</em></span><span class="de" style="display:none">Die richtige Teekanne für <em>albanischen Bergtee</em></span></h1>
+  <p><span class="en">Our tea comes from high altitudes and wild meadows. It deserves to be brewed slowly, in something that holds heat properly. These are the three we recommend.</span><span class="sq" style="display:none">Çaji ynë vjen nga lartësitë e egra. Meriton të bëhet ngadalë, në diçka që mban nxehtësinë. Këto janë tre rekomandimet tona.</span><span class="de" style="display:none">Unser Tee kommt aus wilden Hochlagen. Er verdient es, langsam gebrüht zu werden. Das sind unsere drei Empfehlungen.</span></p>
 </div>
 
 <div class="divider">
@@ -505,9 +506,9 @@ footer a:hover { color:var(--cream); }
 </div>
 
 <div class="tea-cta">
-  <h3><span class="en">Get the tea to go with it</span><span class="sq" style="display:none">Merrni çajin për ta shoqëruar</span></h3>
+  <h3><span class="en">Get the tea to go with it</span><span class="sq" style="display:none">Merrni çajin për ta shoqëruar</span><span class="de" style="display:none">Hol dir den passenden Tee dazu</span></h3>
   <p><span class="en">Wild-harvested Albanian mountain tea. No additives, no blends.<br>Just the mountain, the herb, and the morning.</span><span class="sq" style="display:none">Çaj mali shqiptar i mbledhur në mënyrë të egër. Pa aditivë, pa përzierje.<br>Vetëm mali, bari dhe mëngjesi.</span></p>
-  <a href="https://www.besagoods.com" class="tea-cta-btn"><span class="en">Shop Besa Goods Tea →</span><span class="sq" style="display:none">Bli Çajin e Besa Goods →</span></a>
+  <a href="https://www.besagoods.com" class="tea-cta-btn"><span class="en">Shop Besa Goods Tea →</span><span class="sq" style="display:none">Bli Çajin e Besa Goods →</span><span class="de" style="display:none">Besa Goods Tee kaufen →</span></a>
 </div>
 
 <div class="disclosure">
@@ -522,16 +523,28 @@ footer a:hover { color:var(--cream); }
 
 <script>
 function setLang(lang) {
-  var isSq = lang === 'sq';
-  document.body.classList.toggle('sq', isSq);
   // Update button styles
-  var btnEn = document.getElementById('btn-en');
-  var btnSq = document.getElementById('btn-sq');
-  if(btnEn) { btnEn.style.color = isSq ? '#7A6A54' : '#5C6B4A'; btnEn.style.background = isSq ? 'none' : 'rgba(92,107,74,0.12)'; btnEn.style.fontWeight = isSq ? '400' : '700'; }
-  if(btnSq) { btnSq.style.color = isSq ? '#5C6B4A' : '#7A6A54'; btnSq.style.background = isSq ? 'rgba(92,107,74,0.12)' : 'none'; btnSq.style.fontWeight = isSq ? '700' : '400'; }
-  // Toggle all .en and .sq elements
-  document.querySelectorAll('.en').forEach(function(el) { el.style.display = isSq ? 'none' : ''; });
-  document.querySelectorAll('.sq').forEach(function(el) { el.style.display = isSq ? '' : 'none'; });
+  ['en','sq','de'].forEach(function(l) {
+    var btn = document.getElementById('btn-'+l);
+    if(btn) {
+      btn.style.color = lang === l ? '#5C6B4A' : '#7A6A54';
+      btn.style.background = lang === l ? 'rgba(92,107,74,0.12)' : 'none';
+      btn.style.fontWeight = lang === l ? '700' : '400';
+    }
+  });
+  // Hide all language spans
+  document.querySelectorAll('.en, .sq, .de').forEach(function(el) {
+    el.style.display = 'none';
+  });
+  // Show selected language
+  document.querySelectorAll('.'+lang).forEach(function(el) {
+    el.style.display = '';
+  });
+  // Fallback: if no span for this lang, show EN
+  document.querySelectorAll('.en').forEach(function(el) {
+    var parent = el.parentElement;
+    if(parent && !parent.querySelector('.'+lang)) el.style.display = '';
+  });
 }
 </script>
 </body>
