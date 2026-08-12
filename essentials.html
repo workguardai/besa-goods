@@ -479,29 +479,34 @@ footer a:hover { color:var(--cream); }
       </div>
 
     </div>
-    <p style="text-align:center; font-size:11px; color:rgba(255,255,255,0.25); margin-top:20px;">
-      <span class="en">As an Amazon Associate, Besa Goods earns from qualifying purchases.</span>
-      <span class="sq" style="display:none">Si anëtar i Amazon Associates, Besa Goods fiton nga blerjet e kualifikuara.</span><span class="de" style="display:none">Als Amazon-Partner verdient Besa Goods an qualifizierten Käufen.</span>
-    </p>
+    
   </div>
 </div>
 
 <div class="why">
   <p class="section-eyebrow">Why cast iron</p>
-  <h2>Brew it the way it <em>deserves</em></h2>
-  <p>Albanian mountain tea is brewed at lower temperatures than black tea and benefits from slow, even heat. Cast iron holds temperature longer than ceramic or glass — which means a better, smoother cup every time.</p>
+  <h2>
+    <span class="en">Brew it the way it <em>deserves</em></span>
+    <span class="sq" style="display:none">Bëjeni siç <em>meriton</em></span>
+    <span class="de" style="display:none">Brühe es so, wie es <em>verdient</em></span>
+  </h2>
+  <p>
+    <span class="en">Albanian mountain tea is brewed at lower temperatures than black tea and benefits from slow, even heat. Cast iron holds temperature longer than ceramic or glass — which means a better, smoother cup every time.</span>
+    <span class="sq" style="display:none">Çaji i malit shqiptar bëhet në temperatura më të ulëta dhe përfiton nga nxehtësia e ngadaltë dhe e barabartë. Hekuri mban temperaturën më gjatë se qeramika apo qelqi.</span>
+    <span class="de" style="display:none">Albanischer Bergtee wird bei niedrigeren Temperaturen gebrüht und profitiert von gleichmäßiger Wärme. Gusseisen hält die Temperatur länger als Keramik oder Glas — für eine bessere, weichere Tasse.</span>
+  </p>
   <div class="why-steps">
     <div class="why-step">
       <div class="why-step-num">1</div>
-      <p><span class="en">Heat the pot with boiling water first, then empty it before brewing</span><span class="sq" style="display:none">Ngroheni çajnikun me ujë të vluar fillimisht, pastaj zbrazeni</span><span class="de" style="display:none">Kanne zuerst mit kochendem Wasser aufwärmen, dann leeren</span></p>
+      <p><span class="en">Heat the pot with boiling water first, then empty it before brewing</span><span class="sq" style="display:none">Ngroheni çajnikun me ujë të vluar fillimisht, pastaj zbrazeni</span><span class="de" style="display:none">Kanne zuerst mit kochendem Wasser aufwärmen, dann leeren</span><span class="de" style="display:none">Kanne zuerst mit kochendem Wasser aufwärmen, dann leeren</span></p>
     </div>
     <div class="why-step">
       <div class="why-step-num">2</div>
-      <p><span class="en">Add one heaped teaspoon per cup and brew for 5–7 minutes</span><span class="sq" style="display:none">Shtoni një lugë çaji të grumbulluar për filxhan dhe lini 5–7 minuta</span><span class="de" style="display:none">Einen gehäuften Teelöffel pro Tasse hinzufügen und 5–7 Minuten ziehen lassen</span></p>
+      <p><span class="en">Add one heaped teaspoon per cup and brew for 5–7 minutes</span><span class="sq" style="display:none">Shtoni një lugë çaji të grumbulluar për filxhan dhe lini 5–7 minuta</span><span class="de" style="display:none">Einen gehäuften Teelöffel pro Tasse, 5–7 Minuten ziehen lassen</span><span class="de" style="display:none">Einen gehäuften Teelöffel pro Tasse hinzufügen und 5–7 Minuten ziehen lassen</span></p>
     </div>
     <div class="why-step">
       <div class="why-step-num">3</div>
-      <p><span class="en">Pour slowly. No milk. A small drop of honey if you like</span><span class="sq" style="display:none">Hidheni ngadalë. Pa qumësht. Pak mjaltë nëse dëshironi</span><span class="de" style="display:none">Langsam eingießen. Keine Milch. Ein Tropfen Honig nach Belieben</span></p>
+      <p><span class="en">Pour slowly. No milk. A small drop of honey if you like</span><span class="sq" style="display:none">Hidheni ngadalë. Pa qumësht. Pak mjaltë nëse dëshironi</span><span class="de" style="display:none">Langsam eingießen. Keine Milch. Ein Tropfen Honig nach Belieben</span><span class="de" style="display:none">Langsam eingießen. Keine Milch. Ein Tropfen Honig nach Belieben</span></p>
     </div>
   </div>
 </div>
@@ -538,7 +543,16 @@ function setLang(lang) {
     var parent = el.parentElement;
     if(parent && !parent.querySelector('.'+lang)) el.style.display = '';
   });
+  try { localStorage.setItem('besa_lang', lang); } catch(e) {}
 }
+
+// Apply saved language on page load
+(function(){
+  try {
+    var saved = localStorage.getItem('besa_lang');
+    if(saved) setLang(saved);
+  } catch(e) {}
+})();
 
 </script>
 </body>
