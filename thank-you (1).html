@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Besa Goods</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18368007697"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18368007697');
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(135deg, #F4E9D8, #EADCC4);
+      color: #5C4630;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .card {
+      max-width: 480px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 16px;
+      color: #8A7358;
+      line-height: 1.6;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 12px 28px;
+      background: #6B4A32;
+      color: #F4E9D8;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Faleminderit! Thank you.</h1>
+    <p>Your order is confirmed — we're preparing your çaj mali with care. A confirmation email is on its way to you.</p>
+    <a class="button" href="https://besagoods.com/">Back to Besa Goods</a>
+  </div>
+
+  <script>
+    // Reads the session_id URL parameter Stripe sends back on redirect
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+
+    // Fires only when the customer actually completes payment on Stripe
+    if (sessionId) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18368007697/YOUR_CONVERSION_LABEL', // <-- replace YOUR_CONVERSION_LABEL with the real label from Google Ads
+        'value': 12.90,
+        'currency': 'EUR',
+        'transaction_id': sessionId
+      });
+    }
+  </script>
+</body>
+</html>
