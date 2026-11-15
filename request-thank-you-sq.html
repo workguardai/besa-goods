@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sq" data-fixed-lang>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kërkesa u mor — Besa Goods</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/besa.css">
+<script src="assets/besa.js" defer></script>
+<style>
+body { background:linear-gradient(135deg,#F4E9D8,#EADCC4); min-height:100vh; display:flex; flex-direction:column; }
+main { flex:1; display:flex; align-items:center; justify-content:center; padding:3rem 1rem; }
+.card { max-width:560px; width:100%; background:#fff; border:1px solid var(--border2); border-radius:20px; padding:2.25rem 2rem; box-shadow:0 20px 60px rgba(45,74,30,0.10); }
+.check { width:52px; height:52px; border-radius:50%; background:var(--forest); display:flex; align-items:center; justify-content:center; margin-bottom:1.25rem; }
+h1 { font-size:1.7rem; font-weight:700; color:var(--forest); letter-spacing:-0.02em; line-height:1.2; margin-bottom:0.6rem; }
+.lead { font-size:0.95rem; color:var(--muted); line-height:1.7; margin-bottom:1.75rem; }
+.lead strong { color:var(--ink); font-weight:600; }
+h2 { font-size:0.65rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--moss); margin-bottom:0.9rem; }
+ol { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:1.5rem; }
+li { display:flex; gap:12px; font-size:0.86rem; color:var(--ink); line-height:1.6; }
+li strong { color:var(--forest); font-weight:600; }
+.num { flex-shrink:0; width:26px; height:26px; border-radius:50%; background:rgba(45,74,30,0.1); color:var(--forest); font-size:0.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+.help { font-size:0.78rem; color:var(--light); line-height:1.7; margin-bottom:1.5rem; }
+.help a { color:var(--forest); font-weight:500; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; }
+.mini-header { padding:1rem 1.5rem; }
+.site-footer { padding-bottom:2.5rem; }
+@media (max-width:540px) { .card { padding:1.6rem 1.25rem; } h1 { font-size:1.4rem; } .actions .btn { flex:1; } }
+</style>
+<script>
+/* A request is a lead, not a purchase. Fire the Lead events once, only when the
+   visitor arrived here by submitting the request form (not on reloads or direct
+   visits), and only if they accepted cookies. */
+(function () {
+  var sent = false;
+  try { sent = sessionStorage.getItem('besa_request_sent') === '1'; sessionStorage.removeItem('besa_request_sent'); } catch (e) {}
+  if (!sent) return;
+  document.addEventListener('DOMContentLoaded', function () { besa.whenConsented(besa.trackLead); });
+})();
+</script>
+</head>
+<body>
+<header class="mini-header">
+  <a href="./?lang=sq" class="nav-logo" aria-label="Faqja kryesore e Besa Goods">
+    <span class="logo-eagle" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L13 7H17L14 10.5L15.5 15L10 12L4.5 15L6 10.5L3 7H7L10 2Z" fill="white" opacity="0.9"/></svg></span>
+    <span class="logo-name">Besa <span>&amp;</span> Goods</span>
+  </a>
+</header>
+<main>
+  <div class="card">
+    <div class="check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Faleminderit! Kërkesa juaj u dërgua.</h1>
+    <p class="lead">E morëm kërkesën tuaj për çaj. <strong>Nuk është marrë asnjë pagesë.</strong></p>
+    <h2>Çfarë ndodh më pas</h2>
+    <ol>
+      <li><span class="num" aria-hidden="true">1</span><span><strong>Ne konfirmojmë porosinë.</strong> E sigurojmë çajin dhe ju dërgojmë me email çmimin dhe koston e transportit për destinacionin tuaj, zakonisht brenda 1–2 ditëve pune.</span></li>
+      <li><span class="num" aria-hidden="true">2</span><span><strong>Paguani vetëm nëse pranoni,</strong> përmes një lidhjeje të sigurt pagese. Me këtë blerja përfundon.</span></li>
+      <li><span class="num" aria-hidden="true">3</span><span><strong>Dorëzimi zgjat deri në 5 ditë pas pagesës.</strong> Ju dërgojmë me email gjurmimin dhe detajet e mbërritjes.</span></li>
+    </ol>
+    <p class="help">Nuk keni marrë email nga ne brenda 2 ditëve pune? Kontrolloni dosjen e spam-it ose na shkruani te <a href="mailto:besasonos@gmail.com">besasonos@gmail.com</a>.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="./?lang=sq#shop">Kthehu në dyqan</a>
+      <a class="btn btn-outline" href="essentials.html?lang=sq">Aksesorët e çajit</a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Besa <span>&amp;</span> Goods</div>
+    <ul class="footer-links">
+      <li><a href="privacy.html?lang=sq">Privatësia</a></li>
+      <li><button type="button" data-cookie-settings>Cilësimet e cookies</button></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
