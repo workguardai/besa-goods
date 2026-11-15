@@ -239,8 +239,159 @@ def json_ld(lang):
 REDIRECT_JS = """<script>(function(){try{var q=new URLSearchParams(location.search).get('lang'),s=localStorage.getItem('besa_lang'),l=(q==='de'||q==='sq')?q:(!q&&(s==='de'||s==='sq')?s:null);if(!l)return;var m={'/':'','/index.html':'','/essentials':'essentials.html','/essentials.html':'essentials.html','/privacy':'privacy.html','/privacy.html':'privacy.html'},p=m[location.pathname];if(p===undefined)return;location.replace('/'+l+'/'+p+location.hash);}catch(e){}})();</script>"""
 
 
+# ── products from _data/products.json ──────────────────────────────────────
+# Sources contain placeholders that are expanded here, before the language
+# split, into multilingual markup (.en/.sq/.de siblings):
+#   <!-- @amazon-cards category=all|teapots|coffee,accessories [desc=1] [sizes=shop|quarter] -->
+#   <!-- @gift-section -->   <!-- @gift-teaser -->   <!-- @gift-nav href=... -->
+# Gift placeholders render nothing when settings.gift_section_enabled is false.
+PRODUCTS = json.load(open(os.path.join('_data', 'products.json'), encoding='utf-8'))
+SIZES = {'shop': '(max-width:900px) 46vw, 380px', 'quarter': '(max-width:1000px) 46vw, 280px'}
+ORDER = ('en', 'sq', 'de')
+CTA_AMAZON = {'en': 'Check price on Amazon →', 'sq': 'Shiko çmimin në Amazon →', 'de': 'Preis auf Amazon ansehen →'}
+NEW_TAB = {'en': ' (opens in a new tab)', 'sq': ' (hapet në skedë të re)', 'de': ' (öffnet in neuem Tab)'}
+STAR = ('<svg class="folk-star" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">'
+        '<path d="M12 1l2.6 6.3L21 4.6l-2.7 6.4L24 12l-5.7 1 2.7 6.4-6.4-2.7L12 23l-2.6-6.3L3 19.4l2.7-6.4L0 12l5.7-1L3 4.6l6.4 2.7Z" fill="currentColor"/></svg>')
+
+
+def esc(t):
+    return html.escape(t, quote=False)
+
+
+def tri(d, tag='span'):
+    return ''.join(f'<{tag} class="{l}">{esc(d[l])}</{tag}>' for l in ORDER)
+
+
+def amazon_url(p):
+    if p.get('asin'):
+        mkt = p.get('marketplace') or PRODUCTS['settings']['default_marketplace']
+        tag = p.get('tag') or PRODUCTS['settings']['default_tag']
+        return f"https://www.amazon.{mkt}/dp/{p['asin']}?tag={tag}"
+    return p['short_link']   # NEEDS CHECK: keep the old link until the ASIN is confirmed
+
+
+def product_img(p, sizes):
+    alts = ' '.join(f'data-alt-{l}="{html.escape(p["alt"][l])}"' for l in ORDER)
+    return (f'<img src="/images/{p["image"]}.jpg" '
+            f'srcset="/images/{p["image"]}-{"360" if p["image_small_w"] == 360 else "320"}.jpg {p["image_small_w"]}w, '
+            f'/images/{p["image"]}.jpg {p["image_w"]}w" sizes="{SIZES[sizes]}" '
+            f'width="{p["image_w"]}" height="{p["image_h"]}" loading="lazy" decoding="async" '
+            f'alt="{html.escape(p["alt"]["en"])}" {alts}>')
+
+
+def amazon_card(p, desc=False, sizes='shop'):
+    b = p['badge']
+    badge_cls = ('product-badge ' + b.get('style', '')).strip()
+    out = [f'<article class="product" data-cat="{p["category"]}" data-product-id="{p["id"]}">',
+           f'  <div class="product-media">{product_img(p, sizes)}<span class="{badge_cls}">{tri(b)}</span></div>',
+           '  <div class="product-body">',
+           f'    <p class="product-meta">{tri(p["label"])}</p>',
+           f'    <h3 class="product-name">{tri(p["name"])}</h3>']
+    if desc and p.get('desc'):
+        out.append(f'    <p class="product-desc">{tri(p["desc"])}</p>')
+    out.append(f'    <a href="{html.escape(amazon_url(p))}" target="_blank" rel="sponsored nofollow noopener" '
+               f'class="btn btn-amazon btn-sm" data-product-id="{p["id"]}" data-product="{html.escape(p["name"]["en"])}">'
+               f'{tri(CTA_AMAZON)}<span class="visually-hidden">{tri(NEW_TAB)}</span></a>')
+    out += ['  </div>', '</article>']
+    return '\n'.join(out)
+
+
+def own_gift_card(p):
+    b = p['badge']
+    req = {'en': 'Request now →', 'sq': 'Kërko tani →', 'de': 'Jetzt anfragen →'}
+    return '\n'.join([
+        f'<article class="product product-own" data-cat="{p["category"]}" data-product-id="{p["id"]}">',
+        f'  <div class="product-media">{product_img(p, "quarter")}<span class="product-badge {b["style"]}">{tri(b)}</span></div>',
+        '  <div class="product-body">',
+        f'    <p class="product-meta">{tri(p["label"])}</p>',
+        f'    <h3 class="product-name">{tri(p["name"])}</h3>',
+        f'    <p class="product-price">{tri(p["price_text"])}</p>',
+        f'    <p class="gift-note">{tri(p["note"])}</p>',
+        f'    <a href="#request" class="btn btn-primary btn-sm" data-tea="{html.escape(p["request_value"])}">{tri(req)}</a>',
+        '  </div>', '</article>'])
+
+
+def gifts_on():
+    return PRODUCTS['settings'].get('gift_section_enabled', False)
+
+
+def gift_section():
+    if not gifts_on():
+        return ''
+    budgets = PRODUCTS['budgets']
+    chips = ''.join(f'<li><a href="#gifts-{k}">{tri(v)}</a></li>' for k, v in budgets.items())
+    groups = []
+    for key, label in budgets.items():
+        own = [own_gift_card(p) for p in PRODUCTS.get('own_products', []) if p.get('gift') and p.get('gift_budget') == key]
+        amz = [amazon_card(p, sizes='quarter') for p in PRODUCTS['products'] if p.get('gift') and p.get('gift_budget') == key]
+        if not own and not amz:
+            continue
+        groups.append(
+            f'<div class="gift-group" id="gifts-{key}">\n'
+            f'  <h3 class="gift-budget">{STAR}{tri(label)}</h3>\n'
+            f'  <div class="products gift-grid">\n' + '\n'.join(own + amz) + '\n  </div>\n</div>')
+    T = {
+        'eyebrow': {'en': 'Holiday season', 'sq': 'Festat', 'de': 'Festtage'},
+        'sub': {'en': 'Gifts from the Albanian table: our mountain tea, cast-iron teapots and everything for coffee the Albanian way, grouped by budget.',
+                'sq': 'Dhurata nga tryeza shqiptare: çaji ynë i malit, çajnikë hekuri dhe gjithçka për kafenë si në Shqipëri, sipas buxhetit.',
+                'de': 'Geschenke vom albanischen Tisch: unser Bergtee, Gusseisen-Teekannen und alles für Kaffee auf albanische Art, nach Budget sortiert.'},
+        'aff': {'en': 'As an Amazon Associate I earn from qualifying purchases.',
+                'sq': 'Si partner i Amazon, fitoj nga blerjet e kualifikuara.',
+                'de': 'Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.'},
+        'budget_note': {'en': 'Budgets are a rough guide. The price on Amazon applies.',
+                        'sq': 'Buxhetet janë orientuese. Vlen çmimi në Amazon.',
+                        'de': 'Die Budgets sind eine grobe Orientierung. Es gilt der Preis bei Amazon.'},
+    }
+    title = ('<span class="en">Gift <em>ideas</em></span><span class="sq">Ide <em>dhuratash</em></span>'
+             '<span class="de"><em>Geschenkideen</em></span>')
+    return f'''<!-- ── GIFT IDEAS (generated from _data/products.json; hide with settings.gift_section_enabled) ── -->
+<section class="section gifts" id="gifts" aria-labelledby="gifts-title">
+  <div class="section-inner">
+    <p class="section-eyebrow">{STAR}{tri(T["eyebrow"])}{STAR}</p>
+    <h2 class="section-title" id="gifts-title">{title}</h2>
+    <p class="section-sub">{tri(T["sub"])}</p>
+    <ul class="gift-chips" aria-label="Budget">{chips}</ul>
+    <p class="aff-note" role="note">{tri(T["aff"])}</p>
+    {"".join(groups)}
+    <p class="gift-fineprint">{tri(T["budget_note"])}</p>
+  </div>
+</section>'''
+
+
+def gift_teaser():
+    if not gifts_on():
+        return ''
+    t = {'en': 'Holiday gift ideas', 'sq': 'Ide dhuratash për festat', 'de': 'Geschenkideen für die Feiertage'}
+    s = {'en': 'Tea, teapots and coffee sets, sorted by budget.', 'sq': 'Çaj, çajnikë dhe sete kafeje, sipas buxhetit.',
+         'de': 'Tee, Teekannen und Kaffee-Sets, nach Budget sortiert.'}
+    b = {'en': 'See gift ideas', 'sq': 'Shiko idetë', 'de': 'Geschenkideen ansehen'}
+    return (f'<section class="gift-teaser" aria-label="Gift ideas"><div class="gift-teaser-inner">{STAR}'
+            f'<p><strong>{tri(t)}</strong> {tri(s)}</p>'
+            f'<a class="btn btn-sm gift-teaser-btn" href="#gifts">{tri(b)}</a></div></section>')
+
+
+def gift_nav(href):
+    if not gifts_on():
+        return ''
+    t = {'en': 'Gift ideas', 'sq': 'Ide dhuratash', 'de': 'Geschenkideen'}
+    return f'<li><a href="{href}" class="nav-gifts">{STAR}{tri(t)}</a></li>'
+
+
+def expand_placeholders(source):
+    def cards(m):
+        args = dict(a.split('=', 1) for a in m.group(1).split())
+        cats = args.get('category', 'all').split(',')
+        chosen = [p for p in PRODUCTS['products'] if 'all' in cats or p['category'] in cats]
+        return '\n'.join(amazon_card(p, desc=args.get('desc') == '1', sizes=args.get('sizes', 'shop')) for p in chosen)
+    source = re.sub(r'<!-- @amazon-cards ([^>]*?) -->', cards, source)
+    source = source.replace('<!-- @gift-section -->', gift_section())
+    source = source.replace('<!-- @gift-teaser -->', gift_teaser())
+    source = re.sub(r'<!-- @gift-nav href=(\S+) -->', lambda m: gift_nav(m.group(1)), source)
+    return source
+
+
 def build_page(src, out_name, path, langs):
-    source = open(os.path.join('_src', src), encoding='utf-8').read()
+    source = expand_placeholders(open(os.path.join('_src', src), encoding='utf-8').read())
     written = []
     for lang in langs:
         p = TreeParser()

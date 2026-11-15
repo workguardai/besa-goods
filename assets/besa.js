@@ -158,19 +158,21 @@
     },
     // Outbound click on a "Shop on Amazon" button. Sent only if the visitor has
     // already accepted cookies; never queued for later.
-    trackAmazonClick: function (productName, url) {
+    trackAmazonClick: function (productName, url, productId) {
       if (!tagsLoaded) return;
       var lang = currentLang();
       gtag('event', 'amazon_click', {
-        product_name: productName, language: lang, link_url: url, outbound: true,
-        transport_type: 'beacon'
+        product_name: productName, product_id: productId || '', language: lang,
+        link_url: url, outbound: true, transport_type: 'beacon'
       });
-      if (window.fbq) fbq('trackCustom', 'AmazonClick', { product_name: productName, language: lang });
+      if (window.fbq) fbq('trackCustom', 'AmazonClick', { product_name: productName, product_id: productId || '', language: lang });
     }
   };
 
   // English product name for reports, whatever language the page is shown in.
   function amazonProductName(a) {
+    // Cards generated from _data/products.json carry the English name on the link.
+    if (a.getAttribute('data-product')) return a.getAttribute('data-product');
     var card = a.closest('.product');
     var el = card && (card.querySelector('.product-name .en') || card.querySelector('.product-name'));
     return el ? el.textContent.trim() : (a.getAttribute('data-product') || 'unknown');
@@ -186,7 +188,7 @@
       if (ll) { store(LANG_KEY, ll.getAttribute('hreflang')); return; }
       if (e.target.closest('[data-cookie-settings]')) { e.preventDefault(); showBanner(); return; }
       var amz = e.target.closest('a[href*="amzn.to/"], a[href*="amazon."]');
-      if (amz) window.besa.trackAmazonClick(amazonProductName(amz), amz.href);
+      if (amz) window.besa.trackAmazonClick(amazonProductName(amz), amz.href, amz.getAttribute('data-product-id'));
     });
     var c = read(CONSENT_KEY);
     if (c === 'granted') loadTags();
