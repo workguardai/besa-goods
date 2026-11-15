@@ -72,8 +72,8 @@
       "amazon_de_title": "Sotya Teekanne aus Gusseisen mit Teesieb für losen Tee, 850 ml (Kirschblüten-Design)"
     },
     {
-      "id": "teapot-set-black",
-      "status": "HIDDEN: different set from our card (1.4 L with warmer, not 700 ml with trivet); needs new name and photo",
+      "id": "tea-set-lumaland",
+      "status": "HIDDEN: renamed; current photo shows a different set, waiting for a correct photo",
       "hidden": true,
       "asin": "B0734VHJG3",
       "legacy_link": "https://amzn.to/4whflzk",
@@ -83,14 +83,14 @@
       "image_h": 638,
       "image_small_w": 320,
       "name": {
-        "en": "Cast Iron Set with 2 Cups & Trivet — 700ml",
-        "de": "Gusseisen-Set mit 2 Tassen & Untersetzer — 700ml",
-        "sq": "Set Hekuri me 2 Gota & Nënçajnik — 700ml"
+        "en": "Cast Iron Tea Set, 8 Pieces, 1.4 L with Warmer",
+        "de": "Gusseisen-Teeset, 8-teilig, 1,4 l mit Stövchen",
+        "sq": "Set çaji prej hekuri, 8 copë, 1,4 l me ngrohës"
       },
       "alt": {
-        "en": "Black cast iron teapot set with two cups and a trivet",
-        "de": "Schwarzes Gusseisen-Teeset mit zwei Tassen und Untersetzer",
-        "sq": "Set çajniku hekuri i zi me dy gota dhe nënçajnik"
+        "en": "Cast iron tea set with teapot, warmer and two cups",
+        "de": "Gusseisen-Teeset mit Teekanne, Stövchen und zwei Bechern",
+        "sq": "Set çaji prej hekuri me çajnik, ngrohës dhe dy gota"
       },
       "label": {
         "en": "Teapot · Complete Set",
@@ -104,9 +104,9 @@
         "style": "badge-bark"
       },
       "desc": {
-        "en": "Hammered hobnail design, fully enameled interior. Comes with two cast iron cups and a trivet: everything you need to serve properly, and a lovely gift.",
-        "de": "Gehämmertes Noppendesign, vollständig emailliertes Inneres. Mit zwei Gusseisentassen und Untersetzer: alles zum stilvollen Servieren, und ein schönes Geschenk.",
-        "sq": "Dizajn me pika të farkëtuara, interior plotësisht i smaltuar. Vjen me dy gota hekuri dhe një nënçajnik: gjithçka për ta shërbyer siç duhet, dhe një dhuratë e bukur."
+        "en": "1.4 litre cast iron teapot with a cast iron warmer, two cups, two coasters, a bamboo measuring spoon and a stainless steel strainer.",
+        "de": "1,4-Liter-Teekanne aus Gusseisen mit Stövchen aus Gusseisen, zwei Bechern, zwei Untersetzern, Bambus-Dosierlöffel und Edelstahlsieb.",
+        "sq": "Çajnik hekuri 1,4 litra me ngrohës hekuri, dy gota, dy nënkupa, lugë bambuje për matje dhe sitë çeliku."
       },
       "gift": true,
       "status_note": "amazon.es substitutes a different product (Lumaland, 1.4 L) for our 700 ml set with trivet.",
@@ -170,9 +170,9 @@
       "amazon_de_title": "TOWA Workshop Teekanne Tetsubin aus Gusseisen mit Edelstahl-Ei, 650 ml, schwarz"
     },
     {
-      "id": "coffee-cezve",
-      "status": "HIDDEN: stainless steel, card says copper; needs new name",
-      "hidden": true,
+      "id": "cezve-stainless-fino",
+      "status": "ok (renamed to match amazon.de product)",
+      "hidden": false,
       "asin": "B004Z2OSO8",
       "legacy_link": "https://amzn.to/45aYJgx",
       "category": "coffee",
@@ -182,14 +182,14 @@
       "image_h": 640,
       "image_small_w": 317,
       "name": {
-        "en": "Copper Cezve — Turkish Coffee Pot",
-        "de": "Kupfer-Cezve — Türkische Kaffeekanne",
-        "sq": "Xhezve Bakri — Ibrik Kafeje"
+        "en": "Stainless Steel Turkish Coffee Pot (Cezve), 340 ml",
+        "de": "Türkische Kaffeekanne (Cezve) aus Edelstahl, 340 ml",
+        "sq": "Xhezve kafeje prej çeliku inox, 340 ml"
       },
       "alt": {
-        "en": "Copper cezve, a Turkish coffee pot",
-        "de": "Kupfer-Cezve, eine türkische Kaffeekanne",
-        "sq": "Xhezve bakri për kafe turke"
+        "en": "Stainless steel Turkish coffee pot (cezve)",
+        "de": "Türkische Kaffeekanne (Cezve) aus Edelstahl",
+        "sq": "Xhezve kafeje prej çeliku inox"
       },
       "label": {
         "en": "Coffee",
@@ -214,8 +214,8 @@
       "amazon_de_title": "Fino Türkische Kaffeekanne aus Edelstahl, 340 ml"
     },
     {
-      "id": "coffee-grinder-brass",
-      "status": "HIDDEN: electric burr grinder, card says brass Turkish hand grinder; needs new name and photo",
+      "id": "grinder-oxo-brew",
+      "status": "HIDDEN: renamed; current photo shows a different grinder, waiting for a correct photo",
       "hidden": true,
       "asin": "B0GFFVSW7K",
       "legacy_link": "https://amzn.to/4w6DWqd",
@@ -226,14 +226,14 @@
       "image_h": 491,
       "image_small_w": 320,
       "name": {
-        "en": "Brass Turkish Coffee Grinder",
-        "de": "Türkische Kaffeemühle aus Messing",
-        "sq": "Mulli Kafeje Turke Bakri"
+        "en": "OXO Brew Conical Burr Coffee Grinder",
+        "de": "OXO Brew Kaffeemühle mit Kegelmahlwerk",
+        "sq": "Mulli kafeje OXO Brew me kone"
       },
       "alt": {
-        "en": "Brass hand grinder for Turkish coffee",
-        "de": "Handmühle aus Messing für türkischen Kaffee",
-        "sq": "Mulli dore prej bronzi për kafe turke"
+        "en": "OXO Brew conical burr coffee grinder",
+        "de": "OXO Brew Kaffeemühle mit Kegelmahlwerk",
+        "sq": "Mulli kafeje OXO Brew me kone"
       },
       "label": {
         "en": "Coffee",
@@ -258,9 +258,9 @@
       "amazon_de_title": "OXO Brew Kaffeemühle mit konischem Grat, Sturmblau"
     },
     {
-      "id": "coffee-cups-set",
-      "status": "HIDDEN: espresso cups, card says Turkish coffee cups; needs new name",
-      "hidden": true,
+      "id": "espresso-cups-yhosseun",
+      "status": "ok (renamed; colour on amazon.de may differ from the photo)",
+      "hidden": false,
       "asin": "B0DD3PNHTP",
       "legacy_link": "https://amzn.to/3T8QfUt",
       "category": "accessories",
@@ -270,14 +270,14 @@
       "image_h": 640,
       "image_small_w": 240,
       "name": {
-        "en": "Turkish Coffee Cups Set of 6",
-        "de": "Türkische Kaffeetassen 6er-Set",
-        "sq": "Set 6 Filxhanësh Kafeje"
+        "en": "Espresso Cups, Set of 6, with Stand",
+        "de": "Espressotassen 6er-Set mit Ständer",
+        "sq": "Set 6 filxhanësh espresso me mbajtëse"
       },
       "alt": {
-        "en": "Set of green Turkish coffee cups with saucers on a stand",
-        "de": "Grüne türkische Kaffeetassen mit Untertassen auf einem Ständer",
-        "sq": "Set filxhanësh kafeje jeshilë me pjatëza në mbajtëse"
+        "en": "Set of espresso cups with saucers on a metal stand",
+        "de": "Espressotassen mit Untertassen auf einem Metallständer",
+        "sq": "Filxhanë espresso me pjatëza në mbajtëse metalike"
       },
       "label": {
         "en": "Accessories",
