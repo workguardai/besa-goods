@@ -292,7 +292,9 @@ def build_page(src, out_name, path, langs):
 def sitemap():
     today = datetime.date.today().isoformat()
     rows = []
-    for _, _, path, langs in PAGES:
+    for src, _, path, langs in PAGES:
+        if not os.path.exists(os.path.join('_src', src)):
+            continue
         for lang in langs:
             alts = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{page_url(l, path)}"/>' for l in langs)
             if 'en' in langs:
