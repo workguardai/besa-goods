@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://besagoods.com/images/teapot-green.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,600&amp;family=Poppins:wght@300;500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/besa.css">
 <script src="assets/besa.js" defer></script>
 <style>
@@ -54,6 +54,18 @@
   .why-steps { grid-template-columns:1fr; }
   .why { padding:3rem 1rem; }
 }
+
+/* ══ Heritage + crystal look (overrides the rules above) ══ */
+.page-hero h1 { font-family:var(--serif); font-weight:700; font-size:clamp(2.4rem,6vw,3.6rem); letter-spacing:-0.01em; line-height:1.02; }
+.page-hero h1 em, .group h2 em { font-weight:600; color:var(--earth); }
+.group h2 { font-family:var(--serif); font-size:2rem; letter-spacing:0; }
+.why { position:relative; background:var(--forest) var(--folk-gold); }
+.why::before { content:''; position:absolute; left:0; right:0; top:0; height:1px; background:var(--prism); opacity:.7; }
+.why h2 { font-family:var(--serif); font-size:clamp(2rem,4.5vw,2.8rem); letter-spacing:0; }
+.why h2 em { font-weight:600; }
+.why-num { border-radius:0; clip-path:var(--diamond); width:34px; height:34px; background:linear-gradient(135deg, var(--gold-pale), var(--gold2)); font-family:var(--serif); font-size:1.05rem; }
+.tea-cta { background:var(--parchment) var(--folk); }
+.tea-cta h2 { font-family:var(--serif); font-size:2.2rem; }
 </style>
 </head>
 <body>

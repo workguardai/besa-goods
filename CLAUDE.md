@@ -38,6 +38,26 @@ Business base: Madrid.
 | `besa-sitemap.xml` | Sitemap with hreflang alternates. |
 | `CNAME`, `google490ef79068abc80c.html` | Custom domain; Search Console verification (keep). |
 
+## Visual style: heritage with crystal accents
+
+- Base palette unchanged (cream, parchment, forest, bark, earth, gold). Crystal
+  tints added as tokens in `assets/besa.css`: `--ice`, `--teal`, `--amethyst`,
+  `--gold-pale`, plus `--prism` (hairlines, borders) and `--prism-soft` (card
+  borders). Cut-corner shape `--facet`, diamond `--diamond`.
+- Background details are inline SVG data URIs: `--folk` (kilim lattice on
+  light sections), `--folk-gold` (on forest sections), `--zigzag` (footer edge).
+- Type: Cormorant Garamond 700 + 600 italic for headings, logo, prices-as-
+  display numbers; Poppins 300/500/600 for everything else. Only those 5 font
+  files are requested; don't add weights without checking page weight.
+  `body` uses lining numerals.
+- Motion: hover shine on product cards (text area only, never over photos),
+  card lift. All motion is disabled under `prefers-reduced-motion`.
+- Every page's inline `<style>` ends with a "Heritage + crystal look" block that
+  overrides that page's original rules; shared parts live in `besa.css`.
+- Contrast: all text pairs were checked at WCAG AA (including over the lattice
+  and translucent panels). `--light` and `--teal` were darkened for this; keep
+  small text on `--muted` or darker.
+
 ## Languages (EN / SQ / DE)
 
 - Every translated string exists as sibling elements with class `en`, `sq`,
