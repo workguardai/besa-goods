@@ -1,98 +1,105 @@
 # Besa Goods — besagoods.com
 
-Static site, no build step, no framework, no package.json. Every page is a single
-self-contained HTML file with inline CSS and inline JS. Hosted on GitHub Pages.
+Static site, no build step, no framework, no package.json. HTML pages with
+page-specific inline CSS/JS plus two shared files in `assets/`. Hosted on
+GitHub Pages.
 
-Sells Albanian mountain tea (Çaj Mali) directly and recommends teaware / Albanian
-coffee accessories through Amazon affiliate links. Audience: Albanian diaspora and
-tourists, mainly UK and Germany. Business base: Madrid.
+Sells Albanian mountain tea (Çaj Mali) on a **request-first** basis and
+recommends teaware / Albanian coffee accessories through Amazon affiliate
+links. Audience: Albanian diaspora and tourists, mainly UK and Germany.
+Business base: Madrid.
 
 ## Rules for working here
 
 - **`main` deploys live** (GitHub Pages, branch `main`, path `/`). Never commit to
   `main` directly; work on a branch and merge via PR.
-- Never commit secrets. The Stripe `pk_live_…` publishable key and the Mailchimp /
-  Formspree form IDs in the HTML are public by design; secret keys (`sk_…`,
-  webhook secrets, API tokens) must never appear in this repo.
+- Never commit secrets. The Stripe `pk_live_…` publishable key and the Formspree
+  form ID in the HTML are public by design; secret keys (`sk_…`, webhook
+  secrets, API tokens) must never appear in this repo.
 - Do not change prices, product claims, shipping terms or availability wording
-  without the owner's approval.
-- Keep the visual design: colour tokens in `:root`, Poppins font, the
+  without the owner's approval. Do not add social-proof numbers, ratings or
+  testimonials that are not real.
+- Keep the visual design: tokens in `assets/besa.css` `:root`, Poppins, the
   forest-green / bark / gold palette.
+- Every user-facing string needs EN, SQ and DE versions.
 
 ## File structure
 
 | File | What it is |
 |---|---|
-| `index.html` | Home page (~1,370 lines). Teapot + coffee Amazon showcases at the top, then hero with Mailchimp signup + Stripe Buy Button, "How it works", two teas (Çaj Mali available, Bari i Malit "coming later 2026"), origin section, second Mailchimp + Stripe CTA (`#preorder`), About / Returns / Contact, footer, scripts. |
-| `essentials.html` | "Brew Essentials" page: 3 teapot cards + 4 coffee cards, all Amazon affiliate links, brewing tips, affiliate disclosure. Served at `/essentials` (GitHub Pages resolves the extension-less URL). |
-| `thank-you.html` / `thank-you-de.html` | Stripe success pages. Fire the Google Ads purchase conversion when `?session_id=` is present. No SQ version. `noindex`. |
-| `besa-sitemap.xml` | Sitemap (lists `/` with en/sq/it/de alternates and `/essentials`). Note: lists an `it` alternate that does not exist. |
-| `CNAME` | `besagoods.com` |
-| `google490ef79068abc80c.html` | Google Search Console verification — do not delete. |
-| `*.png` | Product and hero images (≈10 MB total, unoptimised; `besa-tea-portrait.png` is actually a JPEG). |
+| `index.html` | Home: header, hero, trust bar, shop grid with category filters (`#shop`), how ordering works (`#how`), the two teas (`#teas`), origin, **tea request form** (`#request`), about / shipping & returns / contact, sticky mobile CTA, footer. |
+| `essentials.html` | Teapots + coffee tools (Amazon), brewing guide, tea CTA. Served at `/essentials`. |
+| `privacy.html` | Privacy policy + cookie table, EN/SQ/DE in one page. Served at `/privacy`. |
+| `request-thank-you.html`, `-sq`, `-de` | Shown after a tea request. Fire **Lead** events. `noindex`. |
+| `thank-you.html` / `thank-you-de.html` | Stripe purchase success pages. Fire the Google Ads **Purchase** conversion when `?session_id=` is present. Not linked anywhere now; kept for when Stripe checkout or payment links redirect there. Do not reuse for requests. |
+| `assets/besa.css` | Shared tokens, header, buttons, product cards, footer, cookie banner, language visibility rules. |
+| `assets/besa.js` | Language switching, cookie consent, Google Ads / Meta loading, `besa.trackLead()`. **All tag IDs live in its `CONFIG` block.** |
+| `images/` | Optimised JPEGs used by the site. The original PNGs in the repo root are no longer referenced and can be deleted once nothing external links to them. |
+| `besa-sitemap.xml` | Sitemap with hreflang alternates. |
+| `CNAME`, `google490ef79068abc80c.html` | Custom domain; Search Console verification (keep). |
 
 ## Languages (EN / SQ / DE)
 
-Client-side only, all three languages live in the same HTML file:
+- Every translated string exists as sibling elements with class `en`, `sq`,
+  `de`. CSS in `besa.css` shows only the one matching `<html lang>`.
+- An inline script at the top of `<head>` picks the language before paint:
+  `?lang=` → `localStorage['besa_lang']` → browser language → `en`.
+- `besa.js` then: sets `aria-pressed` on `[data-set-lang]` buttons, rewrites
+  the URL to `?lang=xx` (English has no param), updates `<link rel=canonical>`
+  (from `data-base`), and swaps attributes from `data-t-*` (text, used for
+  `<title>` and `<option>`), `data-content-*` (meta description), `data-ph-*`
+  (placeholders), `data-alt-*` (img alt), `data-al-*` (aria-label).
+- If a block lacks a translation, its `.en` sibling is shown as a fallback.
+- Pages with one fixed language use `<html lang="xx" data-fixed-lang>`.
+- hreflang: `/`, `/?lang=sq`, `/?lang=de` (same for `/essentials`, `/privacy`).
 
-- Each translatable string is duplicated in sibling elements with class `en`,
-  `sq` or `de`; non-English ones start with `style="display:none"`.
-- `setLang(lang)` (inline `<script>` at the bottom of each page) hides every
-  `.en/.sq/.de` element, shows the chosen class, and falls back to showing `.en`
-  when a parent has no translation for that language. Choice saved in
-  `localStorage['besa_lang']`, shared between pages.
-- `index.html` wraps `setLang` again to swap contact-form placeholders from
-  `data-placeholder-en|sq|de`.
-- **Known gaps:** many strings have no `de` (or no `sq`) sibling, so they fall
-  back to English; some have duplicate `de` siblings. The hreflang tags point to
-  `/?lang=sq` and `/?lang=de`, but no code reads the `lang` URL parameter, so
-  those URLs serve English to users and crawlers. `<html lang>`, `<title>` and
-  meta description never change with language.
+## Tea request flow (no stock, no payment up front)
+
+1. Visitor fills `#request-form` on `index.html`: name, email, country, tea,
+   quantity, reply language, notes, required GDPR consent checkbox.
+2. JS posts it as FormData to Formspree (`action` on the form; currently the
+   existing contact form ID `xpwzgjgv`) with a `_subject` like
+   `Tea request: 3 × Caj Mali 50 g – Name (Country)`, sets
+   `sessionStorage.besa_request_sent`, and redirects to the request thank-you
+   page in the current language.
+3. The owner replies by email with price + shipping, then sends a Stripe
+   payment link. Payment completes the purchase; delivery up to 5 days after.
+- The Stripe Buy Button markup is kept in `<template id="stripe-checkout">`
+  inside `#request`: inert, not rendered, script not loaded. Move its contents
+  out of the template to re-enable direct checkout.
 
 ## Amazon affiliate products
 
-- 3 teapots + 4 coffee items, each a card with image, badge, hard-coded price
-  text, name and a "Shop on Amazon →" link to an `amzn.to/…` short link with
-  `target="_blank" rel="nofollow sponsored"`. Same 7 products appear in both
-  `index.html` (inline-styled showcase sections) and `essentials.html` (`.card`
-  classes for teapots, inline styles for coffee).
-- Affiliate disclosure exists only at the bottom of `essentials.html`; the home
-  page has none.
-- `essentials.html` shows Amazon star ratings / review counts and "300+ sold last
-  month" as static text, plus static prices.
+- 7 products (3 teapots, cezve, grinder, cups, tray), each an `amzn.to/…` link
+  with `target="_blank" rel="nofollow sponsored"`, on both `index.html` (shop
+  grid, `data-cat` for filters) and `essentials.html`.
+- Affiliate disclosure under each product list and in every footer.
+- Prices are hard-coded and labelled indicative. No Amazon star ratings, review
+  counts or sales figures (Amazon Associates rules).
 
-## Payments (Stripe) and email capture
+## Analytics, tags and consent
 
-- **Stripe Buy Button** (`js.stripe.com/v3/buy-button.js`,
-  `buy-button-id="buy_btn_1TEeFaD9VgNxznDq7m4FqdVV"`, live publishable key) is
-  embedded twice in `index.html`: in the hero (`.stripe-wrap`) and in the
-  `#preorder` CTA. Product: Çaj Mali 50 g, €12.90. The success redirect to
-  `thank-you.html?session_id=…` is configured in the Stripe dashboard, not here.
-- **Mailchimp** "Notify me" forms (hero `#hero-form` and `#cta-form`) post to
-  `besagoods.us5.list-manage.com` in a new tab; JS then fakes a success message.
-- **Contact form** (`#contact-form`, `sendContact()`) POSTs JSON to Formspree
-  `https://formspree.io/f/xpwzgjgv`, falling back to `mailto:besasonos@gmail.com`.
-  Bug: it reads an undefined variable `_lang`, which throws before the request,
-  so the form currently never submits.
-
-## Analytics and tags
-
-- `index.html` and both thank-you pages load **gtag.js for Google Ads
-  `AW-18368007697`** and call `gtag('config', 'AW-18368007697')` unconditionally
-  (no consent banner, no consent mode). `essentials.html` loads no tags.
-- Purchase conversion (thank-you pages): `gtag('event','conversion',
-  {send_to:'AW-18368007697/YOUR_CONVERSION_LABEL', value:12.90, currency:'EUR',
-  transaction_id: session_id})`. **The label is still the placeholder**, so this
-  conversion does not currently record in Google Ads.
-- `GT-5R4G63DN` and Google Tag Manager are **not present** in any file, despite
-  a commit message mentioning GTM. If they are configured, it is only in the
-  Google tag / Ads UI.
-- No Meta pixel, no GA4 config, no cookie banner, no privacy policy page.
+- Nothing from Google Ads or Meta loads until the visitor clicks **Accept** in
+  the cookie banner (`besa.js`). Choice stored in `localStorage['besa_consent']`;
+  "Cookie settings" buttons (`[data-cookie-settings]`) reopen the banner;
+  Reject after Accept sends a consent `denied` update.
+- On accept: `gtag.js` for **`AW-18368007697`**, plus any IDs in
+  `CONFIG.extraGoogleTagIds` (e.g. `GT-5R4G63DN`, not added yet), plus the Meta
+  pixel if `CONFIG.metaPixelId` is set.
+- **Lead** (request thank-you pages): `generate_lead` always; Google Ads
+  conversion if `CONFIG.adsLeadLabel` is set; Meta `Lead` if the pixel is set.
+  Fires only after a real submission (sessionStorage flag) and with consent.
+- **Purchase** (`thank-you*.html`): unchanged, still loads gtag directly and
+  uses the placeholder label `YOUR_CONVERSION_LABEL`.
+- No Google Tag Manager container is used.
 
 ## Deployment
 
 GitHub Pages, legacy build (no Actions workflow), source `main` / root. Custom
-domain `besagoods.com` via `CNAME`; certificate covers apex and `www`. "Enforce
-HTTPS" is currently **off** in the Pages settings. Pushing to `main` publishes
-within a minute or two. To preview locally: `python3 -m http.server 8000` in the
-repo root (note `/essentials` needs `/essentials.html` locally).
+domain `besagoods.com` via `CNAME`; `www` 301-redirects to the apex, so all
+canonical/hreflang/sitemap URLs use `https://besagoods.com`. Pushing to `main`
+publishes within a minute or two.
+
+Local preview: `python3 -m http.server 4180` in the repo root, then open
+`http://localhost:4180/`. Links use `essentials.html` / `privacy.html` so they
+work locally; Pages also serves them at `/essentials` and `/privacy`.
