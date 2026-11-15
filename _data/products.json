@@ -24,9 +24,9 @@
   "products": [
     {
       "id": "teapot-sotya-green",
-      "status": "WAITING for amazon.de ASIN",
+      "status": "WAITING owner: amazon.de opens the cherry blossom colour; our card and photo show forest green",
       "hidden": false,
-      "asin": null,
+      "asin": "B088M9R5VW",
       "legacy_link": "https://amzn.to/4fapJCQ",
       "category": "teapots",
       "image": "teapot-green",
@@ -67,13 +67,15 @@
         "match": "DIRECT",
         "title": "Sotya Cast Iron Teapot with Infusers, 30 oz, 1000ml, enamel interior — Cherry Blossom",
         "price_eur": "54.51"
-      }
+      },
+      "owner_link": "https://amzn.to/4iVbNNB",
+      "amazon_de_title": "Sotya Teekanne aus Gusseisen mit Teesieb für losen Tee, 850 ml (Kirschblüten-Design)"
     },
     {
       "id": "teapot-set-black",
-      "status": "HIDDEN — waiting for amazon.de ASIN",
+      "status": "HIDDEN: different set from our card (1.4 L with warmer, not 700 ml with trivet); needs new name and photo",
       "hidden": true,
-      "asin": null,
+      "asin": "B0734VHJG3",
       "legacy_link": "https://amzn.to/4whflzk",
       "category": "teapots",
       "image": "teapot-black",
@@ -114,13 +116,15 @@
         "match": "BEST_BET",
         "title": "Lumaland 8 Piece Tea Set, 1.4 L cast iron teapot + warmer, 2 cups, 2 coasters, spoon, strainer",
         "price_eur": "67.99"
-      }
+      },
+      "owner_link": "https://link.amazon/B04z0Msxq",
+      "amazon_de_title": "Lumaland Tee Set 8-teilig, 1,4 Liter Gusseiserne Teekanne, Stövchen, 2 Teebecher & 2 Untersetzer"
     },
     {
       "id": "teapot-tetsubin-hemp",
-      "status": "WAITING for amazon.de ASIN",
+      "status": "ok",
       "hidden": false,
-      "asin": null,
+      "asin": "B01N5JTAAD",
       "legacy_link": "https://amzn.to/4wOAQXV",
       "category": "teapots",
       "image": "teapot-hemp",
@@ -161,13 +165,15 @@
         "match": "DIRECT",
         "title": "TOWA Workshop Japanese Cast Iron Teapot with Stainless Steel Infuser",
         "price_eur": "79.97"
-      }
+      },
+      "owner_link": "https://link.amazon/B04VE6kXP",
+      "amazon_de_title": "TOWA Workshop Teekanne Tetsubin aus Gusseisen mit Edelstahl-Ei, 650 ml, schwarz"
     },
     {
       "id": "coffee-cezve",
-      "status": "HIDDEN — waiting for amazon.de ASIN",
+      "status": "HIDDEN: stainless steel, card says copper; needs new name",
       "hidden": true,
-      "asin": null,
+      "asin": "B004Z2OSO8",
       "legacy_link": "https://amzn.to/45aYJgx",
       "category": "coffee",
       "status_note": "Wrong item: stainless-steel warmer, not a copper cezve.",
@@ -203,13 +209,15 @@
         "match": "DIRECT",
         "title": "HIC Turkish Coffee Warmer and Butter Melting Pot, Stainless Steel, 24 oz",
         "price_eur": "64.55"
-      }
+      },
+      "owner_link": "https://link.amazon/B03LOj5DG",
+      "amazon_de_title": "Fino Türkische Kaffeekanne aus Edelstahl, 340 ml"
     },
     {
       "id": "coffee-grinder-brass",
-      "status": "HIDDEN — waiting for amazon.de ASIN",
+      "status": "HIDDEN: electric burr grinder, card says brass Turkish hand grinder; needs new name and photo",
       "hidden": true,
-      "asin": null,
+      "asin": "B0GFFVSW7K",
       "legacy_link": "https://amzn.to/4w6DWqd",
       "category": "coffee",
       "status_note": "Wrong item: electric burr grinder, not a brass Turkish hand grinder.",
@@ -245,13 +253,15 @@
         "match": "EXACT_MATCH",
         "title": "OXO Brew Conical Coffee Grinder — Storm Blue",
         "price_eur": "150.74"
-      }
+      },
+      "owner_link": "https://link.amazon/B01TBwWGA",
+      "amazon_de_title": "OXO Brew Kaffeemühle mit konischem Grat, Sturmblau"
     },
     {
       "id": "coffee-cups-set",
-      "status": "HIDDEN — waiting for amazon.de ASIN",
+      "status": "HIDDEN: espresso cups, card says Turkish coffee cups; needs new name",
       "hidden": true,
-      "asin": null,
+      "asin": "B0DD3PNHTP",
       "legacy_link": "https://amzn.to/3T8QfUt",
       "category": "accessories",
       "status_note": "Espresso cups (blue) on a stand, not Turkish coffee cups; our photo shows green cups.",
@@ -287,13 +297,15 @@
         "match": "EXACT_MATCH",
         "title": "YHOSSEUN Espresso Cups Set of 6, 4 oz, with metal saucer stand, ceramic, Blue",
         "price_eur": "108.93"
-      }
+      },
+      "owner_link": "https://link.amazon/B04fr1Uqa",
+      "amazon_de_title": "YHOSSEUN Espressotassen 6er Set mit Metallständer, Keramik"
     },
     {
       "id": "serving-tray-copper",
-      "status": "WAITING for amazon.de ASIN",
+      "status": "ok",
       "hidden": false,
-      "asin": null,
+      "asin": "B079YTYM64",
       "legacy_link": "https://amzn.to/4vOdjpm",
       "category": "accessories",
       "image": "coffee-tray",
@@ -329,7 +341,9 @@
         "match": "DIRECT",
         "title": "Alisveristime Zamac Large Square Tray, 14.5\" x 10\" (Copper), Ottoman tulip motifs",
         "price_eur": "102.40"
-      }
+      },
+      "owner_link": "https://link.amazon/B04BpqkyP",
+      "amazon_de_title": "Alisveristime Big Square Zamac Serviertablett, 36,8 x 25 cm (Kupfer)"
     }
   ],
   "own_products": [
