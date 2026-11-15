@@ -82,4 +82,10 @@
     <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/privacy"/>
   </url>
+  <url>
+    <loc>https://besagoods.com/de/albanischer-bergtee/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/albanischer-bergtee/"/>
+  </url>
 </urlset>
