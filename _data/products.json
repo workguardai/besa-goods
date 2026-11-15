@@ -73,8 +73,8 @@
     },
     {
       "id": "tea-set-lumaland",
-      "status": "HIDDEN: renamed; current photo shows a different set, waiting for a correct photo",
-      "hidden": true,
+      "status": "ok (owner: keep current photo for now)",
+      "hidden": false,
       "asin": "B0734VHJG3",
       "legacy_link": "https://amzn.to/4whflzk",
       "category": "teapots",
@@ -88,9 +88,9 @@
         "sq": "Set çaji prej hekuri, 8 copë, 1,4 l me ngrohës"
       },
       "alt": {
-        "en": "Cast iron tea set with teapot, warmer and two cups",
-        "de": "Gusseisen-Teeset mit Teekanne, Stövchen und zwei Bechern",
-        "sq": "Set çaji prej hekuri me çajnik, ngrohës dhe dy gota"
+        "en": "Black cast iron teapot set with two cups",
+        "de": "Schwarzes Gusseisen-Teeset mit zwei Tassen",
+        "sq": "Set çajniku hekuri i zi me dy gota"
       },
       "label": {
         "en": "Teapot · Complete Set",
@@ -215,8 +215,8 @@
     },
     {
       "id": "grinder-oxo-brew",
-      "status": "HIDDEN: renamed; current photo shows a different grinder, waiting for a correct photo",
-      "hidden": true,
+      "status": "ok (owner: keep current photo for now)",
+      "hidden": false,
       "asin": "B0GFFVSW7K",
       "legacy_link": "https://amzn.to/4w6DWqd",
       "category": "coffee",
@@ -231,9 +231,9 @@
         "sq": "Mulli kafeje OXO Brew me kone"
       },
       "alt": {
-        "en": "OXO Brew conical burr coffee grinder",
-        "de": "OXO Brew Kaffeemühle mit Kegelmahlwerk",
-        "sq": "Mulli kafeje OXO Brew me kone"
+        "en": "Electric conical burr coffee grinder",
+        "de": "Elektrische Kaffeemühle mit Kegelmahlwerk",
+        "sq": "Mulli kafeje elektrik me kone"
       },
       "label": {
         "en": "Coffee",
