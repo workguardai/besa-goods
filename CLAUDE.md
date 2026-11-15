@@ -109,7 +109,8 @@ Business base: Madrid.
 
 - **`_data/products.json` is the single source** for every Amazon product
   (id, EN/DE/SQ names, alt text, label, badge, optional description, category,
-  image, ASIN, marketplace, tag, gift flag and budget group) plus our own tea
+  image, ASIN, marketplace, tag, gift flag, check status and what the link
+  showed on amazon.es) plus our own tea
   as a gift item (`own_products`). Not published (Jekyll skips `_data/`).
 - `_tools/build.py` renders the cards wherever a source has
   `<!-- @amazon-cards category=… [desc=1] [sizes=shop|quarter] -->`: the home
@@ -119,9 +120,10 @@ Business base: Madrid.
   `short_link` until the owner confirms the ASIN. **Never guess an ASIN.**
 - All on `amazon.com` with tag `besagoods-20` (unchanged from the original
   short links). Every link: `target="_blank" rel="sponsored nofollow noopener"`.
-- **No Amazon prices anywhere.** The button reads "Check price on Amazon →" /
-  "Preis auf Amazon ansehen →" / "Shiko çmimin në Amazon →". Only our own tea
-  shows a price (€12.90). No "from" or strike-through prices.
+- **No Amazon prices or budgets anywhere** (owner's choice: no offers, the
+  goal is the commission). The button reads "Buy on Amazon →" / "Auf Amazon
+  kaufen →" / "Bli në Amazon →" (`CTA_AMAZON` in `build.py`). Only our own
+  tea shows a price (€12.90).
 - Visible disclosure above the shop products and inside the gift section; the
   longer note under the products and every footer also carry it.
 - Clicks fire `amazon_click` {product_name (English, from `data-product`),
@@ -130,10 +132,10 @@ Business base: Madrid.
 
 ## Gift ideas section
 
-- Generated on the home page (`#gifts`) from products with `"gift": true`,
-  grouped by `gift_budget` (`up-to-15`, `15-30`, `30-60`; labels in
-  `budgets`, never prices). Tea card: "Request now" plus a note that delivery
-  is confirmed after the request; no holiday delivery promise.
+- Generated on the home page (`#gifts`) as one grid of products with
+  `"gift": true` (tea first). No budgets or prices. Tea card: "Request now"
+  plus a note that delivery is confirmed after the request; no holiday
+  delivery promise. Planned: the owner's new Christmas products go here.
 - Header link on every page (`<!-- @gift-nav href=… -->`) and a teaser band
   under the home trust bar (`<!-- @gift-teaser -->`).
 - **To hide it:** set `"gift_section_enabled": false` in `_data/products.json`

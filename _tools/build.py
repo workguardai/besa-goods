@@ -248,7 +248,7 @@ REDIRECT_JS = """<script>(function(){try{var q=new URLSearchParams(location.sear
 PRODUCTS = json.load(open(os.path.join('_data', 'products.json'), encoding='utf-8'))
 SIZES = {'shop': '(max-width:900px) 46vw, 380px', 'quarter': '(max-width:1000px) 46vw, 280px'}
 ORDER = ('en', 'sq', 'de')
-CTA_AMAZON = {'en': 'Check price on Amazon →', 'sq': 'Shiko çmimin në Amazon →', 'de': 'Preis auf Amazon ansehen →'}
+CTA_AMAZON = {'en': 'Buy on Amazon →', 'sq': 'Bli në Amazon →', 'de': 'Auf Amazon kaufen →'}
 NEW_TAB = {'en': ' (opens in a new tab)', 'sq': ' (hapet në skedë të re)', 'de': ' (öffnet in neuem Tab)'}
 STAR = ('<svg class="folk-star" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">'
         '<path d="M12 1l2.6 6.3L21 4.6l-2.7 6.4L24 12l-5.7 1 2.7 6.4-6.4-2.7L12 23l-2.6-6.3L3 19.4l2.7-6.4L0 12l5.7-1L3 4.6l6.4 2.7Z" fill="currentColor"/></svg>')
@@ -318,29 +318,17 @@ def gifts_on():
 def gift_section():
     if not gifts_on():
         return ''
-    budgets = PRODUCTS['budgets']
-    chips = ''.join(f'<li><a href="#gifts-{k}">{tri(v)}</a></li>' for k, v in budgets.items())
-    groups = []
-    for key, label in budgets.items():
-        own = [own_gift_card(p) for p in PRODUCTS.get('own_products', []) if p.get('gift') and p.get('gift_budget') == key]
-        amz = [amazon_card(p, sizes='quarter') for p in PRODUCTS['products'] if p.get('gift') and p.get('gift_budget') == key]
-        if not own and not amz:
-            continue
-        groups.append(
-            f'<div class="gift-group" id="gifts-{key}">\n'
-            f'  <h3 class="gift-budget">{STAR}{tri(label)}</h3>\n'
-            f'  <div class="products gift-grid">\n' + '\n'.join(own + amz) + '\n  </div>\n</div>')
+    own = [own_gift_card(p) for p in PRODUCTS.get('own_products', []) if p.get('gift')]
+    amz = [amazon_card(p, sizes='quarter') for p in PRODUCTS['products'] if p.get('gift')]
+    grid = '<div class="products gift-grid">\n' + '\n'.join(own + amz) + '\n</div>'
     T = {
         'eyebrow': {'en': 'Holiday season', 'sq': 'Festat', 'de': 'Festtage'},
-        'sub': {'en': 'Gifts from the Albanian table: our mountain tea, cast-iron teapots and everything for coffee the Albanian way, grouped by budget.',
-                'sq': 'Dhurata nga tryeza shqiptare: çaji ynë i malit, çajnikë hekuri dhe gjithçka për kafenë si në Shqipëri, sipas buxhetit.',
-                'de': 'Geschenke vom albanischen Tisch: unser Bergtee, Gusseisen-Teekannen und alles für Kaffee auf albanische Art, nach Budget sortiert.'},
+        'sub': {'en': 'Gifts from the Albanian table: our mountain tea, cast-iron teapots and everything for coffee the Albanian way.',
+                'sq': 'Dhurata nga tryeza shqiptare: çaji ynë i malit, çajnikë hekuri dhe gjithçka për kafenë si në Shqipëri.',
+                'de': 'Geschenke vom albanischen Tisch: unser Bergtee, Gusseisen-Teekannen und alles für Kaffee auf albanische Art.'},
         'aff': {'en': 'As an Amazon Associate I earn from qualifying purchases.',
                 'sq': 'Si partner i Amazon, fitoj nga blerjet e kualifikuara.',
                 'de': 'Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.'},
-        'budget_note': {'en': 'Budgets are a rough guide. The price on Amazon applies.',
-                        'sq': 'Buxhetet janë orientuese. Vlen çmimi në Amazon.',
-                        'de': 'Die Budgets sind eine grobe Orientierung. Es gilt der Preis bei Amazon.'},
     }
     title = ('<span class="en">Gift <em>ideas</em></span><span class="sq">Ide <em>dhuratash</em></span>'
              '<span class="de"><em>Geschenkideen</em></span>')
@@ -350,10 +338,8 @@ def gift_section():
     <p class="section-eyebrow">{STAR}{tri(T["eyebrow"])}{STAR}</p>
     <h2 class="section-title" id="gifts-title">{title}</h2>
     <p class="section-sub">{tri(T["sub"])}</p>
-    <ul class="gift-chips" aria-label="Budget">{chips}</ul>
     <p class="aff-note" role="note">{tri(T["aff"])}</p>
-    {"".join(groups)}
-    <p class="gift-fineprint">{tri(T["budget_note"])}</p>
+    {grid}
   </div>
 </section>'''
 
@@ -362,8 +348,8 @@ def gift_teaser():
     if not gifts_on():
         return ''
     t = {'en': 'Holiday gift ideas', 'sq': 'Ide dhuratash për festat', 'de': 'Geschenkideen für die Feiertage'}
-    s = {'en': 'Tea, teapots and coffee sets, sorted by budget.', 'sq': 'Çaj, çajnikë dhe sete kafeje, sipas buxhetit.',
-         'de': 'Tee, Teekannen und Kaffee-Sets, nach Budget sortiert.'}
+    s = {'en': 'Tea, teapots and everything for Albanian coffee.', 'sq': 'Çaj, çajnikë dhe gjithçka për kafenë shqiptare.',
+         'de': 'Tee, Teekannen und alles für albanischen Kaffee.'}
     b = {'en': 'See gift ideas', 'sq': 'Shiko idetë', 'de': 'Geschenkideen ansehen'}
     return (f'<section class="gift-teaser" aria-label="Gift ideas"><div class="gift-teaser-inner">{STAR}'
             f'<p><strong>{tri(t)}</strong> {tri(s)}</p>'

@@ -8,30 +8,12 @@
     "A product whose asin is null keeps its old 'short_link' until the correct",
     "ASIN is confirmed (status NEEDS CHECK). Never guess an ASIN.",
     "",
-    "No prices for Amazon items: the button says 'Check price on Amazon'.",
-    "gift_budget is a label (up-to-15 / 15-30 / 30-60 EUR), never a price."
+    "No prices or budgets for Amazon items: the button just says 'Buy on Amazon'."
   ],
   "settings": {
     "gift_section_enabled": true,
     "default_marketplace": "com",
     "default_tag": "besagoods-20"
-  },
-  "budgets": {
-    "up-to-15": {
-      "en": "Up to €15",
-      "de": "Bis 15 €",
-      "sq": "Deri në 15 €"
-    },
-    "15-30": {
-      "en": "€15 to €30",
-      "de": "15 bis 30 €",
-      "sq": "15 deri 30 €"
-    },
-    "30-60": {
-      "en": "€30 to €60",
-      "de": "30 bis 60 €",
-      "sq": "30 deri 60 €"
-    }
   },
   "products": [
     {
@@ -73,7 +55,6 @@
         "sq": "Interior i smaltuar, filtër çeliku. Ngjyra e gjelbër duket bukur pranë barishteve të thata."
       },
       "gift": true,
-      "gift_budget": "15-30",
       "status_note": "Same product, but amazon.es opens the Cherry Blossom colour, not Forest Green as our name and photo say.",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
@@ -122,7 +103,6 @@
         "sq": "Dizajn me pika të farkëtuara, interior plotësisht i smaltuar. Vjen me dy gota hekuri dhe një nënçajnik: gjithçka për ta shërbyer siç duhet, dhe një dhuratë e bukur."
       },
       "gift": true,
-      "gift_budget": "30-60",
       "status_note": "amazon.es substitutes a different product (Lumaland, 1.4 L) for our 700 ml set with trivet.",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
@@ -171,7 +151,6 @@
         "sq": "Doreza me litar kanapi qëndron e ftohtë gjatë hedhjes. Interior i smaltuar."
       },
       "gift": true,
-      "gift_budget": "15-30",
       "status_note": "Same ASIN; title does not mention the hemp handle shown in our photo.",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
@@ -216,7 +195,6 @@
         "style": ""
       },
       "gift": true,
-      "gift_budget": "15-30",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
         "asin": "B002OOVAYU",
@@ -260,7 +238,6 @@
         "style": "badge-bark"
       },
       "gift": true,
-      "gift_budget": "15-30",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
         "asin": "B0GFFVSW7K",
@@ -304,7 +281,6 @@
         "style": "badge-bark"
       },
       "gift": true,
-      "gift_budget": "15-30",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
         "asin": "B0DD3PNHTP",
@@ -347,7 +323,6 @@
         "style": "badge-earth"
       },
       "gift": true,
-      "gift_budget": "up-to-15",
       "status_note": "Right product.",
       "seen_on_amazon_es": {
         "date": "2026-11-15",
@@ -398,8 +373,7 @@
         "sq": "Sigurohet sipas porosisë: dorëzimin e konfirmojmë pas kërkesës suaj."
       },
       "request_value": "Caj Mali 50 g",
-      "gift": true,
-      "gift_budget": "up-to-15"
+      "gift": true
     }
   ]
 }
