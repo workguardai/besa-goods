@@ -36,7 +36,7 @@
   "products": [
     {
       "id": "teapot-sotya-green",
-      "status": "ok",
+      "status": "CHECK VARIANT",
       "category": "teapots",
       "asin": "B088M9R5VW",
       "marketplace": "com",
@@ -73,11 +73,19 @@
         "sq": "Interior i smaltuar, filtër çeliku. Ngjyra e gjelbër duket bukur pranë barishteve të thata."
       },
       "gift": true,
-      "gift_budget": "15-30"
+      "gift_budget": "15-30",
+      "status_note": "Same product, but amazon.es opens the Cherry Blossom colour, not Forest Green as our name and photo say.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B088M9R5VW",
+        "match": "DIRECT",
+        "title": "Sotya Cast Iron Teapot with Infusers, 30 oz, 1000ml, enamel interior — Cherry Blossom",
+        "price_eur": "54.51"
+      }
     },
     {
       "id": "teapot-set-black",
-      "status": "ok",
+      "status": "NEEDS CHECK",
       "category": "teapots",
       "asin": "B08VDLHLZM",
       "marketplace": "com",
@@ -114,11 +122,19 @@
         "sq": "Dizajn me pika të farkëtuara, interior plotësisht i smaltuar. Vjen me dy gota hekuri dhe një nënçajnik: gjithçka për ta shërbyer siç duhet, dhe një dhuratë e bukur."
       },
       "gift": true,
-      "gift_budget": "30-60"
+      "gift_budget": "30-60",
+      "status_note": "amazon.es substitutes a different product (Lumaland, 1.4 L) for our 700 ml set with trivet.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0734VHJG3",
+        "match": "BEST_BET",
+        "title": "Lumaland 8 Piece Tea Set, 1.4 L cast iron teapot + warmer, 2 cups, 2 coasters, spoon, strainer",
+        "price_eur": "67.99"
+      }
     },
     {
       "id": "teapot-tetsubin-hemp",
-      "status": "ok",
+      "status": "CHECK DETAIL",
       "category": "teapots",
       "asin": "B01N5JTAAD",
       "marketplace": "com",
@@ -155,12 +171,20 @@
         "sq": "Doreza me litar kanapi qëndron e ftohtë gjatë hedhjes. Interior i smaltuar."
       },
       "gift": true,
-      "gift_budget": "15-30"
+      "gift_budget": "15-30",
+      "status_note": "Same ASIN; title does not mention the hemp handle shown in our photo.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B01N5JTAAD",
+        "match": "DIRECT",
+        "title": "TOWA Workshop Japanese Cast Iron Teapot with Stainless Steel Infuser",
+        "price_eur": "79.97"
+      }
     },
     {
       "id": "coffee-cezve",
       "status": "NEEDS CHECK",
-      "status_note": "Our card says copper cezve; amzn.to/45aYJgx lands on B002OOVAYU, an HIC stainless steel Turkish coffee pot. Keeping the old short link until the right ASIN is confirmed.",
+      "status_note": "Wrong item: stainless-steel warmer, not a copper cezve.",
       "category": "coffee",
       "asin": null,
       "marketplace": "com",
@@ -192,12 +216,19 @@
         "style": ""
       },
       "gift": true,
-      "gift_budget": "15-30"
+      "gift_budget": "15-30",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B002OOVAYU",
+        "match": "DIRECT",
+        "title": "HIC Turkish Coffee Warmer and Butter Melting Pot, Stainless Steel, 24 oz",
+        "price_eur": "64.55"
+      }
     },
     {
       "id": "coffee-grinder-brass",
       "status": "NEEDS CHECK",
-      "status_note": "amzn.to/4w6DWqd lands on /gp/product/B07CSKGLMM with no product name in the URL and Amazon blocks automated page loads, so it can't be confirmed. Keeping the old short link.",
+      "status_note": "Wrong item: electric burr grinder, not a brass Turkish hand grinder.",
       "category": "coffee",
       "asin": null,
       "marketplace": "com",
@@ -229,12 +260,19 @@
         "style": "badge-bark"
       },
       "gift": true,
-      "gift_budget": "15-30"
+      "gift_budget": "15-30",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0GFFVSW7K",
+        "match": "EXACT_MATCH",
+        "title": "OXO Brew Conical Coffee Grinder — Storm Blue",
+        "price_eur": "150.74"
+      }
     },
     {
       "id": "coffee-cups-set",
-      "status": "ok",
-      "status_note": "Lands on 'YHOSSEUN Ceramic Espresso Cups' (B0FBG6JY1C); our name says Turkish coffee cups, set of 6. Please confirm it is the right item.",
+      "status": "NEEDS CHECK",
+      "status_note": "Espresso cups (blue) on a stand, not Turkish coffee cups; our photo shows green cups.",
       "category": "accessories",
       "asin": "B0FBG6JY1C",
       "marketplace": "com",
@@ -266,7 +304,14 @@
         "style": "badge-bark"
       },
       "gift": true,
-      "gift_budget": "15-30"
+      "gift_budget": "15-30",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0DD3PNHTP",
+        "match": "EXACT_MATCH",
+        "title": "YHOSSEUN Espresso Cups Set of 6, 4 oz, with metal saucer stand, ceramic, Blue",
+        "price_eur": "108.93"
+      }
     },
     {
       "id": "serving-tray-copper",
@@ -302,7 +347,15 @@
         "style": "badge-earth"
       },
       "gift": true,
-      "gift_budget": "up-to-15"
+      "gift_budget": "up-to-15",
+      "status_note": "Right product.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B079YTYM64",
+        "match": "DIRECT",
+        "title": "Alisveristime Zamac Large Square Tray, 14.5\" x 10\" (Copper), Ottoman tulip motifs",
+        "price_eur": "102.40"
+      }
     }
   ],
   "own_products": [
