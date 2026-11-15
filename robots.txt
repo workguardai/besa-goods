@@ -1,0 +1,5 @@
+# besagoods.com
+User-agent: *
+Allow: /
+
+Sitemap: https://besagoods.com/sitemap.xml

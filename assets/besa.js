@@ -113,9 +113,9 @@
     banner.hidden = true;
     banner.innerHTML =
       '<p>' +
-      '<span class="en">We use cookies from Google and Meta to measure our ads, only if you accept. The site works fully without them. <a href="privacy.html#cookies">Privacy policy</a></span>' +
-      '<span class="sq">Përdorim cookies nga Google dhe Meta për të matur reklamat tona, vetëm nëse pranoni. Faqja funksionon plotësisht edhe pa to. <a href="privacy.html#cookies-sq">Politika e privatësisë</a></span>' +
-      '<span class="de">Wir verwenden Cookies von Google und Meta, um unsere Werbung zu messen – nur wenn Sie zustimmen. Die Seite funktioniert auch ohne sie vollständig. <a href="privacy.html#cookies-de">Datenschutzerklärung</a></span>' +
+      '<span class="en">We use cookies from Google and Meta to measure our ads, only if you accept. The site works fully without them. <a href="/privacy.html#cookies">Privacy policy</a></span>' +
+      '<span class="sq">Përdorim cookies nga Google dhe Meta për të matur reklamat tona, vetëm nëse pranoni. Faqja funksionon plotësisht edhe pa to. <a href="/sq/privacy.html#cookies-sq">Politika e privatësisë</a></span>' +
+      '<span class="de">Wir verwenden Cookies von Google und Meta, um unsere Werbung zu messen – nur wenn Sie zustimmen. Die Seite funktioniert auch ohne sie vollständig. <a href="/de/privacy.html#cookies-de">Datenschutzerklärung</a></span>' +
       '</p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-outline" data-consent="denied"><span class="en">Reject</span><span class="sq">Refuzo</span><span class="de">Ablehnen</span></button>' +
@@ -155,15 +155,38 @@
         gtag('event', 'conversion', { send_to: CONFIG.adsId + '/' + CONFIG.adsLeadLabel });
       }
       if (window.fbq) fbq('track', 'Lead');
+    },
+    // Outbound click on a "Shop on Amazon" button. Sent only if the visitor has
+    // already accepted cookies; never queued for later.
+    trackAmazonClick: function (productName, url) {
+      if (!tagsLoaded) return;
+      var lang = currentLang();
+      gtag('event', 'amazon_click', {
+        product_name: productName, language: lang, link_url: url, outbound: true,
+        transport_type: 'beacon'
+      });
+      if (window.fbq) fbq('trackCustom', 'AmazonClick', { product_name: productName, language: lang });
     }
   };
+
+  // English product name for reports, whatever language the page is shown in.
+  function amazonProductName(a) {
+    var card = a.closest('.product');
+    var el = card && (card.querySelector('.product-name .en') || card.querySelector('.product-name'));
+    return el ? el.textContent.trim() : (a.getAttribute('data-product') || 'unknown');
+  }
 
   function init() {
     applyLang(currentLang(), false);
     document.addEventListener('click', function (e) {
       var l = e.target.closest('[data-set-lang]');
       if (l) { applyLang(l.getAttribute('data-set-lang'), true); return; }
-      if (e.target.closest('[data-cookie-settings]')) { e.preventDefault(); showBanner(); }
+      // Static language pages: remember the choice so / opens the right version next time
+      var ll = e.target.closest('a.lang-btn[hreflang]');
+      if (ll) { store(LANG_KEY, ll.getAttribute('hreflang')); return; }
+      if (e.target.closest('[data-cookie-settings]')) { e.preventDefault(); showBanner(); return; }
+      var amz = e.target.closest('a[href*="amzn.to/"], a[href*="amazon."]');
+      if (amz) window.besa.trackAmazonClick(amazonProductName(amz), amz.href);
     });
     var c = read(CONSENT_KEY);
     if (c === 'granted') loadTags();
