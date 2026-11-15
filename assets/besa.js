@@ -113,9 +113,9 @@
     banner.hidden = true;
     banner.innerHTML =
       '<p>' +
-      '<span class="en">We use cookies from Google and Meta to measure our ads, only if you accept. The site works fully without them. <a href="privacy.html#cookies">Privacy policy</a></span>' +
-      '<span class="sq">Përdorim cookies nga Google dhe Meta për të matur reklamat tona, vetëm nëse pranoni. Faqja funksionon plotësisht edhe pa to. <a href="privacy.html#cookies-sq">Politika e privatësisë</a></span>' +
-      '<span class="de">Wir verwenden Cookies von Google und Meta, um unsere Werbung zu messen – nur wenn Sie zustimmen. Die Seite funktioniert auch ohne sie vollständig. <a href="privacy.html#cookies-de">Datenschutzerklärung</a></span>' +
+      '<span class="en">We use cookies from Google and Meta to measure our ads, only if you accept. The site works fully without them. <a href="/privacy.html#cookies">Privacy policy</a></span>' +
+      '<span class="sq">Përdorim cookies nga Google dhe Meta për të matur reklamat tona, vetëm nëse pranoni. Faqja funksionon plotësisht edhe pa to. <a href="/sq/privacy.html#cookies-sq">Politika e privatësisë</a></span>' +
+      '<span class="de">Wir verwenden Cookies von Google und Meta, um unsere Werbung zu messen – nur wenn Sie zustimmen. Die Seite funktioniert auch ohne sie vollständig. <a href="/de/privacy.html#cookies-de">Datenschutzerklärung</a></span>' +
       '</p>' +
       '<div class="cookie-actions">' +
       '<button type="button" class="btn btn-outline" data-consent="denied"><span class="en">Reject</span><span class="sq">Refuzo</span><span class="de">Ablehnen</span></button>' +
@@ -181,6 +181,9 @@
     document.addEventListener('click', function (e) {
       var l = e.target.closest('[data-set-lang]');
       if (l) { applyLang(l.getAttribute('data-set-lang'), true); return; }
+      // Static language pages: remember the choice so / opens the right version next time
+      var ll = e.target.closest('a.lang-btn[hreflang]');
+      if (ll) { store(LANG_KEY, ll.getAttribute('hreflang')); return; }
       if (e.target.closest('[data-cookie-settings]')) { e.preventDefault(); showBanner(); return; }
       var amz = e.target.closest('a[href*="amzn.to/"], a[href*="amazon."]');
       if (amz) window.besa.trackAmazonClick(amazonProductName(amz), amz.href);

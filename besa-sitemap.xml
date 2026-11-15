@@ -1,60 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
   <url>
     <loc>https://besagoods.com/</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/"/>
   </url>
   <url>
-    <loc>https://besagoods.com/?lang=sq</loc>
+    <loc>https://besagoods.com/de/</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/"/>
   </url>
   <url>
-    <loc>https://besagoods.com/?lang=de</loc>
+    <loc>https://besagoods.com/sq/</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/"/>
   </url>
-
   <url>
     <loc>https://besagoods.com/essentials</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/essentials"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/essentials?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/essentials?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/essentials"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/essentials"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/essentials"/>
   </url>
   <url>
-    <loc>https://besagoods.com/essentials?lang=sq</loc>
+    <loc>https://besagoods.com/de/essentials</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/essentials"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/essentials?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/essentials?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/essentials"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/essentials"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/essentials"/>
   </url>
   <url>
-    <loc>https://besagoods.com/essentials?lang=de</loc>
+    <loc>https://besagoods.com/sq/essentials</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/essentials"/>
-    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/essentials?lang=sq"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/essentials?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/essentials"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/essentials"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/essentials"/>
   </url>
-
   <url>
     <loc>https://besagoods.com/privacy</loc>
     <lastmod>2026-11-15</lastmod>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/privacy"/>
   </url>
-
+  <url>
+    <loc>https://besagoods.com/de/privacy</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/privacy"/>
+  </url>
+  <url>
+    <loc>https://besagoods.com/sq/privacy</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://besagoods.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://besagoods.com/sq/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://besagoods.com/privacy"/>
+  </url>
+  <url>
+    <loc>https://besagoods.com/de/albanischer-bergtee/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://besagoods.com/de/albanischer-bergtee/"/>
+  </url>
 </urlset>
