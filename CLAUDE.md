@@ -115,11 +115,17 @@ Business base: Madrid.
 - `_tools/build.py` renders the cards wherever a source has
   `<!-- @amazon-cards category=… [desc=1] [sizes=shop|quarter] -->`: the home
   shop grid, both essentials groups and the gift section.
-- Links are generated as `https://www.amazon.<marketplace>/dp/<ASIN>?tag=<tag>`.
-  A product with `"asin": null` / `"status": "NEEDS CHECK"` keeps its old
-  `short_link` until the owner confirms the ASIN. **Never guess an ASIN.**
-- All on `amazon.com` with tag `besagoods-20` (unchanged from the original
-  short links). Every link: `target="_blank" rel="sponsored nofollow noopener"`.
+- **Store: amazon.de, Associates tag `besagoods21-21`** (`settings` in the
+  JSON). Links are generated as `https://www.amazon.de/dp/<ASIN>?tag=besagoods21-21`.
+- `asin` must be an **amazon.de ASIN supplied by the owner**. Never guess one
+  and never reuse the old amazon.com/.es ASINs (kept as history only).
+- `"hidden": true` removes a product from every page. A visible product
+  without an `asin` falls back to its old `legacy_link` (amazon.com, old tag
+  `besagoods-20`, earns nothing in DE/ES) and the build prints
+  **NOT READY TO PUBLISH** — don't merge while that line appears.
+- Every link: `target="_blank" rel="sponsored nofollow noopener"`.
+- Shop count (`<!-- @product-count -->`) and filter buttons follow what is
+  visible; a filter with no products is hidden by the page script.
 - **No Amazon prices or budgets anywhere** (owner's choice: no offers, the
   goal is the commission). The button reads "Buy on Amazon →" / "Auf Amazon
   kaufen →" / "Bli në Amazon →" (`CTA_AMAZON` in `build.py`). Only our own

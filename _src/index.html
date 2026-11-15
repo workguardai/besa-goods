@@ -422,7 +422,7 @@
       <span class="sq">Si partner i Amazon, fitoj nga blerjet e kualifikuara.</span>
       <span class="de">Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</span>
     </p>
-    <p class="filter-count" aria-live="polite"><span id="product-count">9</span> <span class="en">products</span><span class="sq">produkte</span><span class="de">Produkte</span></p>
+    <p class="filter-count" aria-live="polite"><span id="product-count"><!-- @product-count --></span> <span class="en">products</span><span class="sq">produkte</span><span class="de">Produkte</span></p>
 
     <div class="products" id="products">
 
@@ -829,6 +829,11 @@
   // ── Product filters ──
   var filterBtns = document.querySelectorAll('.filter-btn');
   var products = document.querySelectorAll('#products .product');
+  // Hide a category button when no product in it is shown (e.g. while some are hidden in products.json)
+  filterBtns.forEach(function (btn) {
+    var f = btn.getAttribute('data-filter');
+    if (f !== 'all' && !document.querySelector('#products .product[data-cat="' + f + '"]')) btn.hidden = true;
+  });
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var f = btn.getAttribute('data-filter');

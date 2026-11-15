@@ -262,12 +262,22 @@ def tri(d, tag='span'):
     return ''.join(f'<{tag} class="{l}">{esc(d[l])}</{tag}>' for l in ORDER)
 
 
+NOT_READY = []   # visible products still on their legacy link (reported at the end of the build)
+
+
 def amazon_url(p):
+    """amazon.de link with the Associates tag, from the owner-supplied amazon.de ASIN."""
     if p.get('asin'):
-        mkt = p.get('marketplace') or PRODUCTS['settings']['default_marketplace']
-        tag = p.get('tag') or PRODUCTS['settings']['default_tag']
+        mkt = PRODUCTS['settings']['default_marketplace']
+        tag = PRODUCTS['settings']['default_tag']
         return f"https://www.amazon.{mkt}/dp/{p['asin']}?tag={tag}"
-    return p['short_link']   # NEEDS CHECK: keep the old link until the ASIN is confirmed
+    if p['id'] not in NOT_READY:
+        NOT_READY.append(p['id'])
+    return p['legacy_link']   # temporary: no amazon.de ASIN yet
+
+
+def visible(products):
+    return [p for p in products if not p.get('hidden')]
 
 
 def product_img(p, sizes):
@@ -319,7 +329,7 @@ def gift_section():
     if not gifts_on():
         return ''
     own = [own_gift_card(p) for p in PRODUCTS.get('own_products', []) if p.get('gift')]
-    amz = [amazon_card(p, sizes='quarter') for p in PRODUCTS['products'] if p.get('gift')]
+    amz = [amazon_card(p, sizes='quarter') for p in visible(PRODUCTS['products']) if p.get('gift')]
     grid = '<div class="products gift-grid">\n' + '\n'.join(own + amz) + '\n</div>'
     T = {
         'eyebrow': {'en': 'Holiday season', 'sq': 'Festat', 'de': 'Festtage'},
@@ -364,15 +374,18 @@ def gift_nav(href):
 
 
 def expand_placeholders(source):
+    own_tea_cards = source.count('data-cat="tea"')   # counted before any generated cards are added
     def cards(m):
         args = dict(a.split('=', 1) for a in m.group(1).split())
         cats = args.get('category', 'all').split(',')
-        chosen = [p for p in PRODUCTS['products'] if 'all' in cats or p['category'] in cats]
+        chosen = [p for p in visible(PRODUCTS['products']) if 'all' in cats or p['category'] in cats]
         return '\n'.join(amazon_card(p, desc=args.get('desc') == '1', sizes=args.get('sizes', 'shop')) for p in chosen)
     source = re.sub(r'<!-- @amazon-cards ([^>]*?) -->', cards, source)
     source = source.replace('<!-- @gift-section -->', gift_section())
     source = source.replace('<!-- @gift-teaser -->', gift_teaser())
     source = re.sub(r'<!-- @gift-nav href=(\S+) -->', lambda m: gift_nav(m.group(1)), source)
+    # shop count = our own tea cards written in the source + visible Amazon products
+    source = source.replace('<!-- @product-count -->', str(own_tea_cards + len(visible(PRODUCTS['products']))))
     return source
 
 
@@ -459,3 +472,8 @@ if __name__ == '__main__':
                 raise SystemExit(f'Duplicate title on {target} and {titles[title]}')
             titles[title] = target
     print('sitemap urls:', sitemap())
+    hidden = [p['id'] for p in PRODUCTS['products'] if p.get('hidden')]
+    if hidden:
+        print('hidden products (not on any page):', ', '.join(hidden))
+    if NOT_READY:
+        print('NOT READY TO PUBLISH: no amazon.de ASIN yet, still on the old amazon.com link:', ', '.join(NOT_READY))
