@@ -105,21 +105,47 @@ Business base: Madrid.
   inside `#request`: inert, not rendered, script not loaded. Move its contents
   out of the template to re-enable direct checkout.
 
-## Amazon affiliate products
+## Amazon affiliate products (data-driven)
 
-- 7 products (3 teapots, cezve, grinder, cups, tray), each an `amzn.to/…` link
-  with `target="_blank" rel="sponsored nofollow noopener"`, on the home shop
-  grid (`data-cat` for filters) and the essentials page, in every language.
-- Audit (Nov 2026): all 7 short links resolve to **amazon.com** (US store)
-  with tag `besagoods-20`; none missing, none different.
-- Visible disclosure right above the products ("As an Amazon Associate I earn
-  from qualifying purchases.", EN/SQ/DE), longer note under them, and in every
-  footer.
-- Clicks fire `amazon_click` {product_name (English), language, link_url} via
-  gtag and Meta `trackCustom('AmazonClick')`, only after cookie consent
-  (`besa.trackAmazonClick` in `besa.js`).
-- Prices are hard-coded and labelled indicative. No Amazon star ratings, review
-  counts or sales figures (Amazon Associates rules).
+- **`_data/products.json` is the single source** for every Amazon product
+  (id, EN/DE/SQ names, alt text, label, badge, optional description, category,
+  image, ASIN, marketplace, tag, gift flag, check status and what the link
+  showed on amazon.es) plus our own tea
+  as a gift item (`own_products`). Not published (Jekyll skips `_data/`).
+- `_tools/build.py` renders the cards wherever a source has
+  `<!-- @amazon-cards category=… [desc=1] [sizes=shop|quarter] -->`: the home
+  shop grid, both essentials groups and the gift section.
+- **Store: amazon.de, Associates tag `besagoods21-21`** (`settings` in the
+  JSON). Links are generated as `https://www.amazon.de/dp/<ASIN>?tag=besagoods21-21`.
+- `asin` must be an **amazon.de ASIN supplied by the owner**. Never guess one
+  and never reuse the old amazon.com/.es ASINs (kept as history only).
+- `"hidden": true` removes a product from every page. A visible product
+  without an `asin` falls back to its old `legacy_link` (amazon.com, old tag
+  `besagoods-20`, earns nothing in DE/ES) and the build prints
+  **NOT READY TO PUBLISH** — don't merge while that line appears.
+- Every link: `target="_blank" rel="sponsored nofollow noopener"`.
+- Shop count (`<!-- @product-count -->`) and filter buttons follow what is
+  visible; a filter with no products is hidden by the page script.
+- **No Amazon prices or budgets anywhere** (owner's choice: no offers, the
+  goal is the commission). The button reads "Buy on Amazon →" / "Auf Amazon
+  kaufen →" / "Bli në Amazon →" (`CTA_AMAZON` in `build.py`). Only our own
+  tea shows a price (€12.90).
+- Visible disclosure above the shop products and inside the gift section; the
+  longer note under the products and every footer also carry it.
+- Clicks fire `amazon_click` {product_name (English, from `data-product`),
+  product_id, language, link_url} via gtag and Meta `trackCustom('AmazonClick')`,
+  only after cookie consent (`besa.trackAmazonClick` in `besa.js`).
+
+## Gift ideas section
+
+- Generated on the home page (`#gifts`) as one grid of products with
+  `"gift": true` (tea first). No budgets or prices. Tea card: "Request now"
+  plus a note that delivery is confirmed after the request; no holiday
+  delivery promise. Planned: the owner's new Christmas products go here.
+- Header link on every page (`<!-- @gift-nav href=… -->`) and a teaser band
+  under the home trust bar (`<!-- @gift-teaser -->`).
+- **To hide it:** set `"gift_section_enabled": false` in `_data/products.json`
+  and rebuild; the section, teaser and header links all disappear.
 
 ## Analytics, tags and consent
 

@@ -1,0 +1,392 @@
+{
+  "_readme": [
+    "Single source for every Amazon product on the site. _tools/build.py renders",
+    "the cards on the home shop grid, the essentials page and the gift section",
+    "from this file, in EN/DE/SQ. Edit here, then run: python3 _tools/build.py",
+    "",
+    "Store: amazon.de, Associates tag besagoods21-21 (settings). Links are",
+    "generated as https://www.amazon.de/dp/<asin>?tag=besagoods21-21.",
+    "'asin' must be the amazon.de ASIN supplied by the owner. Never guess one,",
+    "and never reuse the old amazon.com/.es ASINs (kept only as history in",
+    "'seen_on_amazon_es').",
+    "",
+    "'hidden': true removes a product from every page (shop, essentials, gifts).",
+    "A visible product without an asin falls back to its old 'legacy_link'",
+    "(amazon.com, old tag) and the build prints a NOT READY warning.",
+    "",
+    "No prices or budgets for Amazon items: the button just says 'Buy on Amazon'."
+  ],
+  "settings": {
+    "gift_section_enabled": true,
+    "default_marketplace": "de",
+    "default_tag": "besagoods21-21"
+  },
+  "products": [
+    {
+      "id": "teapot-sotya-green",
+      "status": "WAITING owner: amazon.de opens the cherry blossom colour; our card and photo show forest green",
+      "hidden": false,
+      "asin": "B088M9R5VW",
+      "legacy_link": "https://amzn.to/4fapJCQ",
+      "category": "teapots",
+      "image": "teapot-green",
+      "image_w": 640,
+      "image_h": 638,
+      "image_small_w": 320,
+      "name": {
+        "en": "Sotya Forest Green Cast Iron — 30oz",
+        "de": "Sotya Gusseisen Waldgrün — 30oz",
+        "sq": "Çajnik Hekuri Sotya — Gjelbër, 30oz"
+      },
+      "alt": {
+        "en": "Forest-green cast iron teapot",
+        "de": "Gusseisen-Teekanne in Waldgrün",
+        "sq": "Çajnik hekuri i gjelbër"
+      },
+      "label": {
+        "en": "Teapot · Our Pick",
+        "de": "Teekanne · Unsere Wahl",
+        "sq": "Çajnik · Zgjedhja Jonë"
+      },
+      "badge": {
+        "en": "★ Best Seller",
+        "de": "★ Bestseller",
+        "sq": "★ Më i Shituri",
+        "style": ""
+      },
+      "desc": {
+        "en": "Enameled interior, stainless steel infuser, stovetop safe. The forest green finish looks lovely next to dried herbs.",
+        "de": "Emailliertes Inneres, Edelstahlsieb, herdgeeignet. Das Waldgrün sieht neben getrockneten Kräutern wunderschön aus.",
+        "sq": "Interior i smaltuar, filtër çeliku. Ngjyra e gjelbër duket bukur pranë barishteve të thata."
+      },
+      "gift": true,
+      "status_note": "Same product, but amazon.es opens the Cherry Blossom colour, not Forest Green as our name and photo say.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B088M9R5VW",
+        "match": "DIRECT",
+        "title": "Sotya Cast Iron Teapot with Infusers, 30 oz, 1000ml, enamel interior — Cherry Blossom",
+        "price_eur": "54.51"
+      },
+      "owner_link": "https://amzn.to/4iVbNNB",
+      "amazon_de_title": "Sotya Teekanne aus Gusseisen mit Teesieb für losen Tee, 850 ml (Kirschblüten-Design)"
+    },
+    {
+      "id": "tea-set-lumaland",
+      "status": "ok (owner: keep current photo for now)",
+      "hidden": false,
+      "asin": "B0734VHJG3",
+      "legacy_link": "https://amzn.to/4whflzk",
+      "category": "teapots",
+      "image": "teapot-black",
+      "image_w": 640,
+      "image_h": 638,
+      "image_small_w": 320,
+      "name": {
+        "en": "Cast Iron Tea Set, 8 Pieces, 1.4 L with Warmer",
+        "de": "Gusseisen-Teeset, 8-teilig, 1,4 l mit Stövchen",
+        "sq": "Set çaji prej hekuri, 8 copë, 1,4 l me ngrohës"
+      },
+      "alt": {
+        "en": "Black cast iron teapot set with two cups",
+        "de": "Schwarzes Gusseisen-Teeset mit zwei Tassen",
+        "sq": "Set çajniku hekuri i zi me dy gota"
+      },
+      "label": {
+        "en": "Teapot · Complete Set",
+        "de": "Teekanne · Komplettset",
+        "sq": "Çajnik · Set i Plotë"
+      },
+      "badge": {
+        "en": "Gift Idea",
+        "de": "Geschenkidee",
+        "sq": "Ide Dhurate",
+        "style": "badge-bark"
+      },
+      "desc": {
+        "en": "1.4 litre cast iron teapot with a cast iron warmer, two cups, two coasters, a bamboo measuring spoon and a stainless steel strainer.",
+        "de": "1,4-Liter-Teekanne aus Gusseisen mit Stövchen aus Gusseisen, zwei Bechern, zwei Untersetzern, Bambus-Dosierlöffel und Edelstahlsieb.",
+        "sq": "Çajnik hekuri 1,4 litra me ngrohës hekuri, dy gota, dy nënkupa, lugë bambuje për matje dhe sitë çeliku."
+      },
+      "gift": true,
+      "status_note": "amazon.es substitutes a different product (Lumaland, 1.4 L) for our 700 ml set with trivet.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0734VHJG3",
+        "match": "BEST_BET",
+        "title": "Lumaland 8 Piece Tea Set, 1.4 L cast iron teapot + warmer, 2 cups, 2 coasters, spoon, strainer",
+        "price_eur": "67.99"
+      },
+      "owner_link": "https://link.amazon/B04z0Msxq",
+      "amazon_de_title": "Lumaland Tee Set 8-teilig, 1,4 Liter Gusseiserne Teekanne, Stövchen, 2 Teebecher & 2 Untersetzer"
+    },
+    {
+      "id": "teapot-tetsubin-hemp",
+      "status": "ok",
+      "hidden": false,
+      "asin": "B01N5JTAAD",
+      "legacy_link": "https://amzn.to/4wOAQXV",
+      "category": "teapots",
+      "image": "teapot-hemp",
+      "image_w": 640,
+      "image_h": 638,
+      "image_small_w": 320,
+      "name": {
+        "en": "Japanese Tetsubin Hemp Handle — 22oz",
+        "de": "Japanische Tetsubin mit Hanfgriff — 22oz",
+        "sq": "Çajnik Japonez me Dorezë Kanoze — 22oz"
+      },
+      "alt": {
+        "en": "Black tetsubin cast iron teapot with a hemp-wrapped handle pouring tea",
+        "de": "Schwarze Tetsubin-Teekanne aus Gusseisen mit Hanfgriff beim Eingießen",
+        "sq": "Çajnik tetsubin prej hekuri me dorezë kanapi duke hedhur çaj"
+      },
+      "label": {
+        "en": "Teapot · Amazon's Pick",
+        "de": "Teekanne · Amazons Wahl",
+        "sq": "Çajnik · Zgjedhja e Amazon"
+      },
+      "badge": {
+        "en": "Best Value",
+        "de": "Preis-Leistungs-Tipp",
+        "sq": "Çmimi Më i Mirë",
+        "style": "badge-earth"
+      },
+      "desc": {
+        "en": "Hemp rope handle stays cool while pouring. Enameled interior, stovetop safe.",
+        "de": "Der Hanfgriff bleibt beim Eingießen kühl. Emailliertes Inneres, herdgeeignet.",
+        "sq": "Doreza me litar kanapi qëndron e ftohtë gjatë hedhjes. Interior i smaltuar."
+      },
+      "gift": true,
+      "status_note": "Same ASIN; title does not mention the hemp handle shown in our photo.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B01N5JTAAD",
+        "match": "DIRECT",
+        "title": "TOWA Workshop Japanese Cast Iron Teapot with Stainless Steel Infuser",
+        "price_eur": "79.97"
+      },
+      "owner_link": "https://link.amazon/B04VE6kXP",
+      "amazon_de_title": "TOWA Workshop Teekanne Tetsubin aus Gusseisen mit Edelstahl-Ei, 650 ml, schwarz"
+    },
+    {
+      "id": "cezve-stainless-fino",
+      "status": "ok (renamed to match amazon.de product)",
+      "hidden": false,
+      "asin": "B004Z2OSO8",
+      "legacy_link": "https://amzn.to/45aYJgx",
+      "category": "coffee",
+      "status_note": "Wrong item: stainless-steel warmer, not a copper cezve.",
+      "image": "coffee-cezve",
+      "image_w": 634,
+      "image_h": 640,
+      "image_small_w": 317,
+      "name": {
+        "en": "Stainless Steel Turkish Coffee Pot (Cezve), 340 ml",
+        "de": "Türkische Kaffeekanne (Cezve) aus Edelstahl, 340 ml",
+        "sq": "Xhezve kafeje prej çeliku inox, 340 ml"
+      },
+      "alt": {
+        "en": "Stainless steel Turkish coffee pot (cezve)",
+        "de": "Türkische Kaffeekanne (Cezve) aus Edelstahl",
+        "sq": "Xhezve kafeje prej çeliku inox"
+      },
+      "label": {
+        "en": "Coffee",
+        "de": "Kaffee",
+        "sq": "Kafe"
+      },
+      "badge": {
+        "en": "★ Our Pick",
+        "de": "★ Unsere Wahl",
+        "sq": "★ Zgjedhja Jonë",
+        "style": ""
+      },
+      "gift": true,
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B002OOVAYU",
+        "match": "DIRECT",
+        "title": "HIC Turkish Coffee Warmer and Butter Melting Pot, Stainless Steel, 24 oz",
+        "price_eur": "64.55"
+      },
+      "owner_link": "https://link.amazon/B03LOj5DG",
+      "amazon_de_title": "Fino Türkische Kaffeekanne aus Edelstahl, 340 ml"
+    },
+    {
+      "id": "grinder-oxo-brew",
+      "status": "ok (owner: keep current photo for now)",
+      "hidden": false,
+      "asin": "B0GFFVSW7K",
+      "legacy_link": "https://amzn.to/4w6DWqd",
+      "category": "coffee",
+      "status_note": "Wrong item: electric burr grinder, not a brass Turkish hand grinder.",
+      "image": "coffee-grinder",
+      "image_w": 640,
+      "image_h": 491,
+      "image_small_w": 320,
+      "name": {
+        "en": "OXO Brew Conical Burr Coffee Grinder",
+        "de": "OXO Brew Kaffeemühle mit Kegelmahlwerk",
+        "sq": "Mulli kafeje OXO Brew me kone"
+      },
+      "alt": {
+        "en": "Electric conical burr coffee grinder",
+        "de": "Elektrische Kaffeemühle mit Kegelmahlwerk",
+        "sq": "Mulli kafeje elektrik me kone"
+      },
+      "label": {
+        "en": "Coffee",
+        "de": "Kaffee",
+        "sq": "Kafe"
+      },
+      "badge": {
+        "en": "Ritual",
+        "de": "Ritual",
+        "sq": "Ritual",
+        "style": "badge-bark"
+      },
+      "gift": true,
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0GFFVSW7K",
+        "match": "EXACT_MATCH",
+        "title": "OXO Brew Conical Coffee Grinder — Storm Blue",
+        "price_eur": "150.74"
+      },
+      "owner_link": "https://link.amazon/B01TBwWGA",
+      "amazon_de_title": "OXO Brew Kaffeemühle mit konischem Grat, Sturmblau"
+    },
+    {
+      "id": "espresso-cups-yhosseun",
+      "status": "ok (renamed; colour on amazon.de may differ from the photo)",
+      "hidden": false,
+      "asin": "B0DD3PNHTP",
+      "legacy_link": "https://amzn.to/3T8QfUt",
+      "category": "accessories",
+      "status_note": "Espresso cups (blue) on a stand, not Turkish coffee cups; our photo shows green cups.",
+      "image": "coffee-cups",
+      "image_w": 480,
+      "image_h": 640,
+      "image_small_w": 240,
+      "name": {
+        "en": "Espresso Cups, Set of 6, with Stand",
+        "de": "Espressotassen 6er-Set mit Ständer",
+        "sq": "Set 6 filxhanësh espresso me mbajtëse"
+      },
+      "alt": {
+        "en": "Set of espresso cups with saucers on a metal stand",
+        "de": "Espressotassen mit Untertassen auf einem Metallständer",
+        "sq": "Filxhanë espresso me pjatëza në mbajtëse metalike"
+      },
+      "label": {
+        "en": "Accessories",
+        "de": "Zubehör",
+        "sq": "Aksesorë"
+      },
+      "badge": {
+        "en": "Gift Idea",
+        "de": "Geschenkidee",
+        "sq": "Ide Dhurate",
+        "style": "badge-bark"
+      },
+      "gift": true,
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B0DD3PNHTP",
+        "match": "EXACT_MATCH",
+        "title": "YHOSSEUN Espresso Cups Set of 6, 4 oz, with metal saucer stand, ceramic, Blue",
+        "price_eur": "108.93"
+      },
+      "owner_link": "https://link.amazon/B04fr1Uqa",
+      "amazon_de_title": "YHOSSEUN Espressotassen 6er Set mit Metallständer, Keramik"
+    },
+    {
+      "id": "serving-tray-copper",
+      "status": "ok",
+      "hidden": false,
+      "asin": "B079YTYM64",
+      "legacy_link": "https://amzn.to/4vOdjpm",
+      "category": "accessories",
+      "image": "coffee-tray",
+      "image_w": 640,
+      "image_h": 640,
+      "image_small_w": 320,
+      "name": {
+        "en": "Traditional Copper Serving Tray",
+        "de": "Traditionelles Kupfer-Serviertablett",
+        "sq": "Tabaka Tradicionale Bakri"
+      },
+      "alt": {
+        "en": "Traditional copper serving tray",
+        "de": "Traditionelles Serviertablett aus Kupfer",
+        "sq": "Tabaka tradicionale prej bakri"
+      },
+      "label": {
+        "en": "Accessories",
+        "de": "Zubehör",
+        "sq": "Aksesorë"
+      },
+      "badge": {
+        "en": "Best Value",
+        "de": "Preis-Leistungs-Tipp",
+        "sq": "Çmimi Më i Mirë",
+        "style": "badge-earth"
+      },
+      "gift": true,
+      "status_note": "Right product.",
+      "seen_on_amazon_es": {
+        "date": "2026-11-15",
+        "asin": "B079YTYM64",
+        "match": "DIRECT",
+        "title": "Alisveristime Zamac Large Square Tray, 14.5\" x 10\" (Copper), Ottoman tulip motifs",
+        "price_eur": "102.40"
+      },
+      "owner_link": "https://link.amazon/B04BpqkyP",
+      "amazon_de_title": "Alisveristime Big Square Zamac Serviertablett, 36,8 x 25 cm (Kupfer)"
+    }
+  ],
+  "own_products": [
+    {
+      "id": "caj-mali-50g",
+      "category": "tea",
+      "price_text": {
+        "en": "€12.90",
+        "de": "€12,90",
+        "sq": "€12.90"
+      },
+      "image": "caj-mali-square",
+      "image_w": 720,
+      "image_h": 720,
+      "image_small_w": 360,
+      "name": {
+        "en": "Çaj Mali — Albanian mountain tea, 50 g",
+        "de": "Çaj Mali — albanischer Bergtee, 50 g",
+        "sq": "Çaj Mali — çaj mali shqiptar, 50 g"
+      },
+      "alt": {
+        "en": "Bunch of dried Çaj Mali next to a cup of brewed mountain tea",
+        "de": "Ein Bund getrockneter Çaj Mali neben einer Tasse Bergtee",
+        "sq": "Tufë Çaj Mali e tharë pranë një filxhani me çaj mali"
+      },
+      "label": {
+        "en": "Tea · Besa Goods",
+        "de": "Tee · Besa Goods",
+        "sq": "Çaj · Besa Goods"
+      },
+      "badge": {
+        "en": "Request now",
+        "de": "Jetzt anfragen",
+        "sq": "Kërko tani",
+        "style": "badge-gold"
+      },
+      "note": {
+        "en": "Sourced to order: delivery is confirmed after your request.",
+        "de": "Auf Bestellung beschafft: Die Lieferung bestätigen wir nach Ihrer Anfrage.",
+        "sq": "Sigurohet sipas porosisë: dorëzimin e konfirmojmë pas kërkesës suaj."
+      },
+      "request_value": "Caj Mali 50 g",
+      "gift": true
+    }
+  ]
+}
